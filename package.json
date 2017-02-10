@@ -1,0 +1,30 @@
+{
+  "name": "transformation-matrix",
+  "version": "0.0.1",
+  "description": "2d transformation matrix functions written in ES6 syntax. Tree shaking ready!",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-register ./tests/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrvadala/transformation-matrix.git"
+  },
+  "keywords": [
+    "2d-transformations"
+  ],
+  "author": "scale",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chrvadala/transformation-matrix/issues"
+  },
+  "homepage": "https://github.com/chrvadala/transformation-matrix#readme",
+  "devDependencies": {
+    "babel-preset-env": "^1.1.8",
+    "babel-register": "^6.22.0",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "chai": "^3.5.0"
+  }
+}
