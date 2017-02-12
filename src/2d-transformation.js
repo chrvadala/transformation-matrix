@@ -14,7 +14,25 @@ export function identity() {
  * @param matrices
  */
 export function transform(...matrices) {
-  throw new Error('not implemented yet')
+  switch (matrices.length) {
+    case 0:
+      throw new Error('no matrices provided');
+
+    case 1:
+      return matrices[0];
+
+    default:
+      let [m1, m2, ...rest] = matrices;
+      let m = {
+        a: m1.a * m2.a + m1.b * m2.a,
+        b: m1.a * m2.b + m1.b * m2.e,
+        c: m1.a * m2.c + m1.b * m2.f + m1.c,
+        d: m1.d * m2.a + m1.e * m2.d,
+        e: m1.d * m2.b + m1.e * m2.e,
+        f: m1.d * m2.c + m1.e * m2.f + m1.f
+      };
+      return transform(m, ...rest);
+  }
 }
 
 /**
@@ -59,7 +77,7 @@ export function rotate(angle, matrix) {
  * @param angle
  * @param matrix
  */
-export function rotateDEG(angle, matrix){
+export function rotateDEG(angle, matrix) {
   throw new Error('not implemented yet')
 }
 
@@ -85,7 +103,7 @@ export function applyToPoints(points, matrix) {
  *
  * @param matrix
  */
-export function toCSS(matrix){
+export function toCSS(matrix) {
   throw new Error('not implemented yet')
 }
 
@@ -93,7 +111,7 @@ export function toCSS(matrix){
  *
  * @param matrix
  */
-export function toSVG(matrix){
+export function toSVG(matrix) {
   throw new Error('not implemented yet')
 }
 
@@ -101,6 +119,6 @@ export function toSVG(matrix){
  *
  * @param matrix
  */
-export function toString(matrix){
+export function toString(matrix) {
   throw new Error('not implemented yet')
 }
