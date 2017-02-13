@@ -87,7 +87,10 @@ export function rotateDEG(angle, matrix) {
  * @param matrix
  */
 export function applyToPoint(point, matrix) {
-  throw new Error('not implemented yet')
+  return {
+    x: matrix.a * point.x + matrix.b * point.y + matrix.c,
+    y: matrix.d * point.x + matrix.e * point.y + matrix.f,
+  }
 }
 
 /**
@@ -96,7 +99,7 @@ export function applyToPoint(point, matrix) {
  * @param matrix
  */
 export function applyToPoints(points, matrix) {
-  throw new Error('not implemented yet')
+  return points.map(point => applyToPoint(point, matrix));
 }
 
 /**
