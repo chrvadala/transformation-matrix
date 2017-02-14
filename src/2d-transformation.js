@@ -1,11 +1,13 @@
+const {cos, sin, PI} = Math;
+
 /**
  * Get identity matrix
  * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}}
  */
 export function identity() {
   return {
-    a: 1, b: 0, c: 0,
-    d: 0, e: 1, f: 0
+    a: 1, c: 0, e: 0,
+    b: 0, d: 1, f: 0
   }
 }
 
@@ -14,6 +16,14 @@ export function identity() {
  * @param matrices
  */
 export function transform(...matrices) {
+
+  const multiply = (m1, m2) => {
+    return {
+      a: m1.a * m2.a + m1.c * m2.b, c: m1.a * m2.c + m1.c * m2.d, e: m1.a * m2.e + m1.c * m2.f + m1.e,
+      b: m1.b * m2.a + m1.d * m2.b, d: m1.b * m2.c + m1.d * m2.d, f: m1.b * m2.e + m1.d * m2.f + m1.f
+    };
+  };
+
   switch (matrices.length) {
     case 0:
       throw new Error('no matrices provided');
@@ -21,16 +31,12 @@ export function transform(...matrices) {
     case 1:
       return matrices[0];
 
+    case 2:
+      return multiply(matrices[0], matrices[1]);
+
     default:
       let [m1, m2, ...rest] = matrices;
-      let m = {
-        a: m1.a * m2.a + m1.b * m2.a,
-        b: m1.a * m2.b + m1.b * m2.e,
-        c: m1.a * m2.c + m1.b * m2.f + m1.c,
-        d: m1.d * m2.a + m1.e * m2.d,
-        e: m1.d * m2.b + m1.e * m2.e,
-        f: m1.d * m2.c + m1.e * m2.f + m1.f
-      };
+      let m = multiply(m1, m2);
       return transform(m, ...rest);
   }
 }
@@ -47,38 +53,45 @@ export function inverse(matrix) {
  *
  * @param tx
  * @param ty
- * @param matrix
  */
-export function translate(tx, ty, matrix) {
-  throw new Error('not implemented yet')
+export function translate(tx, ty) {
+  return {
+    a: 1, c: 0, e: tx,
+    b: 0, d: 1, f: ty
+  };
 }
 
 /**
  *
  * @param sx
  * @param sy
- * @param matrix
  */
-export function scale(sx, sy, matrix) {
-  throw new Error('not implemented yet')
+export function scale(sx, sy) {
+  return {
+    a: sx, c: 0, e: 0,
+    b: 0, d: sy, f: 0
+  };
 }
 
 /**
  *
  * @param angle
- * @param matrix
  */
-export function rotate(angle, matrix) {
-  throw new Error('not implemented yet')
+export function rotate(angle) {
+  let cosAngle = cos(angle);
+  let sinAngle = sin(angle);
+  return {
+    a: cosAngle, c: -sinAngle, e: 0,
+    b: sinAngle, d: cosAngle, f: 0
+  };
 }
 
 /**
  *
  * @param angle
- * @param matrix
  */
-export function rotateDEG(angle, matrix) {
-  throw new Error('not implemented yet')
+export function rotateDEG(angle) {
+  return rotate(angle * 180 / PI);
 }
 
 /**
@@ -88,8 +101,8 @@ export function rotateDEG(angle, matrix) {
  */
 export function applyToPoint(point, matrix) {
   return {
-    x: matrix.a * point.x + matrix.b * point.y + matrix.c,
-    y: matrix.d * point.x + matrix.e * point.y + matrix.f,
+    x: matrix.a * point.x + matrix.c * point.y + matrix.e,
+    y: matrix.b * point.x + matrix.d * point.y + matrix.f,
   }
 }
 
@@ -107,7 +120,7 @@ export function applyToPoints(points, matrix) {
  * @param matrix
  */
 export function toCSS(matrix) {
-  throw new Error('not implemented yet')
+  return toString(matrix);
 }
 
 /**
@@ -115,7 +128,7 @@ export function toCSS(matrix) {
  * @param matrix
  */
 export function toSVG(matrix) {
-  throw new Error('not implemented yet')
+  return toString(matrix);
 }
 
 /**
@@ -123,5 +136,13 @@ export function toSVG(matrix) {
  * @param matrix
  */
 export function toString(matrix) {
+  return `matrix(${matrix.a},${matrix.b},${matrix.c},${matrix.d},${matrix.e},${matrix.f})`;
+}
+
+/**
+ *
+ * @param string
+ */
+export function fromString(string) {
   throw new Error('not implemented yet')
 }
