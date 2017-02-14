@@ -91,7 +91,7 @@ export function rotate(angle) {
  * @param angle
  */
 export function rotateDEG(angle) {
-  return rotate(angle * 180 / PI);
+  return rotate(angle * PI / 180);
 }
 
 /**

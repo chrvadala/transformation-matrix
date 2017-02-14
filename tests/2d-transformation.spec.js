@@ -5,7 +5,8 @@ import {
   applyToPoints,
   translate,
   scale,
-  rotate
+  rotate,
+  rotateDEG
 } from '../src/2d-transformation';
 import chai from 'chai';
 
@@ -107,6 +108,17 @@ describe('2d-transformation', () => {
       const alfa = Math.PI / 2;
       const precision = 0.00001;
       let m = rotate(alfa);
+      let point = applyToPoint({x: 50, y: 80}, m);
+      assert.approximately(point.x, -80, precision);
+      assert.approximately(point.y, 50, precision);
+    })
+  });
+
+  describe('rotate', () => {
+    it('should return a rotation matrix', () => {
+      const alfa = 90;
+      const precision = 0.00001;
+      let m = rotateDEG(alfa);
       let point = applyToPoint({x: 50, y: 80}, m);
       assert.approximately(point.x, -80, precision);
       assert.approximately(point.y, 50, precision);
