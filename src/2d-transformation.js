@@ -111,10 +111,10 @@ export function rotateDEG(angle) {
 
 /**
  *
- * @param point
  * @param matrix
+ * @param point
  */
-export function applyToPoint(point, matrix) {
+export function applyToPoint(matrix, point) {
   return {
     x: matrix.a * point.x + matrix.c * point.y + matrix.e,
     y: matrix.b * point.x + matrix.d * point.y + matrix.f,
@@ -123,11 +123,11 @@ export function applyToPoint(point, matrix) {
 
 /**
  *
- * @param points
  * @param matrix
+ * @param points
  */
-export function applyToPoints(points, matrix) {
-  return points.map(point => applyToPoint(point, matrix));
+export function applyToPoints(matrix, points) {
+  return points.map(point => applyToPoint(matrix, point));
 }
 
 /**

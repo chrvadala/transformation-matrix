@@ -87,8 +87,8 @@ describe('2d-transformation', () => {
         a: 1, c: 0, e: 40,
         b: 0, d: 1, f: 60
       });
-      assert.deepEqual(applyToPoint({x: 0, y: 0}, m), {x: 40, y: 60});
-      assert.deepEqual(applyToPoint({x: 50, y: 80}, m), {x: 90, y: 140});
+      assert.deepEqual(applyToPoint(m, {x: 0, y: 0}), {x: 40, y: 60});
+      assert.deepEqual(applyToPoint(m, {x: 50, y: 80}), {x: 90, y: 140});
     })
   });
 
@@ -113,7 +113,7 @@ describe('2d-transformation', () => {
       const points = [{x: 30, y: 30}, {x: 50, y: 50}];
       const transPoints = [{x: 20, y: 20}, {x: 60, y: 60}];
 
-      assert.deepEqual(applyToPoints(transPoints, inverse(m1)), points);
+      assert.deepEqual(applyToPoints(inverse(m1), transPoints), points);
     })
   });
 
@@ -124,8 +124,8 @@ describe('2d-transformation', () => {
         a: 20, c: 0, e: 0,
         b: 0, d: 40, f: 0
       });
-      assert.deepEqual(applyToPoint({x: 0, y: 0}, m), {x: 0, y: 0});
-      assert.deepEqual(applyToPoint({x: 50, y: 80}, m), {x: 1000, y: 3200});
+      assert.deepEqual(applyToPoint(m, {x: 0, y: 0}), {x: 0, y: 0});
+      assert.deepEqual(applyToPoint(m, {x: 50, y: 80}), {x: 1000, y: 3200});
     })
   });
 
@@ -134,7 +134,7 @@ describe('2d-transformation', () => {
       const alfa = Math.PI / 2;
       const precision = 0.00001;
       let m = rotate(alfa);
-      let point = applyToPoint({x: 50, y: 80}, m);
+      let point = applyToPoint(m, {x: 50, y: 80});
       assert.approximately(point.x, -80, precision);
       assert.approximately(point.y, 50, precision);
     })
@@ -145,7 +145,7 @@ describe('2d-transformation', () => {
       const alfa = 90;
       const precision = 0.00001;
       let m = rotateDEG(alfa);
-      let point = applyToPoint({x: 50, y: 80}, m);
+      let point = applyToPoint(m, {x: 50, y: 80});
       assert.approximately(point.x, -80, precision);
       assert.approximately(point.y, 50, precision);
     })
@@ -157,9 +157,9 @@ describe('2d-transformation', () => {
       b: 0, d: 2, f: -40
     };
     it('should return a transformed point', () => {
-      assert.deepEqual(applyToPoint({x: 0, y: 0}, identity()), {x: 0, y: 0});
-      assert.deepEqual(applyToPoint({x: 30, y: 30}, m1), {x: 20, y: 20});
-      assert.deepEqual(applyToPoint({x: 50, y: 50}, m1), {x: 60, y: 60});
+      assert.deepEqual(applyToPoint(identity(), {x: 0, y: 0}), {x: 0, y: 0});
+      assert.deepEqual(applyToPoint(m1, {x: 30, y: 30}), {x: 20, y: 20});
+      assert.deepEqual(applyToPoint(m1, {x: 50, y: 50}), {x: 60, y: 60});
     })
   });
 
@@ -171,8 +171,8 @@ describe('2d-transformation', () => {
     const points = [{x: 30, y: 30}, {x: 50, y: 50}];
     const transPoints = [{x: 20, y: 20}, {x: 60, y: 60}];
     it('should return transformed points', () => {
-      assert.deepEqual(applyToPoints([{x: 0, y: 0}], identity()), [{x: 0, y: 0}]);
-      assert.deepEqual(applyToPoints(points, m1), transPoints);
+      assert.deepEqual(applyToPoints(identity(), [{x: 0, y: 0}]), [{x: 0, y: 0}]);
+      assert.deepEqual(applyToPoints(m1, points), transPoints);
     })
   });
 
