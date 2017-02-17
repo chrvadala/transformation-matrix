@@ -188,21 +188,17 @@ describe('2d-transformation', () => {
       assert.deepEqual(
         fromString('MaTrIx(1,2,3,4,5,6)'),
         {a: 1, b: 2, c: 3, d: 4, e: 5, f: 6}, 'capital letter');
-      // assert.deepEqual(
-      //   fromString('matrix(1.1,2.2,3.3,4.4,5.5,6.6)'),
-      //   {a: 1, b: 2, c: 3, d: 4, e: 5, f: 6}, 'float matrix');
-      // assert.deepEqual(
-      //   fromString('matrix(1.1,2.2,3.3,4.4,5.5,6.6)'),
-      //   {a: 1, b: 2, c: 3, d: 4, e: 5, f: 6}, 'float matrix with spaces');
-      // assert.deepEqual(
-      //   fromString('matrix(1,2,3,4,5,6)'),
-      //   {a: 1, b: 2, c: 3, d: 4, e: 5, f: 6}, 'mixed matrix');
-      // assert.deepEqual(
-      //   fromString('MaTrIx(1,2,3,4,5,6)'),
-      //   {a: 1, b: 2, c: 3, d: 4, e: 5, f: 6}, 'capital letter');
-      // assert.throws(() => {
-      //   fromString('matrix()')
+      assert.deepEqual(
+        fromString('matrix(1.1,2.2,3.3,4.4,5.5,6.6)'),
+        {a: 1.1, b: 2.2, c: 3.3, d: 4.4, e: 5.5, f: 6.6}, 'float matrix');
+      assert.deepEqual(
+        fromString('matrix(1.1 ,2.2  ,3.3 ,  4.4,  5.5,  6.6   )'),
+        {a: 1.1, b: 2.2, c: 3.3, d: 4.4, e: 5.5, f: 6.6}, 'float matrix with spaces');
+      assert.deepEqual(
+        fromString('matrix(1,2.2  ,3.3,4.4,5,  6   )'),
+        {a: 1, b: 2.2, c: 3.3, d: 4.4, e: 5, f: 6}, 'mixed matrix');
+
     })
   })
-})
+});
 

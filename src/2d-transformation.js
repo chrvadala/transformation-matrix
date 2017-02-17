@@ -158,11 +158,11 @@ export function toString(matrix) {
  *
  * @param string
  */
-const matrixRegex = /^matrix\( *([0-9]+) *, *([0-9]+) *, *([0-9]+) *, *([0-9]+) *, *([0-9]+) *, *([0-9]+) *\)$/i;
+const matrixRegex = /^matrix\( *([0-9]*\.?[0-9]+) *, *([0-9]*\.?[0-9]+) *, *([0-9]*\.?[0-9]+) *, *([0-9]*\.?[0-9]+) *, *([0-9]*\.?[0-9]+) *, *([0-9]*\.?[0-9]+) *\)$/i;
 
 export function fromString(string) {
   let parsed = string.match(matrixRegex);
-  if (parsed === null || parsed.length < 7)throw new Error('not a matrix');
+  if (parsed === null || parsed.length < 7)throw new Error(`'${string}' is not a matrix`);
   return {
     a: parseFloat(parsed[1]),
     b: parseFloat(parsed[2]),
