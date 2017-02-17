@@ -7,7 +7,8 @@ import {
   scale,
   rotate,
   rotateDEG,
-  inverse
+  inverse,
+  fromString
 } from '../src/2d-transformation';
 import chai from 'chai';
 
@@ -176,5 +177,32 @@ describe('2d-transformation', () => {
     })
   });
 
-});
+  describe('fromString', () => {
+    it('should parse a matrix from string', () => {
+      assert.deepEqual(
+        fromString('matrix(1,2,3,4,5,6)'),
+        {a: 1, b: 2, c: 3, d: 4, e: 5, f: 6}, 'integer matrix');
+      assert.deepEqual(
+        fromString('matrix(1 ,    2 , 3 , 4 , 5 , 6 )'),
+        {a: 1, b: 2, c: 3, d: 4, e: 5, f: 6}, 'integer matrix with spaces');
+      // assert.deepEqual(
+      //   fromString('matrix(1.1,2.2,3.3,4.4,5.5,6.6)'),
+      //   {a: 1, b: 2, c: 3, d: 4, e: 5, f: 6}, 'float matrix');
+      // assert.deepEqual(
+      //   fromString('matrix(1.1,2.2,3.3,4.4,5.5,6.6)'),
+      //   {a: 1, b: 2, c: 3, d: 4, e: 5, f: 6}, 'float matrix with spaces');
+      // assert.deepEqual(
+      //   fromString('matrix(1,2,3,4,5,6)'),
+      //   {a: 1, b: 2, c: 3, d: 4, e: 5, f: 6}, 'mixed matrix');
+      // assert.deepEqual(
+      //   fromString('MaTrIx(1,2,3,4,5,6)'),
+      //   {a: 1, b: 2, c: 3, d: 4, e: 5, f: 6}, 'capital letter');
+      // assert.deepEqual(
+      //   fromString('MaTrIx(1,2,3,4,5,6)'),
+      //   {a: 1, b: 2, c: 3, d: 4, e: 5, f: 6}, 'capital letter');
+      // assert.throws(() => {
+      //   fromString('matrix()')
+    })
+  })
+})
 

@@ -158,6 +158,17 @@ export function toString(matrix) {
  *
  * @param string
  */
+const matrixRegex = /^matrix\( *([0-9]+) *, *([0-9]+) *, *([0-9]+) *, *([0-9]+) *, *([0-9]+) *, *([0-9]+) *\)$/;
+
 export function fromString(string) {
-  throw new Error('not implemented yet')
+  let parsed = string.match(matrixRegex);
+  if (parsed === null || parsed.length < 7)throw new Error('not a matrix');
+  return {
+    a: parseFloat(parsed[1]),
+    b: parseFloat(parsed[2]),
+    c: parseFloat(parsed[3]),
+    d: parseFloat(parsed[4]),
+    e: parseFloat(parsed[5]),
+    f: parseFloat(parsed[6]),
+  };
 }
