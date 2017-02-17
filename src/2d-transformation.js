@@ -158,7 +158,7 @@ export function toString(matrix) {
  *
  * @param string
  */
-const matrixRegex = /^matrix\( *([0-9]+) *, *([0-9]+) *, *([0-9]+) *, *([0-9]+) *, *([0-9]+) *, *([0-9]+) *\)$/;
+const matrixRegex = /^matrix\( *([0-9]+) *, *([0-9]+) *, *([0-9]+) *, *([0-9]+) *, *([0-9]+) *, *([0-9]+) *\)$/i;
 
 export function fromString(string) {
   let parsed = string.match(matrixRegex);
