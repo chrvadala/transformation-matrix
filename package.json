@@ -2,29 +2,46 @@
   "name": "transformation-matrix",
   "version": "0.0.1",
   "description": "2d transformation matrix functions written in ES6 syntax. Tree shaking ready!",
-  "main": "index.js",
+  "main": "./lib/2d-transformation.js",
+  "module": "es/2d-transformation.js",
+  "jsnext:main": "es/2d-transformation.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-register ./tests/*.spec.js"
+    "test": "cross-env BABEL_ENV=commonjs mocha --compilers js:babel-register ./tests/*.spec.js",
+    "build-commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "build-es": "cross-env BABEL_ENV=es babel src --out-dir es",
+    "clean": "del lib es",
+    "version": "npm run clean && npm run test && npm run build",
+    "build": "npm run clean && npm run build-commonjs && npm run build-es"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chrvadala/transformation-matrix.git"
   },
   "keywords": [
-    "2d-transformations"
+    "transformation-matrix",
+    "2d-transformations",
+    "three-shaking",
+    "scale",
+    "zoom",
+    "translate",
+    "transform"
   ],
-  "author": "scale",
+  "author": "chrvadala",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/chrvadala/transformation-matrix/issues"
   },
   "homepage": "https://github.com/chrvadala/transformation-matrix#readme",
   "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.22.0",
     "babel-preset-env": "^1.1.8",
+    "babel-preset-es2015": "^6.22.0",
     "babel-register": "^6.22.0",
-    "mocha": "^3.2.0"
-  },
-  "dependencies": {
-    "chai": "^3.5.0"
+    "chai": "^3.5.0",
+    "cross-env": "^3.1.4",
+    "mocha": "^3.2.0",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.23.0",
+    "del-cli": "^0.2.1"
   }
 }

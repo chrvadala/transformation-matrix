@@ -1,5 +1,22 @@
 {
-  "presets": [
-    "env"
-  ]
+  "plugins": [
+    "transform-object-rest-spread"
+  ],
+  "env": {
+    "commonjs": {
+      "presets": [
+        "es2015"
+      ]
+    },
+    "es": {
+      "presets": [
+        [
+          "es2015",
+          {
+            "modules": false
+          }
+        ]
+      ]
+    }
+  }
 }
