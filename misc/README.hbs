@@ -1,0 +1,28 @@
+# transformation-matrix
+2d transformation matrix functions written in ES6 syntax. Tree shaking ready!
+
+## Setup
+```sh
+  npm install transformation-matrix
+```
+## Usage example (ES6)
+```sh
+import {scale, rotate, translate, transform} from 'transformation-matrix';
+
+let matrix = transform(scale(40,40), rotate(Math.PI/2), scale(2, 4));
+let point = applyToPoint(matrix, {42, 42});
+```
+# API Reference
+{{>main}}
+
+## Changelog
+- **1.0.0** - First release
+
+## Contributing
+Your contributions (issues and pull request) are very appreciated!
+
+## Author
+- [chrvadala](https://github.com/chrvadala)
+
+## License
+MIT
