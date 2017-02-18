@@ -172,7 +172,7 @@ export function toString(matrix) {
 
 /**
  * Parse a string matrix formatted as matrix(a,b,c,d,e,f)
- * @param {string} String with a matrix
+ * @param string String with a matrix
  * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
  */
 export function fromString(string) {
