@@ -11,8 +11,9 @@
     "build-es": "cross-env BABEL_ENV=es babel src --out-dir es",
     "build-docs": "jsdoc2md --template misc/README.hbs src/*.js > README.md; echo",
     "clean": "del lib es",
-    "version": "npm run clean && npm run test && npm run build",
-    "build": "npm run clean && npm run build-commonjs && npm run build-es && npm run build-docs"
+    "version": "npm run clean && npm run test && npm run build && npm run add-build-to-vcs",
+    "build": "npm run clean && npm run build-commonjs && npm run build-es && npm run build-docs",
+    "add-build-to-vcs": "git add -A README.md"
   },
   "repository": {
     "type": "git",
