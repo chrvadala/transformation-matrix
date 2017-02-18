@@ -29,29 +29,31 @@ let point = applyToPoint(matrix, {42, 42});
 <dd><p>Calculate a translate matrix</p>
 </dd>
 <dt><a href="#scale">scale(sx, sy)</a> ⇒ <code>Object</code></dt>
-<dd><p>Calculate a scale matrix</p>
+<dd><p>Calculate a scaling matrix</p>
 </dd>
 <dt><a href="#rotate">rotate(angle)</a> ⇒ <code>Object</code></dt>
-<dd><p>Calculate a rotate matrix</p>
+<dd><p>Calculate a rotation matrix</p>
 </dd>
 <dt><a href="#rotateDEG">rotateDEG(angle)</a> ⇒ <code>Object</code></dt>
-<dd><p>Calculate a rotate matrix with a DEG angle</p>
+<dd><p>Calculate a rotation matrix with a DEG angle</p>
 </dd>
 <dt><a href="#applyToPoint">applyToPoint(matrix, point)</a> ⇒ <code>Object</code></dt>
-<dd><p>Calculate the application of a matrix to a point</p>
+<dd><p>Calculate a point transformed with an affine matrix</p>
 </dd>
 <dt><a href="#applyToPoints">applyToPoints(matrix, points)</a> ⇒</dt>
-<dd><p>Calculate the application of a matrix to an array of points</p>
+<dd><p>Calculate an array of points transformed with an affine matrix</p>
 </dd>
-<dt><a href="#toString">toString(matrix)</a> ⇒</dt>
-<dd></dd>
-<dt><a href="#toString">toString(matrix)</a> ⇒</dt>
-<dd></dd>
+<dt><a href="#toCSS">toCSS(matrix)</a> ⇒</dt>
+<dd><p>Serialize the matrix to a string that can be used with CSS or SVG</p>
+</dd>
+<dt><a href="#toSVG">toSVG(matrix)</a> ⇒</dt>
+<dd><p>Serialize the matrix to a string that can be used with CSS or SVG</p>
+</dd>
 <dt><a href="#toString">toString(matrix)</a> ⇒</dt>
 <dd><p>Serialize the matrix to a string that can be used with CSS or SVG</p>
 </dd>
 <dt><a href="#fromString">fromString(string)</a> ⇒ <code>Object</code></dt>
-<dd><p>Parse a string matrix</p>
+<dd><p>Parse a string matrix formatted as matrix(a,b,c,d,e,f)</p>
 </dd>
 </dl>
 
@@ -82,9 +84,9 @@ Calculate a matrix that is the inverse of the provided matrix
 **Kind**: global function  
 **Returns**: <code>Object</code> - Affine matrix  
 
-| Param |
-| --- |
-| matrix | 
+| Param | Description |
+| --- | --- |
+| matrix | Affine matrix |
 
 <a name="translate"></a>
 
@@ -102,7 +104,7 @@ Calculate a translate matrix
 <a name="scale"></a>
 
 ## scale(sx, sy) ⇒ <code>Object</code>
-Calculate a scale matrix
+Calculate a scaling matrix
 
 **Kind**: global function  
 **Returns**: <code>Object</code> - Affine matrix  
@@ -115,7 +117,7 @@ Calculate a scale matrix
 <a name="rotate"></a>
 
 ## rotate(angle) ⇒ <code>Object</code>
-Calculate a rotate matrix
+Calculate a rotation matrix
 
 **Kind**: global function  
 **Returns**: <code>Object</code> - Affine matrix *  
@@ -127,7 +129,7 @@ Calculate a rotate matrix
 <a name="rotateDEG"></a>
 
 ## rotateDEG(angle) ⇒ <code>Object</code>
-Calculate a rotate matrix with a DEG angle
+Calculate a rotation matrix with a DEG angle
 
 **Kind**: global function  
 **Returns**: <code>Object</code> - Affine matrix  
@@ -139,9 +141,10 @@ Calculate a rotate matrix with a DEG angle
 <a name="applyToPoint"></a>
 
 ## applyToPoint(matrix, point) ⇒ <code>Object</code>
-Calculate the application of a matrix to a point
+Calculate a point transformed with an affine matrix
 
 **Kind**: global function  
+**Returns**: <code>Object</code> - Point  
 
 | Param | Description |
 | --- | --- |
@@ -151,31 +154,35 @@ Calculate the application of a matrix to a point
 <a name="applyToPoints"></a>
 
 ## applyToPoints(matrix, points) ⇒
-Calculate the application of a matrix to an array of points
+Calculate an array of points transformed with an affine matrix
 
 **Kind**: global function  
-**Returns**: array  
+**Returns**: array Array of points  
 
 | Param | Description |
 | --- | --- |
 | matrix | Affine matrix |
 | points | Array of points |
 
-<a name="toString"></a>
+<a name="toCSS"></a>
 
-## toString(matrix) ⇒
+## toCSS(matrix) ⇒
+Serialize the matrix to a string that can be used with CSS or SVG
+
 **Kind**: global function  
-**Returns**: string  
+**Returns**: string String that contains a matrix formatted as matrix(a,b,c,d,e,f)  
 
 | Param | Description |
 | --- | --- |
 | matrix | Affine matrix |
 
-<a name="toString"></a>
+<a name="toSVG"></a>
 
-## toString(matrix) ⇒
+## toSVG(matrix) ⇒
+Serialize the matrix to a string that can be used with CSS or SVG
+
 **Kind**: global function  
-**Returns**: string  
+**Returns**: string String that contains a matrix formatted as matrix(a,b,c,d,e,f)  
 
 | Param | Description |
 | --- | --- |
@@ -189,21 +196,21 @@ Serialize the matrix to a string that can be used with CSS or SVG
 **Kind**: global function  
 **Returns**: string String that contains a matrix formatted as matrix(a,b,c,d,e,f)  
 
-| Param |
-| --- |
-| matrix | 
+| Param | Description |
+| --- | --- |
+| matrix | Affine matrix |
 
 <a name="fromString"></a>
 
 ## fromString(string) ⇒ <code>Object</code>
-Parse a string matrix
+Parse a string matrix formatted as matrix(a,b,c,d,e,f)
 
 **Kind**: global function  
 **Returns**: <code>Object</code> - Affine matrix  
 
 | Param | Description |
 | --- | --- |
-| string | String that parse a matrix formatted as matrix(a,b,c,d,e,f) |
+| string | String with a matrix |
 
 
 ## Changelog

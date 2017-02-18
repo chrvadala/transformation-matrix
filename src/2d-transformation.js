@@ -49,7 +49,7 @@ export function transform(...matrices) {
 
 /**
  * Calculate a matrix that is the inverse of the provided matrix
- * @param matrix
+ * @param matrix Affine matrix
  * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
  */
 export function inverse(matrix) {
@@ -85,7 +85,7 @@ export function translate(tx, ty) {
 }
 
 /**
- * Calculate a scale matrix
+ * Calculate a scaling matrix
  * @param sx Scaling on axis x
  * @param sy Scaling on axis y
  * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
@@ -98,7 +98,7 @@ export function scale(sx, sy) {
 }
 
 /**
- * Calculate a rotate matrix
+ * Calculate a rotation matrix
  * @param angle Angle in radians
  * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix *
  */
@@ -112,7 +112,7 @@ export function rotate(angle) {
 }
 
 /**
- * Calculate a rotate matrix with a DEG angle
+ * Calculate a rotation matrix with a DEG angle
  * @param angle Angle in degree
  * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
  */
@@ -121,7 +121,7 @@ export function rotateDEG(angle) {
 }
 
 /**
- * Calculate the application of a matrix to a point
+ * Calculate a point transformed with an affine matrix
  * @param matrix Affine matrix
  * @param point Point
  * @returns {{x: number, y: number}} Point
@@ -134,7 +134,7 @@ export function applyToPoint(matrix, point) {
 }
 
 /**
- * Calculate the application of a matrix to an array of points
+ * Calculate an array of points transformed with an affine matrix
  * @param matrix Affine matrix
  * @param points Array of points
  * @returns array Array of points
@@ -144,18 +144,18 @@ export function applyToPoints(matrix, points) {
 }
 
 /**
- * @alias toString
- * @param matrix  Affine matrix
- * @returns string
+ * Serialize the matrix to a string that can be used with CSS or SVG
+ * @param matrix Affine matrix
+ * @returns string String that contains a matrix formatted as matrix(a,b,c,d,e,f)
  */
 export function toCSS(matrix) {
   return toString(matrix);
 }
 
 /**
- * @alias toString
- * @param matrix  Affine matrix
- * @returns string
+ * Serialize the matrix to a string that can be used with CSS or SVG
+ * @param matrix Affine matrix
+ * @returns string String that contains a matrix formatted as matrix(a,b,c,d,e,f)
  */
 export function toSVG(matrix) {
   return toString(matrix);
@@ -163,7 +163,7 @@ export function toSVG(matrix) {
 
 /**
  * Serialize the matrix to a string that can be used with CSS or SVG
- * @param matrix
+ * @param matrix Affine matrix
  * @returns string String that contains a matrix formatted as matrix(a,b,c,d,e,f)
  */
 export function toString(matrix) {
@@ -171,8 +171,8 @@ export function toString(matrix) {
 }
 
 /**
- * Parse a string matrix
- * @param string String that parse a matrix formatted as matrix(a,b,c,d,e,f)
+ * Parse a string matrix formatted as matrix(a,b,c,d,e,f)
+ * @param string String with a matrix
  * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
  */
 export function fromString(string) {
