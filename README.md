@@ -44,19 +44,19 @@ let point = applyToPoint(matrix, {42, 42});
 <dt><a href="#applyToPoint">applyToPoint(matrix, point)</a> ⇒ <code>Object</code></dt>
 <dd><p>Calculate a point transformed with an affine matrix</p>
 </dd>
-<dt><a href="#applyToPoints">applyToPoints(matrix, points)</a> ⇒</dt>
+<dt><a href="#applyToPoints">applyToPoints(matrix, points)</a> ⇒ <code>array</code></dt>
 <dd><p>Calculate an array of points transformed with an affine matrix</p>
 </dd>
-<dt><a href="#toCSS">toCSS(matrix)</a> ⇒</dt>
+<dt><a href="#toCSS">toCSS(matrix)</a> ⇒ <code>string</code></dt>
 <dd><p>Serialize the matrix to a string that can be used with CSS or SVG</p>
 </dd>
-<dt><a href="#toSVG">toSVG(matrix)</a> ⇒</dt>
+<dt><a href="#toSVG">toSVG(matrix)</a> ⇒ <code>string</code></dt>
 <dd><p>Serialize the matrix to a string that can be used with CSS or SVG</p>
 </dd>
-<dt><a href="#toString">toString(matrix)</a> ⇒</dt>
+<dt><a href="#toString">toString(matrix)</a> ⇒ <code>string</code></dt>
 <dd><p>Serialize the matrix to a string that can be used with CSS or SVG</p>
 </dd>
-<dt><a href="#fromString">fromString(string)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#fromString">fromString(String)</a> ⇒ <code>Object</code></dt>
 <dd><p>Parse a string matrix formatted as matrix(a,b,c,d,e,f)</p>
 </dd>
 </dl>
@@ -170,11 +170,11 @@ Calculate a point transformed with an affine matrix
 
 <a name="applyToPoints"></a>
 
-## applyToPoints(matrix, points) ⇒
+## applyToPoints(matrix, points) ⇒ <code>array</code>
 Calculate an array of points transformed with an affine matrix
 
 **Kind**: global function  
-**Returns**: array Array of points  
+**Returns**: <code>array</code> - Array of points  
 
 | Param | Description |
 | --- | --- |
@@ -183,11 +183,11 @@ Calculate an array of points transformed with an affine matrix
 
 <a name="toCSS"></a>
 
-## toCSS(matrix) ⇒
+## toCSS(matrix) ⇒ <code>string</code>
 Serialize the matrix to a string that can be used with CSS or SVG
 
 **Kind**: global function  
-**Returns**: string String that contains a matrix formatted as matrix(a,b,c,d,e,f)  
+**Returns**: <code>string</code> - String that contains a matrix formatted as matrix(a,b,c,d,e,f)  
 
 | Param | Description |
 | --- | --- |
@@ -195,11 +195,11 @@ Serialize the matrix to a string that can be used with CSS or SVG
 
 <a name="toSVG"></a>
 
-## toSVG(matrix) ⇒
+## toSVG(matrix) ⇒ <code>string</code>
 Serialize the matrix to a string that can be used with CSS or SVG
 
 **Kind**: global function  
-**Returns**: string String that contains a matrix formatted as matrix(a,b,c,d,e,f)  
+**Returns**: <code>string</code> - String that contains a matrix formatted as matrix(a,b,c,d,e,f)  
 
 | Param | Description |
 | --- | --- |
@@ -207,11 +207,11 @@ Serialize the matrix to a string that can be used with CSS or SVG
 
 <a name="toString"></a>
 
-## toString(matrix) ⇒
+## toString(matrix) ⇒ <code>string</code>
 Serialize the matrix to a string that can be used with CSS or SVG
 
 **Kind**: global function  
-**Returns**: string String that contains a matrix formatted as matrix(a,b,c,d,e,f)  
+**Returns**: <code>string</code> - String that contains a matrix formatted as matrix(a,b,c,d,e,f)  
 
 | Param | Description |
 | --- | --- |
@@ -219,13 +219,13 @@ Serialize the matrix to a string that can be used with CSS or SVG
 
 <a name="fromString"></a>
 
-## fromString(string) ⇒ <code>Object</code>
+## fromString(String) ⇒ <code>Object</code>
 Parse a string matrix formatted as matrix(a,b,c,d,e,f)
 
 **Kind**: global function  
 **Returns**: <code>Object</code> - Affine matrix  
 
-| Param | Description |
-| --- | --- |
-| string | String with a matrix |
+| Param | Type | Description |
+| --- | --- | --- |
+| String | <code>string</code> | with a matrix |
 
