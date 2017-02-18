@@ -62,7 +62,7 @@ let point = applyToPoint(matrix, {42, 42});
 </dl>
 
 ## Changelog
-- **1.0.0** - First release
+- **0.0.1** - Preview version
 
 ## Contributing
 Your contributions (issues and pull request) are very appreciated!
