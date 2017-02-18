@@ -56,7 +56,7 @@ let point = applyToPoint(matrix, {42, 42});
 <dt><a href="#toString">toString(matrix)</a> ⇒ <code>string</code></dt>
 <dd><p>Serialize the matrix to a string that can be used with CSS or SVG</p>
 </dd>
-<dt><a href="#fromString">fromString(String)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#fromString">fromString(string)</a> ⇒ <code>Object</code></dt>
 <dd><p>Parse a string matrix formatted as matrix(a,b,c,d,e,f)</p>
 </dd>
 </dl>
@@ -219,13 +219,13 @@ Serialize the matrix to a string that can be used with CSS or SVG
 
 <a name="fromString"></a>
 
-## fromString(String) ⇒ <code>Object</code>
+## fromString(string) ⇒ <code>Object</code>
 Parse a string matrix formatted as matrix(a,b,c,d,e,f)
 
 **Kind**: global function  
 **Returns**: <code>Object</code> - Affine matrix  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| String | <code>string</code> | with a matrix |
+| Param | Description |
+| --- | --- |
+| string | String with a matrix |
 
