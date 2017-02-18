@@ -9,11 +9,15 @@
 ```sh
 import {scale, rotate, translate, transform} from 'transformation-matrix';
 
-let matrix = transform(scale(40,40), rotate(Math.PI/2), scale(2, 4));
+let matrix = transform(
+  scale(40,40),
+  rotate(Math.PI/2),
+  scale(2, 4)
+);
 let point = applyToPoint(matrix, {42, 42});
 ```
-# API Reference
-{{>main}}
+# Reference
+{{>main-index~}}
 
 ## Changelog
 - **1.0.0** - First release
@@ -26,3 +30,6 @@ Your contributions (issues and pull request) are very appreciated!
 
 ## License
 MIT
+
+# API
+{{>all-docs~}}

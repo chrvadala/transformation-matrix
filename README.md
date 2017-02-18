@@ -9,10 +9,14 @@
 ```sh
 import {scale, rotate, translate, transform} from 'transformation-matrix';
 
-let matrix = transform(scale(40,40), rotate(Math.PI/2), scale(2, 4));
+let matrix = transform(
+  scale(40,40),
+  rotate(Math.PI/2),
+  scale(2, 4)
+);
 let point = applyToPoint(matrix, {42, 42});
 ```
-# API Reference
+# Reference
 ## Functions
 
 <dl>
@@ -57,6 +61,19 @@ let point = applyToPoint(matrix, {42, 42});
 </dd>
 </dl>
 
+## Changelog
+- **1.0.0** - First release
+
+## Contributing
+Your contributions (issues and pull request) are very appreciated!
+
+## Author
+- [chrvadala](https://github.com/chrvadala)
+
+## License
+MIT
+
+# API
 <a name="identity"></a>
 
 ## identity() ⇒ <code>Object</code>
@@ -212,15 +229,3 @@ Parse a string matrix formatted as matrix(a,b,c,d,e,f)
 | --- | --- |
 | string | String with a matrix |
 
-
-## Changelog
-- **1.0.0** - First release
-
-## Contributing
-Your contributions (issues and pull request) are very appreciated!
-
-## Author
-- [chrvadala](https://github.com/chrvadala)
-
-## License
-MIT
