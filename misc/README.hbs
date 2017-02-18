@@ -1,5 +1,9 @@
-# transformation-matrix [![Build Status](https://travis-ci.org/chrvadala/transformation-matrix.svg?branch=master)](https://travis-ci.org/chrvadala/transformation-matrix)
+# transformation-matrix
 2d transformation matrix functions written in ES6 syntax. Tree shaking ready!
+[![Build Status](https://travis-ci.org/chrvadala/transformation-matrix.svg?branch=master)](https://travis-ci.org/chrvadala/transformation-matrix)
+[![npm](https://img.shields.io/npm/v/transformation-matrix.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/transformation-matrix)
+![es-next-compliant](https://img.shields.io/badge/es:next-compliant-fbde34.svg)
+![license-mit](https://img.shields.io/badge/license-MIT-42cd00.svg)
 
 ## Setup
 ```sh
