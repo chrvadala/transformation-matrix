@@ -1,8 +1,13 @@
 const {cos, sin, PI} = Math;
+/**
+ * @ignore
+ * @type {RegExp}
+ */
+const matrixRegex = /^matrix\( *([0-9]*\.?[0-9]+) *, *([0-9]*\.?[0-9]+) *, *([0-9]*\.?[0-9]+) *, *([0-9]*\.?[0-9]+) *, *([0-9]*\.?[0-9]+) *, *([0-9]*\.?[0-9]+) *\)$/i;
 
 /**
- * Get identity matrix
- * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}}
+ * Identity matrix
+ * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
  */
 export function identity() {
   return {
@@ -12,8 +17,9 @@ export function identity() {
 }
 
 /**
- *
- * @param matrices
+ * Merge multiple matrices into one
+ * @param matrices list of matrices
+ * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
  */
 export function transform(...matrices) {
 
@@ -42,8 +48,9 @@ export function transform(...matrices) {
 }
 
 /**
- *
+ * Calculate a matrix that is the inverse of the provided matrix
  * @param matrix
+ * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
  */
 export function inverse(matrix) {
   //http://www.wolframalpha.com/input/?i=Inverse+%5B%7B%7Ba,c,e%7D,%7Bb,d,f%7D,%7B0,0,1%7D%7D%5D
@@ -65,9 +72,10 @@ export function inverse(matrix) {
 }
 
 /**
- *
- * @param tx
- * @param ty
+ * Calculate a translate matrix
+ * @param tx Translation on axis x
+ * @param ty Translation on axis y
+ * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
  */
 export function translate(tx, ty) {
   return {
@@ -77,9 +85,10 @@ export function translate(tx, ty) {
 }
 
 /**
- *
- * @param sx
- * @param sy
+ * Calculate a scale matrix
+ * @param sx Scaling on axis x
+ * @param sy Scaling on axis y
+ * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
  */
 export function scale(sx, sy) {
   return {
@@ -89,8 +98,9 @@ export function scale(sx, sy) {
 }
 
 /**
- *
- * @param angle
+ * Calculate a rotate matrix
+ * @param angle Angle in radians
+ * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix *
  */
 export function rotate(angle) {
   let cosAngle = cos(angle);
@@ -102,17 +112,19 @@ export function rotate(angle) {
 }
 
 /**
- *
- * @param angle
+ * Calculate a rotate matrix with a DEG angle
+ * @param angle Angle in degree
+ * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
  */
 export function rotateDEG(angle) {
   return rotate(angle * PI / 180);
 }
 
 /**
- *
- * @param matrix
- * @param point
+ * Calculate the application of a matrix to a point
+ * @param matrix Affine matrix
+ * @param point Point
+ * @returns {{x: number, y: number}} Point
  */
 export function applyToPoint(matrix, point) {
   return {
@@ -122,44 +134,47 @@ export function applyToPoint(matrix, point) {
 }
 
 /**
- *
- * @param matrix
- * @param points
+ * Calculate the application of a matrix to an array of points
+ * @param matrix Affine matrix
+ * @param points Array of points
+ * @returns array Array of points
  */
 export function applyToPoints(matrix, points) {
   return points.map(point => applyToPoint(matrix, point));
 }
 
 /**
- *
- * @param matrix
+ * @alias toString
+ * @param matrix  Affine matrix
+ * @returns string
  */
 export function toCSS(matrix) {
   return toString(matrix);
 }
 
 /**
- *
- * @param matrix
+ * @alias toString
+ * @param matrix  Affine matrix
+ * @returns string
  */
 export function toSVG(matrix) {
   return toString(matrix);
 }
 
 /**
- *
+ * Serialize the matrix to a string that can be used with CSS or SVG
  * @param matrix
+ * @returns string String that contains a matrix formatted as matrix(a,b,c,d,e,f)
  */
 export function toString(matrix) {
   return `matrix(${matrix.a},${matrix.b},${matrix.c},${matrix.d},${matrix.e},${matrix.f})`;
 }
 
 /**
- *
- * @param string
+ * Parse a string matrix
+ * @param string String that parse a matrix formatted as matrix(a,b,c,d,e,f)
+ * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
  */
-const matrixRegex = /^matrix\( *([0-9]*\.?[0-9]+) *, *([0-9]*\.?[0-9]+) *, *([0-9]*\.?[0-9]+) *, *([0-9]*\.?[0-9]+) *, *([0-9]*\.?[0-9]+) *, *([0-9]*\.?[0-9]+) *\)$/i;
-
 export function fromString(string) {
   let parsed = string.match(matrixRegex);
   if (parsed === null || parsed.length < 7)throw new Error(`'${string}' is not a matrix`);

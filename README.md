@@ -13,71 +13,74 @@ let matrix = transform(scale(40,40), rotate(Math.PI/2), scale(2, 4));
 let point = applyToPoint(matrix, {42, 42});
 ```
 # API Reference
-## Constants
-
-<dl>
-<dt><a href="#matrixRegex">matrixRegex</a></dt>
-<dd></dd>
-</dl>
-
 ## Functions
 
 <dl>
 <dt><a href="#identity">identity()</a> ⇒ <code>Object</code></dt>
-<dd><p>Get identity matrix</p>
+<dd><p>Identity matrix</p>
 </dd>
-<dt><a href="#transform">transform(matrices)</a></dt>
+<dt><a href="#transform">transform(matrices)</a> ⇒ <code>Object</code></dt>
+<dd><p>Merge multiple matrices into one</p>
+</dd>
+<dt><a href="#inverse">inverse(matrix)</a> ⇒ <code>Object</code></dt>
+<dd><p>Calculate a matrix that is the inverse of the provided matrix</p>
+</dd>
+<dt><a href="#translate">translate(tx, ty)</a> ⇒ <code>Object</code></dt>
+<dd><p>Calculate a translate matrix</p>
+</dd>
+<dt><a href="#scale">scale(sx, sy)</a> ⇒ <code>Object</code></dt>
+<dd><p>Calculate a scale matrix</p>
+</dd>
+<dt><a href="#rotate">rotate(angle)</a> ⇒ <code>Object</code></dt>
+<dd><p>Calculate a rotate matrix</p>
+</dd>
+<dt><a href="#rotateDEG">rotateDEG(angle)</a> ⇒ <code>Object</code></dt>
+<dd><p>Calculate a rotate matrix with a DEG angle</p>
+</dd>
+<dt><a href="#applyToPoint">applyToPoint(matrix, point)</a> ⇒ <code>Object</code></dt>
+<dd><p>Calculate the application of a matrix to a point</p>
+</dd>
+<dt><a href="#applyToPoints">applyToPoints(matrix, points)</a> ⇒</dt>
+<dd><p>Calculate the application of a matrix to an array of points</p>
+</dd>
+<dt><a href="#toString">toString(matrix)</a> ⇒</dt>
 <dd></dd>
-<dt><a href="#inverse">inverse(matrix)</a></dt>
+<dt><a href="#toString">toString(matrix)</a> ⇒</dt>
 <dd></dd>
-<dt><a href="#translate">translate(tx, ty)</a></dt>
-<dd></dd>
-<dt><a href="#scale">scale(sx, sy)</a></dt>
-<dd></dd>
-<dt><a href="#rotate">rotate(angle)</a></dt>
-<dd></dd>
-<dt><a href="#rotateDEG">rotateDEG(angle)</a></dt>
-<dd></dd>
-<dt><a href="#applyToPoint">applyToPoint(matrix, point)</a></dt>
-<dd></dd>
-<dt><a href="#applyToPoints">applyToPoints(matrix, points)</a></dt>
-<dd></dd>
-<dt><a href="#toCSS">toCSS(matrix)</a></dt>
-<dd></dd>
-<dt><a href="#toSVG">toSVG(matrix)</a></dt>
-<dd></dd>
-<dt><a href="#toString">toString(matrix)</a></dt>
-<dd></dd>
+<dt><a href="#toString">toString(matrix)</a> ⇒</dt>
+<dd><p>Serialize the matrix to a string that can be used with CSS or SVG</p>
+</dd>
+<dt><a href="#fromString">fromString(string)</a> ⇒ <code>Object</code></dt>
+<dd><p>Parse a string matrix</p>
+</dd>
 </dl>
-
-<a name="matrixRegex"></a>
-
-## matrixRegex
-**Kind**: global constant  
-
-| Param |
-| --- |
-| string | 
 
 <a name="identity"></a>
 
 ## identity() ⇒ <code>Object</code>
-Get identity matrix
+Identity matrix
 
 **Kind**: global function  
+**Returns**: <code>Object</code> - Affine matrix  
 <a name="transform"></a>
 
-## transform(matrices)
-**Kind**: global function  
+## transform(matrices) ⇒ <code>Object</code>
+Merge multiple matrices into one
 
-| Param |
-| --- |
-| matrices | 
+**Kind**: global function  
+**Returns**: <code>Object</code> - Affine matrix  
+
+| Param | Description |
+| --- | --- |
+| matrices | list of matrices |
 
 <a name="inverse"></a>
 
-## inverse(matrix)
+## inverse(matrix) ⇒ <code>Object</code>
+Calculate a matrix that is the inverse of the provided matrix
+
 **Kind**: global function  
+**Returns**: <code>Object</code> - Affine matrix  
 
 | Param |
 | --- |
@@ -85,88 +88,122 @@ Get identity matrix
 
 <a name="translate"></a>
 
-## translate(tx, ty)
-**Kind**: global function  
+## translate(tx, ty) ⇒ <code>Object</code>
+Calculate a translate matrix
 
-| Param |
-| --- |
-| tx | 
-| ty | 
+**Kind**: global function  
+**Returns**: <code>Object</code> - Affine matrix  
+
+| Param | Description |
+| --- | --- |
+| tx | Translation on axis x |
+| ty | Translation on axis y |
 
 <a name="scale"></a>
 
-## scale(sx, sy)
-**Kind**: global function  
+## scale(sx, sy) ⇒ <code>Object</code>
+Calculate a scale matrix
 
-| Param |
-| --- |
-| sx | 
-| sy | 
+**Kind**: global function  
+**Returns**: <code>Object</code> - Affine matrix  
+
+| Param | Description |
+| --- | --- |
+| sx | Scaling on axis x |
+| sy | Scaling on axis y |
 
 <a name="rotate"></a>
 
-## rotate(angle)
-**Kind**: global function  
+## rotate(angle) ⇒ <code>Object</code>
+Calculate a rotate matrix
 
-| Param |
-| --- |
-| angle | 
+**Kind**: global function  
+**Returns**: <code>Object</code> - Affine matrix *  
+
+| Param | Description |
+| --- | --- |
+| angle | Angle in radians |
 
 <a name="rotateDEG"></a>
 
-## rotateDEG(angle)
-**Kind**: global function  
+## rotateDEG(angle) ⇒ <code>Object</code>
+Calculate a rotate matrix with a DEG angle
 
-| Param |
-| --- |
-| angle | 
+**Kind**: global function  
+**Returns**: <code>Object</code> - Affine matrix  
+
+| Param | Description |
+| --- | --- |
+| angle | Angle in degree |
 
 <a name="applyToPoint"></a>
 
-## applyToPoint(matrix, point)
+## applyToPoint(matrix, point) ⇒ <code>Object</code>
+Calculate the application of a matrix to a point
+
 **Kind**: global function  
 
-| Param |
-| --- |
-| matrix | 
-| point | 
+| Param | Description |
+| --- | --- |
+| matrix | Affine matrix |
+| point | Point |
 
 <a name="applyToPoints"></a>
 
-## applyToPoints(matrix, points)
+## applyToPoints(matrix, points) ⇒
+Calculate the application of a matrix to an array of points
+
 **Kind**: global function  
+**Returns**: array  
 
-| Param |
-| --- |
-| matrix | 
-| points | 
-
-<a name="toCSS"></a>
-
-## toCSS(matrix)
-**Kind**: global function  
-
-| Param |
-| --- |
-| matrix | 
-
-<a name="toSVG"></a>
-
-## toSVG(matrix)
-**Kind**: global function  
-
-| Param |
-| --- |
-| matrix | 
+| Param | Description |
+| --- | --- |
+| matrix | Affine matrix |
+| points | Array of points |
 
 <a name="toString"></a>
 
-## toString(matrix)
+## toString(matrix) ⇒
 **Kind**: global function  
+**Returns**: string  
+
+| Param | Description |
+| --- | --- |
+| matrix | Affine matrix |
+
+<a name="toString"></a>
+
+## toString(matrix) ⇒
+**Kind**: global function  
+**Returns**: string  
+
+| Param | Description |
+| --- | --- |
+| matrix | Affine matrix |
+
+<a name="toString"></a>
+
+## toString(matrix) ⇒
+Serialize the matrix to a string that can be used with CSS or SVG
+
+**Kind**: global function  
+**Returns**: string String that contains a matrix formatted as matrix(a,b,c,d,e,f)  
 
 | Param |
 | --- |
 | matrix | 
+
+<a name="fromString"></a>
+
+## fromString(string) ⇒ <code>Object</code>
+Parse a string matrix
+
+**Kind**: global function  
+**Returns**: <code>Object</code> - Affine matrix  
+
+| Param | Description |
+| --- | --- |
+| string | String that parse a matrix formatted as matrix(a,b,c,d,e,f) |
 
 
 ## Changelog
