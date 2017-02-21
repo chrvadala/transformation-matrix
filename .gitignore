@@ -1,8 +1,9 @@
 # Logs
 logs
 *.log
-npm-debug.log*
 .idea
 node_modules
 es
 lib
+.nyc_output
+coverage
