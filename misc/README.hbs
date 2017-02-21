@@ -15,7 +15,7 @@
 import {scale, rotate, translate, transform} from 'transformation-matrix';
 
 let matrix = transform(
-  scale(40,40),
+  translate(40,40),
   rotate(Math.PI/2),
   scale(2, 4)
 );
