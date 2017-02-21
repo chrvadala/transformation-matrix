@@ -28,7 +28,7 @@ let point = applyToPoint(matrix, {42, 42});
 <dt><a href="#identity">identity()</a> ⇒ <code>Object</code></dt>
 <dd><p>Identity matrix</p>
 </dd>
-<dt><a href="#transform">transform(matrices)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#transform">transform(...matrices)</a> ⇒ <code>Object</code></dt>
 <dd><p>Merge multiple matrices into one</p>
 </dd>
 <dt><a href="#inverse">inverse(matrix)</a> ⇒ <code>Object</code></dt>
@@ -88,15 +88,15 @@ Identity matrix
 **Returns**: <code>Object</code> - Affine matrix  
 <a name="transform"></a>
 
-## transform(matrices) ⇒ <code>Object</code>
+## transform(...matrices) ⇒ <code>Object</code>
 Merge multiple matrices into one
 
 **Kind**: global function  
 **Returns**: <code>Object</code> - Affine matrix  
 
-| Param | Description |
-| --- | --- |
-| matrices | list of matrices |
+| Param | Type | Description |
+| --- | --- | --- |
+| ...matrices | <code>object</code> | list of matrices |
 
 <a name="inverse"></a>
 
