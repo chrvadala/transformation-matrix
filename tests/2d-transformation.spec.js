@@ -53,15 +53,20 @@ describe('2d-transformation', () => {
     it('should throw exception', () => {
       assert.throws(() => {
         transform()
+      }, 'no matrices provided');
+      assert.throws(() => {
+        transform([])
       }, 'no matrices provided')
     });
 
     it('should return m1', () => {
-      assert.deepEqual(transform(m1), m1)
+      assert.deepEqual(transform(m1), m1);
+      assert.deepEqual(transform([m1]), m1);
     });
 
     it('should return m1 * m2 = m12 ', () => {
-      assert.deepEqual(transform(m1, m2), m12)
+      assert.deepEqual(transform(m1, m2), m12);
+      assert.deepEqual(transform([m1, m2]), m12);
     });
 
     it('should return m1 * m2 * m3 = m123', () => {
@@ -77,7 +82,8 @@ describe('2d-transformation', () => {
         a: 1, c: 0, e: -40,
         b: 0, d: 1, f: -40
       };
-      assert.deepEqual(transform(m1, m2, m3), m123)
+      assert.deepEqual(transform(m1, m2, m3), m123);
+      assert.deepEqual(transform([m1, m2, m3]), m123)
     });
   });
 

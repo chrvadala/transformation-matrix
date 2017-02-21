@@ -18,10 +18,11 @@ export function identity() {
 
 /**
  * Merge multiple matrices into one
- * @param matrices list of matrices
+ * @param matrices {...object} list of matrices
  * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
  */
 export function transform(...matrices) {
+  matrices = Array.isArray(matrices[0]) ? matrices[0] : matrices;
 
   const multiply = (m1, m2) => {
     return {
