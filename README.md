@@ -64,6 +64,13 @@ let point = applyToPoint(matrix, {42, 42});
 <dt><a href="#fromString">fromString(string)</a> ⇒ <code>Object</code></dt>
 <dd><p>Parse a string matrix formatted as matrix(a,b,c,d,e,f)</p>
 </dd>
+<dt><a href="#isAffineMatrix">isAffineMatrix(object)</a> ⇒ <code>boolean</code></dt>
+<dd><p>Check if the object contain an affine matrix</p>
+</dd>
+<dt><a href="#fromObject">fromObject(object)</a> ⇒ <code>Object</code></dt>
+<dd><p>Extract an affine matrix from an object that contains a,b,c,d,e,f keys
+Each value could be a float or a string that contains a float</p>
+</dd>
 </dl>
 
 ## Changelog
@@ -233,4 +240,28 @@ Parse a string matrix formatted as matrix(a,b,c,d,e,f)
 | Param | Description |
 | --- | --- |
 | string | String with a matrix |
+
+<a name="isAffineMatrix"></a>
+
+## isAffineMatrix(object) ⇒ <code>boolean</code>
+Check if the object contain an affine matrix
+
+**Kind**: global function  
+
+| Param |
+| --- |
+| object | 
+
+<a name="fromObject"></a>
+
+## fromObject(object) ⇒ <code>Object</code>
+Extract an affine matrix from an object that contains a,b,c,d,e,f keys
+Each value could be a float or a string that contains a float
+
+**Kind**: global function  
+**Returns**: <code>Object</code> - }  
+
+| Param |
+| --- |
+| object | 
 
