@@ -5,6 +5,13 @@
   "main": "./lib/2d-transformation.js",
   "module": "es/2d-transformation.js",
   "jsnext:main": "es/2d-transformation.js",
+  "files": [
+    "es",
+    "lib",
+    "src",
+    "tests",
+    ".babelrc"
+  ],
   "scripts": {
     "coverage": "cross-env BABEL_ENV=commonjs nyc --require babel-core/register mocha ./tests/*.spec.js",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
