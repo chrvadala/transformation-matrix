@@ -1,6 +1,6 @@
 {
   "name": "transformation-matrix",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "2d transformation matrix functions written in ES6 syntax. Tree shaking ready!",
   "main": "./lib/index.js",
   "module": "es/index.js",
