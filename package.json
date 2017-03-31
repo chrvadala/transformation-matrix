@@ -2,9 +2,9 @@
   "name": "transformation-matrix",
   "version": "1.0.0",
   "description": "2d transformation matrix functions written in ES6 syntax. Tree shaking ready!",
-  "main": "./lib/2d-transformation.js",
-  "module": "es/2d-transformation.js",
-  "jsnext:main": "es/2d-transformation.js",
+  "main": "./lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
   "files": [
     "es",
     "lib",
@@ -20,8 +20,8 @@
     "build-es": "cross-env BABEL_ENV=es babel src --out-dir es",
     "build-docs": "jsdoc2md --template misc/README.hbs src/*.js > README.md; echo",
     "clean": "del lib es",
-    "version": "npm run clean && npm run test && npm run coverage && npm run coveralls && npm run build && npm run add-build-to-vcs",
-    "build": "npm run clean && npm run build-commonjs && npm run build-es && npm run build-docs",
+    "version": "npm-run-all clean test coverage coveralls build add-build-to-vcs",
+    "build": "npm-run-all clean build-commonjs build-es build-docs",
     "add-build-to-vcs": "git add -A README.md"
   },
   "repository": {
@@ -56,6 +56,7 @@
     "del-cli": "^0.2.1",
     "jsdoc-to-markdown": "^3.0.0",
     "mocha": "^3.2.0",
-    "nyc": "^10.1.2"
+    "nyc": "^10.1.2",
+    "npm-run-all": "^4.0.2"
   }
 }
