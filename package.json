@@ -18,7 +18,7 @@
     "test": "cross-env BABEL_ENV=commonjs mocha --compilers js:babel-register ./tests/*.spec.js",
     "build-commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
     "build-es": "cross-env BABEL_ENV=es babel src --out-dir es",
-    "build-docs": "jsdoc2md --template misc/README.hbs src/*.js > README.md; echo",
+    "build-docs": "jsdoc2md --partial misc/disclaimer.hbs --template misc/README.hbs src/*.js > README.md",
     "clean": "del lib es",
     "version": "npm-run-all clean test coverage coveralls build add-build-to-vcs",
     "build": "npm-run-all clean build-commonjs build-es build-docs",
