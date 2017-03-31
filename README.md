@@ -91,15 +91,15 @@ MIT
 ## identity() ⇒ <code>Object</code>
 Identity matrix
 
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix  
+**Kind**: global function
+**Returns**: <code>Object</code> - Affine matrix
 <a name="transform"></a>
 
 ## transform(...matrices) ⇒ <code>Object</code>
 Merge multiple matrices into one
 
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix  
+**Kind**: global function
+**Returns**: <code>Object</code> - Affine matrix
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -110,8 +110,8 @@ Merge multiple matrices into one
 ## inverse(matrix) ⇒ <code>Object</code>
 Calculate a matrix that is the inverse of the provided matrix
 
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix  
+**Kind**: global function
+**Returns**: <code>Object</code> - Affine matrix
 
 | Param | Description |
 | --- | --- |
@@ -122,8 +122,8 @@ Calculate a matrix that is the inverse of the provided matrix
 ## translate(tx, ty) ⇒ <code>Object</code>
 Calculate a translate matrix
 
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix  
+**Kind**: global function
+**Returns**: <code>Object</code> - Affine matrix
 
 | Param | Description |
 | --- | --- |
@@ -135,8 +135,8 @@ Calculate a translate matrix
 ## scale(sx, sy) ⇒ <code>Object</code>
 Calculate a scaling matrix
 
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix  
+**Kind**: global function
+**Returns**: <code>Object</code> - Affine matrix
 
 | Param | Description |
 | --- | --- |
@@ -148,8 +148,8 @@ Calculate a scaling matrix
 ## rotate(angle) ⇒ <code>Object</code>
 Calculate a rotation matrix
 
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix *  
+**Kind**: global function
+**Returns**: <code>Object</code> - Affine matrix *
 
 | Param | Description |
 | --- | --- |
@@ -160,8 +160,8 @@ Calculate a rotation matrix
 ## rotateDEG(angle) ⇒ <code>Object</code>
 Calculate a rotation matrix with a DEG angle
 
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix  
+**Kind**: global function
+**Returns**: <code>Object</code> - Affine matrix
 
 | Param | Description |
 | --- | --- |
@@ -172,8 +172,8 @@ Calculate a rotation matrix with a DEG angle
 ## applyToPoint(matrix, point) ⇒ <code>Object</code>
 Calculate a point transformed with an affine matrix
 
-**Kind**: global function  
-**Returns**: <code>Object</code> - Point  
+**Kind**: global function
+**Returns**: <code>Object</code> - Point
 
 | Param | Description |
 | --- | --- |
@@ -185,8 +185,8 @@ Calculate a point transformed with an affine matrix
 ## applyToPoints(matrix, points) ⇒ <code>array</code>
 Calculate an array of points transformed with an affine matrix
 
-**Kind**: global function  
-**Returns**: <code>array</code> - Array of points  
+**Kind**: global function
+**Returns**: <code>array</code> - Array of points
 
 | Param | Description |
 | --- | --- |
@@ -198,8 +198,8 @@ Calculate an array of points transformed with an affine matrix
 ## toCSS(matrix) ⇒ <code>string</code>
 Serialize the matrix to a string that can be used with CSS or SVG
 
-**Kind**: global function  
-**Returns**: <code>string</code> - String that contains a matrix formatted as matrix(a,b,c,d,e,f)  
+**Kind**: global function
+**Returns**: <code>string</code> - String that contains a matrix formatted as matrix(a,b,c,d,e,f)
 
 | Param | Description |
 | --- | --- |
@@ -210,8 +210,8 @@ Serialize the matrix to a string that can be used with CSS or SVG
 ## toSVG(matrix) ⇒ <code>string</code>
 Serialize the matrix to a string that can be used with CSS or SVG
 
-**Kind**: global function  
-**Returns**: <code>string</code> - String that contains a matrix formatted as matrix(a,b,c,d,e,f)  
+**Kind**: global function
+**Returns**: <code>string</code> - String that contains a matrix formatted as matrix(a,b,c,d,e,f)
 
 | Param | Description |
 | --- | --- |
@@ -222,8 +222,8 @@ Serialize the matrix to a string that can be used with CSS or SVG
 ## toString(matrix) ⇒ <code>string</code>
 Serialize the matrix to a string that can be used with CSS or SVG
 
-**Kind**: global function  
-**Returns**: <code>string</code> - String that contains a matrix formatted as matrix(a,b,c,d,e,f)  
+**Kind**: global function
+**Returns**: <code>string</code> - String that contains a matrix formatted as matrix(a,b,c,d,e,f)
 
 | Param | Description |
 | --- | --- |
@@ -234,8 +234,8 @@ Serialize the matrix to a string that can be used with CSS or SVG
 ## fromString(string) ⇒ <code>Object</code>
 Parse a string matrix formatted as matrix(a,b,c,d,e,f)
 
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix  
+**Kind**: global function
+**Returns**: <code>Object</code> - Affine matrix
 
 | Param | Description |
 | --- | --- |
@@ -246,11 +246,11 @@ Parse a string matrix formatted as matrix(a,b,c,d,e,f)
 ## isAffineMatrix(object) ⇒ <code>boolean</code>
 Check if the object contain an affine matrix
 
-**Kind**: global function  
+**Kind**: global function
 
 | Param |
 | --- |
-| object | 
+| object |
 
 <a name="fromObject"></a>
 
@@ -258,10 +258,10 @@ Check if the object contain an affine matrix
 Extract an affine matrix from an object that contains a,b,c,d,e,f keys
 Each value could be a float or a string that contains a float
 
-**Kind**: global function  
-**Returns**: <code>Object</code> - }  
+**Kind**: global function
+**Returns**: <code>Object</code> - }
 
 | Param |
 | --- |
-| object | 
+| object |
 
