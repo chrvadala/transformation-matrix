@@ -16,14 +16,14 @@ Isomorphic 2d transformation matrix functions written in ES6 syntax. Tree shakin
 ```
 ## Usage example (ES6)
 ```sh
-import {scale, rotate, translate, transform} from 'transformation-matrix';
+import {scale, rotate, translate, transform, applyToPoint} from 'transformation-matrix';
 
 let matrix = transform(
-  translate(40,40),
-  rotate(Math.PI/2),
-  scale(2, 4)
+translate(40,40),
+rotate(Math.PI/2),
+scale(2, 4)
 );
-let point = applyToPoint(matrix, {42, 42});
+let point = applyToPoint(matrix, {x: 42, y: 42});
 ```
 # Reference
 {{>main-index~}}
