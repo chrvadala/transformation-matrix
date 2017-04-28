@@ -17,14 +17,14 @@ Isomorphic 2d transformation matrix functions written in ES6 syntax. Tree shakin
 ```
 ## Usage example (ES6)
 ```sh
-import {scale, rotate, translate, transform} from 'transformation-matrix';
+import {scale, rotate, translate, transform, applyToPoint} from 'transformation-matrix';
 
 let matrix = transform(
-  translate(40,40),
-  rotate(Math.PI/2),
-  scale(2, 4)
+translate(40,40),
+rotate(Math.PI/2),
+scale(2, 4)
 );
-let point = applyToPoint(matrix, {42, 42});
+let point = applyToPoint(matrix, {x: 42, y: 42});
 ```
 # Reference
 ## Functions
@@ -61,6 +61,9 @@ Each value could be a float or a string that contains a float</p>
 <dt><a href="#scale">scale(sx, sy)</a> ⇒ <code>Object</code></dt>
 <dd><p>Calculate a scaling matrix</p>
 </dd>
+<dt><a href="#shear">shear(shx, shy)</a> ⇒ <code>Object</code></dt>
+<dd><p>Calculate a shear matrix</p>
+</dd>
 <dt><a href="#toCSS">toCSS(matrix)</a> ⇒ <code>string</code></dt>
 <dd><p>Serialize the matrix to a string that can be used with CSS or SVG</p>
 </dd>
@@ -82,6 +85,7 @@ Each value could be a float or a string that contains a float</p>
 - **0.0** - Preview version
 - **1.0** - First public version
 - **1.1** - Split lib into different files
+- **1.2** - Adds shear operation
 
 ## Contributing
 Your contributions (issues and pull request) are very appreciated!
@@ -210,6 +214,19 @@ Calculate a scaling matrix
 | --- | --- |
 | sx | Scaling on axis x |
 | sy | Scaling on axis y |
+
+<a name="shear"></a>
+
+## shear(shx, shy) ⇒ <code>Object</code>
+Calculate a shear matrix
+
+**Kind**: global function  
+**Returns**: <code>Object</code> - Affine matrix  
+
+| Param | Description |
+| --- | --- |
+| shx | Shear on axis x |
+| shy | Shear on axis y |
 
 <a name="toCSS"></a>
 
