@@ -12,6 +12,7 @@ describe('index', () => {
     assert.typeOf(lib.applyToPoints, 'function')
     assert.typeOf(lib.translate, 'function')
     assert.typeOf(lib.scale, 'function')
+    assert.typeOf(lib.shear, 'function')
     assert.typeOf(lib.rotate, 'function')
     assert.typeOf(lib.rotateDEG, 'function')
     assert.typeOf(lib.inverse, 'function')
