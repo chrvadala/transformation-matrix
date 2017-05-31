@@ -3,7 +3,6 @@ logs
 *.log
 .idea
 node_modules
-es
-lib
+build-*
 .nyc_output
 coverage

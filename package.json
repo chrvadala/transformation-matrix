@@ -2,26 +2,28 @@
   "name": "transformation-matrix",
   "version": "1.2.0",
   "description": "2d transformation matrix functions written in ES6 syntax. Tree shaking ready!",
-  "main": "./lib/index.js",
-  "module": "es/index.js",
-  "jsnext:main": "es/index.js",
+  "main": "./build-commonjs/index.js",
+  "module": "./build-es/index.js",
+  "jsnext:main": "./build-es/index.js",
+  "browser": "./build-umd/transformation-matrix.min.js",
   "files": [
-    "es",
-    "lib",
+    "*.md",
+    "build-*",
     "src",
-    "tests",
-    ".babelrc"
+    "tests"
   ],
   "scripts": {
     "coverage": "cross-env BABEL_ENV=commonjs nyc --require babel-core/register mocha ./tests/*.spec.js",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "test": "cross-env BABEL_ENV=commonjs mocha --compilers js:babel-register ./tests/*.spec.js",
-    "build-commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
-    "build-es": "cross-env BABEL_ENV=es babel src --out-dir es",
+    "build-commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir build-commonjs",
+    "build-es": "cross-env BABEL_ENV=es babel src --out-dir build-es",
     "build-docs": "jsdoc2md --partial misc/disclaimer.hbs --template misc/README.hbs src/*.js > README.md",
-    "clean": "del lib es",
+    "build-umd-min": "cross-env BABEL_ENV=es webpack --config ./webpack-umd.config.js --env.minimize",
+    "build-umd": "cross-env BABEL_ENV=es webpack --config ./webpack-umd.config.js",
+    "clean": "del build-*",
     "version": "npm-run-all clean test coverage coveralls build add-build-to-vcs",
-    "build": "npm-run-all clean build-commonjs build-es build-docs",
+    "build": "npm-run-all clean build-commonjs build-es build-docs build-umd build-umd-min",
     "add-build-to-vcs": "git add -A README.md"
   },
   "repository": {
@@ -45,7 +47,7 @@
   "homepage": "https://github.com/chrvadala/transformation-matrix#readme",
   "devDependencies": {
     "babel": "^6.23.0",
-    "babel-cli": "^6.23.0",
+    "babel-cli": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.22.0",
     "babel-preset-env": "^1.1.8",
     "babel-preset-es2015": "^6.22.0",
@@ -56,8 +58,11 @@
     "del-cli": "^0.2.1",
     "jsdoc-to-markdown": "^3.0.0",
     "mocha": "^3.2.0",
+    "npm-run-all": "^4.0.2",
     "nyc": "^10.1.2",
-    "npm-run-all": "^4.0.2"
+    "webpack": "^2.6.1"
   },
-  "tonicExampleFilename": "misc/example.js"
+  "dependencies": {
+    "babel-loader": "^7.0.0"
+  }
 }
