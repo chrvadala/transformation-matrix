@@ -12,12 +12,23 @@ Isomorphic 2d transformation matrix functions written in ES6 syntax. Tree shakin
 [![Downloads](https://img.shields.io/npm/dm/transformation-matrix.svg)](https://www.npmjs.com/package/transformation-matrix)
 
 ## Setup
+### NPM
 ```sh
   npm install transformation-matrix
 ```
+### UMD
+```html
+<script src="https://unpkg.com/transformation-matrix@1"></script>
+```
+
+
 ## Usage example (ES6)
-```sh
+```js
+
 import {scale, rotate, translate, transform, applyToPoint} from 'transformation-matrix';
+//or
+let {scale, rotate, translate, transform, applyToPoint} = window.TransformationMatrix;
+
 
 let matrix = transform(
 translate(40,40),
@@ -86,15 +97,16 @@ Each value could be a float or a string that contains a float</p>
 - **1.0** - First public version
 - **1.1** - Split lib into different files
 - **1.2** - Adds shear operation
+- **1.3** - Adds umd support
 
-## Contributing
-Your contributions (issues and pull request) are very appreciated!
+## Some projects using transformation-matrix
+- [**React Planner**](https://github.com/cvdlab/react-planner)
+- [**React SVG Pan Zoom**](https://github.com/chrvadala/react-svg-pan-zoom)
+- [**Others...**](https://libraries.io/npm/transformation-matrix/dependent-repositories)
+- Pull request your project!
 
-## Author
-- [chrvadala](https://github.com/chrvadala)
-
-## License
-MIT
+## Contributors
+- [chrvadala](https://github.com/chrvadala) (author)
 
 # API
 <a name="applyToPoint"></a>
