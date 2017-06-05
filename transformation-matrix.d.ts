@@ -68,7 +68,6 @@ declare module 'transformation-matrix/scale' {
 declare module 'transformation-matrix/shear' {
   /** Calculate a shear matrix */
   export function shear(shx: number, shy: number): Matrix;
-  export default { shear };
 }
 
 declare module 'transformation-matrix/toString' {
