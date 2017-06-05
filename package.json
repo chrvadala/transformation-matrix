@@ -11,7 +11,8 @@
     "*.md",
     "build-*",
     "src",
-    "tests"
+    "tests",
+    "transformation-matrix.d.ts"
   ],
   "scripts": {
     "coverage": "cross-env BABEL_ENV=commonjs nyc --require babel-core/register mocha ./tests/*.spec.js",
