@@ -3,6 +3,7 @@
   "version": "1.3.1",
   "description": "2d transformation matrix functions written in ES6 syntax. Tree shaking ready!",
   "main": "./build-commonjs/index.js",
+  "typings": "transformation-matrix.d.ts",
   "module": "./build-es/index.js",
   "jsnext:main": "./build-es/index.js",
   "browser": "./build-umd/transformation-matrix.min.js",
@@ -10,7 +11,8 @@
     "*.md",
     "build-*",
     "src",
-    "tests"
+    "tests",
+    "transformation-matrix.d.ts"
   ],
   "scripts": {
     "coverage": "cross-env BABEL_ENV=commonjs nyc --require babel-core/register mocha ./tests/*.spec.js",
