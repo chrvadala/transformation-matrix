@@ -98,6 +98,7 @@ Each value could be a float or a string that contains a float</p>
 - **1.1** - Split lib into different files
 - **1.2** - Adds shear operation
 - **1.3** - Adds umd support
+- **1.4** - Adds typescript definitions
 
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
@@ -107,6 +108,7 @@ Each value could be a float or a string that contains a float</p>
 
 ## Contributors
 - [chrvadala](https://github.com/chrvadala) (author)
+- [forabi](https://github.com/forabi) (TypeScript definitions)
 
 # API
 <a name="applyToPoint"></a>
