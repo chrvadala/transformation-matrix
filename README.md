@@ -8,13 +8,17 @@ Isomorphic 2d transformation matrix functions written in ES6 syntax. Tree shakin
 [![Build Status](https://travis-ci.org/chrvadala/transformation-matrix.svg?branch=master)](https://travis-ci.org/chrvadala/transformation-matrix)
 [![Coverage Status](https://coveralls.io/repos/github/chrvadala/transformation-matrix/badge.svg?branch=master)](https://coveralls.io/github/chrvadala/transformation-matrix?branch=master)
 [![npm](https://img.shields.io/npm/v/transformation-matrix.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/transformation-matrix)
-![license-mit](https://img.shields.io/badge/license-MIT-42cd00.svg)
 [![Downloads](https://img.shields.io/npm/dm/transformation-matrix.svg)](https://www.npmjs.com/package/transformation-matrix)
+[![Beerpay](https://beerpay.io/chrvadala/transformation-matrix/badge.svg?style=beer)](https://beerpay.io/chrvadala/transformation-matrix)
 
 ## Setup
 ### NPM
 ```sh
   npm install transformation-matrix
+```
+### YARN
+```sh
+yarn add transformation-matrix
 ```
 ### UMD
 ```html
@@ -37,6 +41,10 @@ scale(2, 4)
 );
 let point = applyToPoint(matrix, {x: 42, y: 42});
 ```
+
+## Live Demo
+available at [http://chrvadala.github.io/transformation-matrix/](http://chrvadala.github.io/transformation-matrix/)
+
 # Reference
 ## Functions
 
@@ -99,6 +107,7 @@ Each value could be a float or a string that contains a float</p>
 - **1.2** - Adds shear operation
 - **1.3** - Adds umd support
 - **1.4** - Adds typescript definitions
+- **1.5** - Upgrade deps
 
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
