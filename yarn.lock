@@ -3249,6 +3249,10 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+pegjs-dev@^0.10.0-164:
+  version "0.10.0-164"
+  resolved "https://registry.yarnpkg.com/pegjs-dev/-/pegjs-dev-0.10.0-164.tgz#1f7e7954ea976b17c89549c5f92acf7ef68c188b"
+
 performance-now@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-0.2.0.tgz#33ef30c5c77d4ea21c5a53869d91b56d8f2555e5"
