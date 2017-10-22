@@ -8,47 +8,39 @@ import {fromObject} from "./fromObject";
 /**
  * Parse SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute
  * @param transformString string
- * @param generateMatrix boolean
+ * @param generateMatrices boolean
  * @return Object
  */
-export function fromTransformAttribute(transformString, generateMatrix = true) {
-  let descriptor = parse(transformString)
-
-  let matrix = generateMatrix ? convertDescriptorToMatrix(descriptor) : undefined
-
-  return {descriptor, matrix}
+export function fromTransformAttribute(transformString, generateMatrices = true) {
+  let descriptors = parse(transformString)
+  let matrices = generateMatrices ? descriptors.map(convertMatrixDescriptorToMatrix) : undefined
+  return {descriptors, matrices}
 }
 
-function convertDescriptorToMatrix(descriptor) {
+function convertMatrixDescriptorToMatrix(matrixDescriptor) {
 
-  let converter = type => {
-    let params = descriptor[type]
-    let hasParam = key => params.hasOwnProperty(key)
+  let hasParam = key => matrixDescriptor.hasOwnProperty(key)
 
-    switch (type) {
-      //TODO support more case
+  let {t: type, ...params} = matrixDescriptor;
+  switch (type) {
+    case 'translate':
+      if (hasParam('ty'))
+        return translate(params.tx, params.ty)
 
-      case 'translate':
-        if (hasParam('ty'))
-          return translate(params.tx, params.ty)
+      return translate(params.tx, params.tx)
 
-        return translate(params.tx, params.tx)
+    case 'rotate':
+      if (hasParam('cx') && hasParam('cy'))
+        return transform(translate(-params.cx, -params.cy), rotate(params.angle), rotate(params.cx), rotate(params.cy))
 
-      case 'rotate':
-        if (hasParam('cx') && hasParam('cy'))
-          return transform(translate(-params.cx, -params.cy), rotate(params.angle), rotate(params.cx), rotate(params.cy))
+      return rotate(params.angle)
 
-        return rotate(params.angle)
+    case 'matrix':
+      return fromObject(params)
 
-      case 'matrix':
-        return fromObject(params)
+    //TODO support more cases
 
-      default:
-        throw new Error('Unsupported descriptor')
-    }
+    default:
+      throw new Error('Unsupported descriptor')
   }
-
-  let keys = Object.keys(descriptor)
-
-  return keys.length === 1 ? converter(keys[0]) : keys.map(converter)
 }

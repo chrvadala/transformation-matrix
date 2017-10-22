@@ -7,7 +7,7 @@ transformList
   = wsp* ts:transforms? wsp* { return ts; }
 
 transforms
-  = t:transform commaWsp+ ts:transforms { for (var k in t) ts[k] = t[k]; return ts; }
+  = t:transform commaWsp+ ts:transforms { return t.concat(ts) }
     / transform
 
 transform
@@ -25,42 +25,42 @@ matrix
        c:number commaWsp
        d:number commaWsp
        e:number commaWsp
-       f:number wsp* ")" { 
-      return {matrix: {a: a, b: b, c: c, d: d, e: e, f: f}};
+       f:number wsp* ")" {
+      return [{t: 'matrix', a: a, b: b, c: c, d: d, e: e, f: f}];
     }
 
 translate
   = "translate" wsp* "(" wsp* tx:number ty:commaWspNumber? wsp* ")" {
-      var t = {tx: tx};
+      var t = {t: 'translate', tx: tx};
       if (ty) t.ty = ty;
-      return {translate: t};
+      return [t];
     }
 
 scale
   = "scale" wsp* "(" wsp* sx:number sy:commaWspNumber? wsp* ")" {
-      var s = {sx: sx};
+      var s = {t:'scale', sx: sx};
       if (sy) s.sy = sy;
-      return {scale: s};
+      return [s];
     }
 
 rotate
   = "rotate" wsp* "(" wsp* angle:number c:commaWspTwoNumbers? wsp* ")" {
-      var r = {angle: angle};
+      var r = {t:'rotate', angle: angle};
       if (c) {
         r.cx = c[0];
         r.cy = c[1];
       }
-      return {rotate: r};
+      return [r];
     }
 
 skewX
   = "skewX" wsp* "(" wsp* angle:number wsp* ")" {
-      return {skewX: {angle: angle}};
+      return [{t: 'skewX', angle: angle}];
     }
 
 skewY
   = "skewY" wsp* "(" wsp* angle:number wsp* ")" {
-      return {skewY: {angle: angle}};
+      return [{t: 'skewY', angle: angle}];
     }
 
 number

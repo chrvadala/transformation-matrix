@@ -131,49 +131,49 @@ function peg$parse(input, options) {
   var peg$startRuleFunction = peg$parsetransformList;
 
   var peg$c0 = function(ts) { return ts; };
-  var peg$c1 = function(t, ts) { for (var k in t) ts[k] = t[k]; return ts; };
+  var peg$c1 = function(t, ts) { return t.concat(ts) };
   var peg$c2 = "matrix";
   var peg$c3 = peg$literalExpectation("matrix", false);
   var peg$c4 = "(";
   var peg$c5 = peg$literalExpectation("(", false);
   var peg$c6 = ")";
   var peg$c7 = peg$literalExpectation(")", false);
-  var peg$c8 = function(a, b, c, d, e, f) { 
-        return {matrix: {a: a, b: b, c: c, d: d, e: e, f: f}};
+  var peg$c8 = function(a, b, c, d, e, f) {
+        return [{t: 'matrix', a: a, b: b, c: c, d: d, e: e, f: f}];
       };
   var peg$c9 = "translate";
   var peg$c10 = peg$literalExpectation("translate", false);
   var peg$c11 = function(tx, ty) {
-        var t = {tx: tx};
+        var t = {t: 'translate', tx: tx};
         if (ty) t.ty = ty;
-        return {translate: t};
+        return [t];
       };
   var peg$c12 = "scale";
   var peg$c13 = peg$literalExpectation("scale", false);
   var peg$c14 = function(sx, sy) {
-        var s = {sx: sx};
+        var s = {t:'scale', sx: sx};
         if (sy) s.sy = sy;
-        return {scale: s};
+        return [s];
       };
   var peg$c15 = "rotate";
   var peg$c16 = peg$literalExpectation("rotate", false);
   var peg$c17 = function(angle, c) {
-        var r = {angle: angle};
+        var r = {t:'rotate', angle: angle};
         if (c) {
           r.cx = c[0];
           r.cy = c[1];
         }
-        return {rotate: r};
+        return [r];
       };
   var peg$c18 = "skewX";
   var peg$c19 = peg$literalExpectation("skewX", false);
   var peg$c20 = function(angle) {
-        return {skewX: {angle: angle}};
+        return [{t: 'skewX', angle: angle}];
       };
   var peg$c21 = "skewY";
   var peg$c22 = peg$literalExpectation("skewY", false);
   var peg$c23 = function(angle) {
-        return {skewY: {angle: angle}};
+        return [{t: 'skewY', angle: angle}];
       };
   var peg$c24 = function(f) { return parseFloat(f.join("")); };
   var peg$c25 = function(i) { return parseInt(i.join("")); };
