@@ -23,11 +23,18 @@ function convertMatrixDescriptorToMatrix(matrixDescriptor) {
 
   let {t: type, ...params} = matrixDescriptor;
   switch (type) {
+    case 'matrix':
+      return fromObject(params)
+
     case 'translate':
       if (hasParam('ty'))
         return translate(params.tx, params.ty)
 
-      return translate(params.tx, params.tx)
+      return translate(params.tx, 0)
+
+    case 'scale':
+      //TODO
+      return;
 
     case 'rotate':
       if (hasParam('cx') && hasParam('cy'))
@@ -35,10 +42,13 @@ function convertMatrixDescriptorToMatrix(matrixDescriptor) {
 
       return rotate(params.angle)
 
-    case 'matrix':
-      return fromObject(params)
+    case 'skewX':
+      //TODO
+      return;
 
-    //TODO support more cases
+    case 'skewY':
+      //TODO
+      return;
 
     default:
       throw new Error('Unsupported descriptor')
