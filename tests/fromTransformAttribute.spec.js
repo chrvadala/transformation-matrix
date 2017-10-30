@@ -35,7 +35,7 @@ describe('fromTransformAttribute', () => {
       )
     })
 
-    it('should parse scale(<sx>)', () => {
+    it.skip('should parse scale(<sx>)', () => {
       //TODO
     })
 
