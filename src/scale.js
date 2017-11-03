@@ -3,7 +3,7 @@ import {isUndefined} from "./utils";
 /**
  * Calculate a scaling matrix
  * @param sx Scaling on axis x
- * @param sy Scaling on axis y (default sx)
+ * @param [sy = sx] Scaling on axis y (default sx)
  * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
  */
 export function scale(sx, sy = undefined) {

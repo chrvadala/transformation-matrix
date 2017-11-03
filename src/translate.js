@@ -1,7 +1,7 @@
 /**
  * Calculate a translate matrix
  * @param tx Translation on axis x
- * @param ty Translation on axis y (default 0)
+ * @param [ty = 0] Translation on axis y (default 0)
  * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
  */
 export function translate(tx, ty = 0) {

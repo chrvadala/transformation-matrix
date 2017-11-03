@@ -77,7 +77,7 @@ Each value could be a float or a string that contains a float</p>
 <dt><a href="#rotateDEG">rotateDEG(angle, [cx], [cy])</a> ⇒ <code>Object</code></dt>
 <dd><p>Calculate a rotation matrix with a DEG angle</p>
 </dd>
-<dt><a href="#scale">scale(sx, sy)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#scale">scale(sx, [sy])</a> ⇒ <code>Object</code></dt>
 <dd><p>Calculate a scaling matrix</p>
 </dd>
 <dt><a href="#shear">shear(shx, shy)</a> ⇒ <code>Object</code></dt>
@@ -95,7 +95,7 @@ Each value could be a float or a string that contains a float</p>
 <dt><a href="#transform">transform(...matrices)</a> ⇒ <code>Object</code></dt>
 <dd><p>Merge multiple matrices into one</p>
 </dd>
-<dt><a href="#translate">translate(tx, ty)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#translate">translate(tx, [ty])</a> ⇒ <code>Object</code></dt>
 <dd><p>Calculate a translate matrix</p>
 </dd>
 </dl>
@@ -232,16 +232,16 @@ Calculate a rotation matrix with a DEG angle
 
 <a name="scale"></a>
 
-## scale(sx, sy) ⇒ <code>Object</code>
+## scale(sx, [sy]) ⇒ <code>Object</code>
 Calculate a scaling matrix
 
 **Kind**: global function  
 **Returns**: <code>Object</code> - Affine matrix  
 
-| Param | Description |
-| --- | --- |
-| sx | Scaling on axis x |
-| sy | Scaling on axis y (default sx) |
+| Param | Default | Description |
+| --- | --- | --- |
+| sx |  | Scaling on axis x |
+| [sy] | <code>sx</code> | Scaling on axis y (default sx) |
 
 <a name="shear"></a>
 
@@ -306,14 +306,14 @@ Merge multiple matrices into one
 
 <a name="translate"></a>
 
-## translate(tx, ty) ⇒ <code>Object</code>
+## translate(tx, [ty]) ⇒ <code>Object</code>
 Calculate a translate matrix
 
 **Kind**: global function  
 **Returns**: <code>Object</code> - Affine matrix  
 
-| Param | Description |
-| --- | --- |
-| tx | Translation on axis x |
-| ty | Translation on axis y (default 0) |
+| Param | Default | Description |
+| --- | --- | --- |
+| tx |  | Translation on axis x |
+| [ty] | <code>0</code> | Translation on axis y (default 0) |
 
