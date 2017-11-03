@@ -107,7 +107,7 @@ Each value could be a float or a string that contains a float</p>
 - **1.3** - Adds umd support
 - **1.4** - Adds typescript definitions
 - **1.5** - Upgrade deps
-- **1.6** - Adds optional parameter support on translate(tx), scale(sx), rotate(angle, cx, cy)
+- **1.6** - Adds optional parameter support on `translate(tx)`, `scale(sx)`, `rotate(angle, cx, cy)`
 
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
