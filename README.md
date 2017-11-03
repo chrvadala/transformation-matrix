@@ -112,7 +112,7 @@ Each value could be a float or a string that contains a float</p>
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
 - [**React SVG Pan Zoom**](https://github.com/chrvadala/react-svg-pan-zoom)
-- [**Others...**](https://libraries.io/npm/transformation-matrix/dependent-repositories)
+- [**Others...**](https://github.com/chrvadala/transformation-matrix/network/dependents)
 - Pull request your project!
 
 ## Contributors
