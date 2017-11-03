@@ -71,10 +71,10 @@ Each value could be a float or a string that contains a float</p>
 <dt><a href="#isAffineMatrix">isAffineMatrix(object)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Check if the object contain an affine matrix</p>
 </dd>
-<dt><a href="#rotate">rotate(angle)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#rotate">rotate(angle, [cx], [cy])</a> ⇒ <code>Object</code></dt>
 <dd><p>Calculate a rotation matrix</p>
 </dd>
-<dt><a href="#rotateDEG">rotateDEG(angle)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#rotateDEG">rotateDEG(angle, [cx], [cy])</a> ⇒ <code>Object</code></dt>
 <dd><p>Calculate a rotation matrix with a DEG angle</p>
 </dd>
 <dt><a href="#scale">scale(sx, sy)</a> ⇒ <code>Object</code></dt>
@@ -108,6 +108,7 @@ Each value could be a float or a string that contains a float</p>
 - **1.3** - Adds umd support
 - **1.4** - Adds typescript definitions
 - **1.5** - Upgrade deps
+- **1.6** - Adds optional parameter support on translate(tx), scale(sx), rotate(angle, cx, cy)
 
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
@@ -203,7 +204,7 @@ Check if the object contain an affine matrix
 
 <a name="rotate"></a>
 
-## rotate(angle) ⇒ <code>Object</code>
+## rotate(angle, [cx], [cy]) ⇒ <code>Object</code>
 Calculate a rotation matrix
 
 **Kind**: global function  
@@ -212,10 +213,12 @@ Calculate a rotation matrix
 | Param | Description |
 | --- | --- |
 | angle | Angle in radians |
+| [cx] | If (cx,cy) are supplied the rotate is about this point |
+| [cy] | If (cx,cy) are supplied the rotate is about this point |
 
 <a name="rotateDEG"></a>
 
-## rotateDEG(angle) ⇒ <code>Object</code>
+## rotateDEG(angle, [cx], [cy]) ⇒ <code>Object</code>
 Calculate a rotation matrix with a DEG angle
 
 **Kind**: global function  
@@ -224,6 +227,8 @@ Calculate a rotation matrix with a DEG angle
 | Param | Description |
 | --- | --- |
 | angle | Angle in degree |
+| [cx] | If (cx,cy) are supplied the rotate is about this point |
+| [cy] | If (cx,cy) are supplied the rotate is about this point |
 
 <a name="scale"></a>
 
@@ -236,7 +241,7 @@ Calculate a scaling matrix
 | Param | Description |
 | --- | --- |
 | sx | Scaling on axis x |
-| sy | Scaling on axis y |
+| sy | Scaling on axis y (default sx) |
 
 <a name="shear"></a>
 
@@ -310,5 +315,5 @@ Calculate a translate matrix
 | Param | Description |
 | --- | --- |
 | tx | Translation on axis x |
-| ty | Translation on axis y |
+| ty | Translation on axis y (default 0) |
 
