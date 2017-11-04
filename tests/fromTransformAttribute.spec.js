@@ -10,7 +10,7 @@ describe('fromTransformAttribute', () => {
       assert.deepEqual(
         fromTransformAttribute('matrix(1.1,2.2,3.3,4.4,5.5,6.6)'),
         {
-          descriptors: [{t: 'matrix', a: 1.1, b: 2.2, c: 3.3, d: 4.4, e: 5.5, f: 6.6}],
+          descriptors: [{type: 'matrix', a: 1.1, b: 2.2, c: 3.3, d: 4.4, e: 5.5, f: 6.6}],
           matrices: [{a: 1.1, b: 2.2, c: 3.3, d: 4.4, e: 5.5, f: 6.6}]
         }
       )
@@ -20,7 +20,7 @@ describe('fromTransformAttribute', () => {
       assert.deepEqual(
         fromTransformAttribute('translate(1.1)'),
         {
-          descriptors: [{t: 'translate', tx: 1.1}],
+          descriptors: [{type: 'translate', tx: 1.1}],
           matrices: [translate(1.1, 0)]
         }
       )
@@ -30,7 +30,7 @@ describe('fromTransformAttribute', () => {
       assert.deepEqual(
         fromTransformAttribute('translate(1.1, 2.2)'),
         {
-          descriptors: [{t: 'translate', tx: 1.1, ty: 2.2}],
+          descriptors: [{type: 'translate', tx: 1.1, ty: 2.2}],
           matrices: [translate(1.1, 2.2)]
         }
       )
@@ -40,7 +40,7 @@ describe('fromTransformAttribute', () => {
       assert.deepEqual(
         fromTransformAttribute('scale(1.1)'),
         {
-          descriptors: [{t: 'scale', sx: 1.1,}],
+          descriptors: [{type: 'scale', sx: 1.1,}],
           matrices: [scale(1.1)]
         }
       )
@@ -50,7 +50,7 @@ describe('fromTransformAttribute', () => {
       assert.deepEqual(
         fromTransformAttribute('scale(1.1, 2.2)'),
         {
-          descriptors: [{t: 'scale', sx: 1.1, sy: 2.2}],
+          descriptors: [{type: 'scale', sx: 1.1, sy: 2.2}],
           matrices: [scale(1.1, 2.2)]
         }
       )
@@ -60,7 +60,7 @@ describe('fromTransformAttribute', () => {
       assert.deepEqual(
         fromTransformAttribute('rotate(45)'),
         {
-          descriptors: [{t: 'rotate', angle: 45}],
+          descriptors: [{type: 'rotate', angle: 45}],
           matrices: [rotateDEG(45)]
         }
       )
@@ -70,7 +70,7 @@ describe('fromTransformAttribute', () => {
       assert.deepEqual(
         fromTransformAttribute('rotate(45, 100, 200)'),
         {
-          descriptors: [{t: 'rotate', angle: 45, cx: 100, cy: 200}],
+          descriptors: [{type: 'rotate', angle: 45, cx: 100, cy: 200}],
           matrices: [rotateDEG(45, 100, 200)]
         }
       )
@@ -92,9 +92,9 @@ describe('fromTransformAttribute', () => {
         fromTransformAttribute("translate(1,2) translate(3,4) translate(5,6)"),
         {
           descriptors: [
-            {t: "translate", tx: 1, ty: 2},
-            {t: "translate", tx: 3, ty: 4},
-            {t: "translate", tx: 5, ty: 6},
+            {type: "translate", tx: 1, ty: 2},
+            {type: "translate", tx: 3, ty: 4},
+            {type: "translate", tx: 5, ty: 6},
           ],
           matrices: [
             translate(1, 2),
@@ -110,11 +110,11 @@ describe('fromTransformAttribute', () => {
         fromTransformAttribute("translate(1,-1) matrix(6,5,4,3,2,1), translate(1,-1) translate(1,-1), translate(1,-1)"),
         {
           descriptors: [
-            {t: "translate", tx: 1, ty: -1},
-            {t: "matrix", a: 6, b: 5, c: 4, d: 3, e: 2, f: 1},
-            {t: "translate", tx: 1, ty: -1},
-            {t: "translate", tx: 1, ty: -1},
-            {t: "translate", tx: 1, ty: -1},
+            {type: "translate", tx: 1, ty: -1},
+            {type: "matrix", a: 6, b: 5, c: 4, d: 3, e: 2, f: 1},
+            {type: "translate", tx: 1, ty: -1},
+            {type: "translate", tx: 1, ty: -1},
+            {type: "translate", tx: 1, ty: -1},
           ],
           matrices: [
             translate(1, -1),

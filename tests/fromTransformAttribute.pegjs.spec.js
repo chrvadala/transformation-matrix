@@ -8,37 +8,37 @@ describe('fromTransformAttribute.pegjs', () => {
     it('should parse single matrices', () => {
       assert.deepEqual(
         parse("translate(1.6,65.44)"),
-        [{t: 'translate', tx: 1.6, ty: 65.44}]
+        [{type: 'translate', tx: 1.6, ty: 65.44}]
       )
 
       assert.deepEqual(
         parse("translate(777)"),
-        [{t: 'translate', tx: 777}]
+        [{type: 'translate', tx: 777}]
       )
 
       assert.deepEqual(
         parse("rotate(51)"),
-        [{t: 'rotate', angle: 51}]
+        [{type: 'rotate', angle: 51}]
       )
 
       assert.deepEqual(
         parse("rotate(46 51, 18.57)"),
-        [{t: 'rotate', angle: 46, cx: 51, cy: 18.57}]
+        [{type: 'rotate', angle: 46, cx: 51, cy: 18.57}]
       )
 
       assert.deepEqual(
         parse("skewX(19.08)"),
-        [{t: 'skewX', angle: 19.08}]
+        [{type: 'skewX', angle: 19.08}]
       )
 
       assert.deepEqual(
         parse("skewY(56.11)"),
-        [{t: 'skewY', angle: 56.11}]
+        [{type: 'skewY', angle: 56.11}]
       )
 
       assert.deepEqual(
         parse("matrix(1 2 3,4,5 6)"),
-        [{t: 'matrix', a: 1, b: 2, c: 3, d: 4, e: 5, f: 6}])
+        [{type: 'matrix', a: 1, b: 2, c: 3, d: 4, e: 5, f: 6}])
     });
 
     it('should throw exception', () => {
@@ -54,9 +54,9 @@ describe('fromTransformAttribute.pegjs', () => {
       assert.deepEqual(
         parse("translate(1,2) translate(3,4) translate(5,6)"),
         [
-          {t: "translate", tx: 1, ty: 2},
-          {t: "translate", tx: 3, ty: 4},
-          {t: "translate", tx: 5, ty: 6},
+          {type: "translate", tx: 1, ty: 2},
+          {type: "translate", tx: 3, ty: 4},
+          {type: "translate", tx: 5, ty: 6},
         ]
       )
     })
@@ -65,11 +65,11 @@ describe('fromTransformAttribute.pegjs', () => {
       assert.deepEqual(
         parse("translate(1,-1),rotate(2 0.2 0.5) skewX(3.3)  skewY(4),matrix(6,5,4,3,2,1)"),
         [
-          {t: "translate", tx: 1, ty: -1},
-          {t: "rotate", angle: 2, cx: 0.2, cy: 0.5},
-          {t: "skewX", angle: 3.3},
-          {t: "skewY", angle: 4},
-          {t: "matrix", a: 6, b: 5, c: 4, d: 3, e: 2, f: 1}
+          {type: "translate", tx: 1, ty: -1},
+          {type: "rotate", angle: 2, cx: 0.2, cy: 0.5},
+          {type: "skewX", angle: 3.3},
+          {type: "skewY", angle: 4},
+          {type: "matrix", a: 6, b: 5, c: 4, d: 3, e: 2, f: 1}
         ]
       )
     })

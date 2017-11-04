@@ -21,7 +21,7 @@ function convertMatrixDescriptorToMatrix(matrixDescriptor) {
 
   let hasParam = key => matrixDescriptor.hasOwnProperty(key)
 
-  let {t: type, ...params} = matrixDescriptor;
+  let {type, ...params} = matrixDescriptor;
   switch (type) {
     case 'matrix':
       return fromObject(params)
