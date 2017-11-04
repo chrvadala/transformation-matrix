@@ -18,7 +18,7 @@
   "scripts": {
     "coverage": "cross-env BABEL_ENV=commonjs nyc --require babel-core/register mocha ./tests/*.spec.js",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "test": "cross-env BABEL_ENV=commonjs mocha --compilers js:babel-register ./tests/*.spec.js",
+    "test": "cross-env BABEL_ENV=commonjs mocha --require babel-register ./tests/*.spec.js",
     "build-commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir build-commonjs",
     "build-es": "cross-env BABEL_ENV=es babel src --out-dir build-es",
     "build-docs": "jsdoc2md --partial misc/disclaimer.hbs --template misc/README.hbs src/*.js > README.md",
