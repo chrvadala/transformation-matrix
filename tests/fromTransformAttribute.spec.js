@@ -1,7 +1,7 @@
 import {fromTransformAttribute} from '../src/fromTransformAttribute';
 import {assert} from 'chai'
 import {translate} from "../src/translate";
-import {rotate} from "../src/rotate";
+import {rotateDEG} from "../src/rotate";
 
 describe('fromTransformAttribute', () => {
   describe('atomic transformations', () => {
@@ -45,16 +45,22 @@ describe('fromTransformAttribute', () => {
 
     it('should parse rotate(<rotate-angle>)', () => {
       assert.deepEqual(
-        fromTransformAttribute('rotate(1.1)'),
+        fromTransformAttribute('rotate(45)'),
         {
-          descriptors: [{t: 'rotate', angle: 1.1}],
-          matrices: [rotate(1.1)]
+          descriptors: [{t: 'rotate', angle: 45}],
+          matrices: [rotateDEG(45)]
         }
       )
     })
 
-    it.skip('should parse rotate(<rotate-angle> <cx> <cy>)', () => {
-      //TODO
+    it('should parse rotate(<rotate-angle> <cx> <cy>)', () => {
+      assert.deepEqual(
+        fromTransformAttribute('rotate(45, 100, 200)'),
+        {
+          descriptors: [{t: 'rotate', angle: 45, cx: 100, cy: 200}],
+          matrices: [rotateDEG(45, 100, 200)]
+        }
+      )
     })
 
     it.skip('should parse skewX(<skew-angle>)', () => {
