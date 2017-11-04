@@ -2,6 +2,7 @@ import {fromTransformAttribute} from '../src/fromTransformAttribute';
 import {assert} from 'chai'
 import {translate} from "../src/translate";
 import {rotateDEG} from "../src/rotate";
+import {scale} from "../src/scale";
 
 describe('fromTransformAttribute', () => {
   describe('atomic transformations', () => {
@@ -35,12 +36,24 @@ describe('fromTransformAttribute', () => {
       )
     })
 
-    it.skip('should parse scale(<sx>)', () => {
-      //TODO
+    it('should parse scale(<sx>)', () => {
+      assert.deepEqual(
+        fromTransformAttribute('scale(1.1)'),
+        {
+          descriptors: [{t: 'scale', sx: 1.1,}],
+          matrices: [scale(1.1)]
+        }
+      )
     })
 
-    it.skip('should parse scale(<sx> <sy>)', () => {
-      //TODO
+    it('should parse scale(<sx> <sy>)', () => {
+      assert.deepEqual(
+        fromTransformAttribute('scale(1.1, 2.2)'),
+        {
+          descriptors: [{t: 'scale', sx: 1.1, sy: 2.2}],
+          matrices: [scale(1.1, 2.2)]
+        }
+      )
     })
 
     it('should parse rotate(<rotate-angle>)', () => {
