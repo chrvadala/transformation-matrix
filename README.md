@@ -3,7 +3,7 @@
 
 
 # transformation-matrix
-Isomorphic 2d transformation matrix functions written in ES6 syntax. Tree shaking ready!
+Javascript isomorphic 2D affine transformations written in ES6 syntax. Manipulate transformation matrices with this totally tested library!
 
 [![Build Status](https://travis-ci.org/chrvadala/transformation-matrix.svg?branch=master)](https://travis-ci.org/chrvadala/transformation-matrix)
 [![Coverage Status](https://coveralls.io/repos/github/chrvadala/transformation-matrix/badge.svg?branch=master)](https://coveralls.io/github/chrvadala/transformation-matrix?branch=master)
@@ -11,27 +11,11 @@ Isomorphic 2d transformation matrix functions written in ES6 syntax. Tree shakin
 [![Downloads](https://img.shields.io/npm/dm/transformation-matrix.svg)](https://www.npmjs.com/package/transformation-matrix)
 [![Beerpay](https://beerpay.io/chrvadala/transformation-matrix/badge.svg?style=beer)](https://beerpay.io/chrvadala/transformation-matrix)
 
-## Setup
-### NPM
-```sh
-  npm install transformation-matrix
-```
-### YARN
-```sh
-yarn add transformation-matrix
-```
-### UMD
-```html
-<script src="https://unpkg.com/transformation-matrix@1"></script>
-```
-
-
 ## Usage example (ES6)
 ```js
-
 import {scale, rotate, translate, transform, applyToPoint} from 'transformation-matrix';
-//or
 let {scale, rotate, translate, transform, applyToPoint} = window.TransformationMatrix;
+let {scale, rotate, translate, transform, applyToPoint} = require('transformation-matrix')
 
 let matrix = transform(
   translate(40,40),
@@ -39,6 +23,16 @@ let matrix = transform(
   scale(2, 4)
 );
 let point = applyToPoint(matrix, {x: 42, y: 42});
+```
+
+## Setup
+```sh
+npm install transformation-matrix
+# or
+yarn add transformation-matrix
+```
+```html
+<script src="https://unpkg.com/transformation-matrix@1"></script>
 ```
 
 ## Live Demo
@@ -331,5 +325,5 @@ Calculate a translate matrix
 | Param | Default | Description |
 | --- | --- | --- |
 | tx |  | Translation on axis x |
-| [ty] | <code>0</code> | Translation on axis y (default 0) |
+| [ty] | <code>0</code> | Translation on axis y |
 
