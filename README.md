@@ -13,10 +13,9 @@ Javascript isomorphic 2D affine transformations written in ES6 syntax. Manipulat
 
 ## Usage example (ES6)
 ```js
-
 import {scale, rotate, translate, transform, applyToPoint} from 'transformation-matrix';
-//or
 let {scale, rotate, translate, transform, applyToPoint} = window.TransformationMatrix;
+let {scale, rotate, translate, transform, applyToPoint} = require('transformation-matrix')
 
 let matrix = transform(
   translate(40,40),
@@ -33,7 +32,6 @@ npm install transformation-matrix
 yarn add transformation-matrix
 ```
 
-```
 ### UMD
 ```html
 <script src="https://unpkg.com/transformation-matrix@1"></script>
