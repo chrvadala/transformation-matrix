@@ -1,7 +1,16 @@
 language: node_js
+
+os:
+  - linux
+  - osx
+
 node_js:
-  - "node"
+  - "4"
   - "6"
-  - "6.9.5"
-  - "7"
-  - "7.5.0"
+  - "8"
+  - "lts/*"
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
