@@ -31,8 +31,6 @@ npm install transformation-matrix
 # or
 yarn add transformation-matrix
 ```
-
-### UMD
 ```html
 <script src="https://unpkg.com/transformation-matrix@1"></script>
 ```
