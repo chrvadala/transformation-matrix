@@ -7,9 +7,10 @@ import {scale} from "./scale";
 
 /**
  * Parse SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute
+ * Warning: This should be considered BETA until it is released a stable version of pegjs.
  * @param transformString string
  * @param generateMatrices boolean
- * @return Object
+ * @returns {{descriptors: *, matrices: *}} Parsed matrices
  */
 export function fromTransformAttribute(transformString, generateMatrices = true) {
   let descriptors = parse(transformString)

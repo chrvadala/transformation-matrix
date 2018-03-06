@@ -55,8 +55,9 @@ Each value could be a float or a string that contains a float</p>
 <dt><a href="#fromString">fromString(string)</a> ⇒ <code>Object</code></dt>
 <dd><p>Parse a string matrix formatted as matrix(a,b,c,d,e,f)</p>
 </dd>
-<dt><a href="#fromTransformAttribute">fromTransformAttribute(transformString, generateMatrix)</a> ⇒</dt>
-<dd><p>Parse SVG Trasform Attribute <a href="http://www.w3.org/TR/SVG/coords.html#TransformAttribute">http://www.w3.org/TR/SVG/coords.html#TransformAttribute</a></p>
+<dt><a href="#fromTransformAttribute">fromTransformAttribute(transformString, generateMatrices)</a> ⇒ <code>Object</code></dt>
+<dd><p>Parse SVG Trasform Attribute <a href="http://www.w3.org/TR/SVG/coords.html#TransformAttribute">http://www.w3.org/TR/SVG/coords.html#TransformAttribute</a>
+Warning: This should be considered BETA until it is released a stable version of pegjs.</p>
 </dd>
 <dt><a href="#identity">identity()</a> ⇒ <code>Object</code></dt>
 <dd><p>Identity matrix</p>
@@ -171,16 +172,17 @@ Parse a string matrix formatted as matrix(a,b,c,d,e,f)
 
 <a name="fromTransformAttribute"></a>
 
-## fromTransformAttribute(transformString, generateMatrix) ⇒
+## fromTransformAttribute(transformString, generateMatrices) ⇒ <code>Object</code>
 Parse SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute
+Warning: This should be considered BETA until it is released a stable version of pegjs.
 
 **Kind**: global function  
-**Returns**: Object  
+**Returns**: <code>Object</code> - Parsed matrices  
 
 | Param | Description |
 | --- | --- |
 | transformString | string |
-| generateMatrix | boolean |
+| generateMatrices | boolean |
 
 <a name="identity"></a>
 
