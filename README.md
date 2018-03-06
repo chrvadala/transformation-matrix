@@ -55,6 +55,10 @@ Each value could be a float or a string that contains a float</p>
 <dt><a href="#fromString">fromString(string)</a> ⇒ <code>Object</code></dt>
 <dd><p>Parse a string matrix formatted as matrix(a,b,c,d,e,f)</p>
 </dd>
+<dt><a href="#fromTransformAttribute">fromTransformAttribute(transformString, generateMatrices)</a> ⇒ <code>Object</code></dt>
+<dd><p>Parse SVG Trasform Attribute <a href="http://www.w3.org/TR/SVG/coords.html#TransformAttribute">http://www.w3.org/TR/SVG/coords.html#TransformAttribute</a>
+Warning: This should be considered BETA until it is released a stable version of pegjs.</p>
+</dd>
 <dt><a href="#identity">identity()</a> ⇒ <code>Object</code></dt>
 <dd><p>Identity matrix</p>
 </dd>
@@ -112,6 +116,7 @@ Each value could be a float or a string that contains a float</p>
 ## Contributors
 - [chrvadala](https://github.com/chrvadala) (author)
 - [forabi](https://github.com/forabi) (TypeScript definitions)
+- [nidu](https://github.com/nidu) (PEG.js descriptor)
 
 # API
 <a name="applyToPoint"></a>
@@ -164,6 +169,20 @@ Parse a string matrix formatted as matrix(a,b,c,d,e,f)
 | Param | Description |
 | --- | --- |
 | string | String with a matrix |
+
+<a name="fromTransformAttribute"></a>
+
+## fromTransformAttribute(transformString, generateMatrices) ⇒ <code>Object</code>
+Parse SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute
+Warning: This should be considered BETA until it is released a stable version of pegjs.
+
+**Kind**: global function  
+**Returns**: <code>Object</code> - Parsed matrices  
+
+| Param | Description |
+| --- | --- |
+| transformString | string |
+| generateMatrices | boolean |
 
 <a name="identity"></a>
 
