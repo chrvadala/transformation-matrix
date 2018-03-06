@@ -56,7 +56,7 @@ Each value could be a float or a string that contains a float</p>
 <dd><p>Parse a string matrix formatted as matrix(a,b,c,d,e,f)</p>
 </dd>
 <dt><a href="#fromTransformAttribute">fromTransformAttribute(transformString, generateMatrices)</a> ⇒ <code>Object</code></dt>
-<dd><p>Parse SVG Trasform Attribute <a href="http://www.w3.org/TR/SVG/coords.html#TransformAttribute">http://www.w3.org/TR/SVG/coords.html#TransformAttribute</a>
+<dd><p>Parse SVG Trasform Attribute <a href="http://www.w3.org/TR/SVG/coords.html#TransformAttribute">http://www.w3.org/TR/SVG/coords.html#TransformAttribute</a> <br/>
 Warning: This should be considered BETA until it is released a stable version of pegjs.</p>
 </dd>
 <dt><a href="#identity">identity()</a> ⇒ <code>Object</code></dt>
@@ -106,6 +106,7 @@ Warning: This should be considered BETA until it is released a stable version of
 - **1.4** - Adds typescript definitions
 - **1.5** - Upgrade deps
 - **1.6** - Adds optional parameter support on `translate(tx)`, `scale(sx)`, `rotate(angle, cx, cy)`
+- **1.7** - Fixes [#12](https://github.com/chrvadala/transformation-matrix/issues/12), adds `fromTransformAttribute`
 
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
@@ -173,7 +174,7 @@ Parse a string matrix formatted as matrix(a,b,c,d,e,f)
 <a name="fromTransformAttribute"></a>
 
 ## fromTransformAttribute(transformString, generateMatrices) ⇒ <code>Object</code>
-Parse SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute
+Parse SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>
 Warning: This should be considered BETA until it is released a stable version of pegjs.
 
 **Kind**: global function  

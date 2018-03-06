@@ -6,7 +6,7 @@ import {scale} from "./scale";
 
 
 /**
- * Parse SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute
+ * Parse SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>
  * Warning: This should be considered BETA until it is released a stable version of pegjs.
  * @param transformString string
  * @param generateMatrices boolean
