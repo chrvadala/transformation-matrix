@@ -1,11 +1,11 @@
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = function (env) {
 
   let minimize = env && env.hasOwnProperty('minimize');
 
   let config = {
+    mode: 'production',
     entry: {
       TransformationMatrix: path.resolve(__dirname, 'src', 'index.js')
     },
@@ -30,10 +30,9 @@ module.exports = function (env) {
         ]
       }]
     },
-    plugins: [],
+    optimization: {
+      minimize: Boolean(minimize)
+    }
   };
-
-  if (minimize) config.plugins.push(new webpack.optimize.UglifyJsPlugin());
-
   return config;
 };
