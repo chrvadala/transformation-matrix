@@ -106,7 +106,8 @@ Warning: This should be considered BETA until it is released a stable version of
 - **1.4** - Adds typescript definitions
 - **1.5** - Upgrade deps
 - **1.6** - Adds optional parameter support on `translate(tx)`, `scale(sx)`, `rotate(angle, cx, cy)`
-- **1.7** - Fixes [#12](https://github.com/chrvadala/transformation-matrix/issues/12), adds `fromTransformAttribute`
+- **1.7** - Upgrade deps
+- **1.8** - Fixes [#12](https://github.com/chrvadala/transformation-matrix/issues/12), Adds `fromTransformAttribute`
 
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
