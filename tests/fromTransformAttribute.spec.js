@@ -96,6 +96,12 @@ describe('fromTransformAttribute', () => {
         }
       )
     })
+
+    it('should throw exception', () => {
+      assert.throws(() => {
+        fromTransformAttribute('M_A_T_R_I_X(1,2,3,4,5,6)')
+      })
+    })
   })
 
 
