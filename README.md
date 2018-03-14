@@ -55,8 +55,8 @@ Each value could be a float or a string that contains a float</p>
 <dt><a href="#fromString">fromString(string)</a> ⇒ <code>Object</code></dt>
 <dd><p>Parse a string matrix formatted as matrix(a,b,c,d,e,f)</p>
 </dd>
-<dt><a href="#fromTransformAttribute">fromTransformAttribute(transformString, generateMatrices)</a> ⇒ <code>Object</code></dt>
-<dd><p>Parse SVG Trasform Attribute <a href="http://www.w3.org/TR/SVG/coords.html#TransformAttribute">http://www.w3.org/TR/SVG/coords.html#TransformAttribute</a> <br/>
+<dt><a href="#fromTransformAttribute">fromTransformAttribute(transformString)</a> ⇒ <code>Object</code></dt>
+<dd><p>Parser for SVG Trasform Attribute <a href="http://www.w3.org/TR/SVG/coords.html#TransformAttribute">http://www.w3.org/TR/SVG/coords.html#TransformAttribute</a> <br/>
 Warning: This should be considered BETA until it is released a stable version of pegjs.</p>
 </dd>
 <dt><a href="#identity">identity()</a> ⇒ <code>Object</code></dt>
@@ -79,6 +79,12 @@ Warning: This should be considered BETA until it is released a stable version of
 </dd>
 <dt><a href="#shear">shear(shx, shy)</a> ⇒ <code>Object</code></dt>
 <dd><p>Calculate a shear matrix</p>
+</dd>
+<dt><a href="#skew">skew(ax, ay)</a> ⇒ <code>Object</code></dt>
+<dd><p>Calculate a skew matrix</p>
+</dd>
+<dt><a href="#skewDEG">skewDEG(ax, ay)</a> ⇒ <code>Object</code></dt>
+<dd><p>Calculate a skew matrix using DEG angles</p>
 </dd>
 <dt><a href="#toCSS">toCSS(matrix)</a> ⇒ <code>string</code></dt>
 <dd><p>Serialize the matrix to a string that can be used with CSS or SVG</p>
@@ -108,7 +114,7 @@ Warning: This should be considered BETA until it is released a stable version of
 - **1.6** - Adds optional parameter support on `translate(tx)`, `scale(sx)`, `rotate(angle, cx, cy)`
 - **1.7** - Upgrades deps
 - **1.8** - Fixes [#12](https://github.com/chrvadala/transformation-matrix/issues/12), Adds `fromTransformAttribute`, Discontinues node 4 support
-- **1.9** - Adds `skew(ax, ay)` function, Upgrades deps
+- **1.9** - Adds `skew(ax, ay)`, Upgrades deps, Improves `fromTransformAttribute`
 
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
@@ -175,8 +181,8 @@ Parse a string matrix formatted as matrix(a,b,c,d,e,f)
 
 <a name="fromTransformAttribute"></a>
 
-## fromTransformAttribute(transformString, generateMatrices) ⇒ <code>Object</code>
-Parse SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>
+## fromTransformAttribute(transformString) ⇒ <code>Object</code>
+Parser for SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>
 Warning: This should be considered BETA until it is released a stable version of pegjs.
 
 **Kind**: global function  
@@ -185,7 +191,6 @@ Warning: This should be considered BETA until it is released a stable version of
 | Param | Description |
 | --- | --- |
 | transformString | string |
-| generateMatrices | boolean |
 
 <a name="identity"></a>
 
@@ -270,6 +275,32 @@ Calculate a shear matrix
 | --- | --- |
 | shx | Shear on axis x |
 | shy | Shear on axis y |
+
+<a name="skew"></a>
+
+## skew(ax, ay) ⇒ <code>Object</code>
+Calculate a skew matrix
+
+**Kind**: global function  
+**Returns**: <code>Object</code> - Affine matrix  
+
+| Param | Description |
+| --- | --- |
+| ax | Skew on axis x |
+| ay | Skew on axis y |
+
+<a name="skewDEG"></a>
+
+## skewDEG(ax, ay) ⇒ <code>Object</code>
+Calculate a skew matrix using DEG angles
+
+**Kind**: global function  
+**Returns**: <code>Object</code> - Affine matrix  
+
+| Param | Description |
+| --- | --- |
+| ax | Skew on axis x |
+| ay | Skew on axis y |
 
 <a name="toCSS"></a>
 
