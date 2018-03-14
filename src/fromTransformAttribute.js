@@ -52,6 +52,7 @@ function convertMatrixDescriptorToMatrix(matrixDescriptor) {
       return skewDEG(0, params.angle)
 
     default:
+      /* istanbul ignore next */
       throw new Error('Unsupported descriptor')
   }
 }
