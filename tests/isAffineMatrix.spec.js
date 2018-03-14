@@ -25,5 +25,6 @@ describe('isAffineMatrix', () => {
     assert.isFalse(isAffineMatrix(o5));
     assert.isFalse(isAffineMatrix(o6));
     assert.isFalse(isAffineMatrix(o7));
+    assert.isFalse(isAffineMatrix(null))
   })
 });
