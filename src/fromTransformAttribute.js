@@ -3,6 +3,7 @@ import {translate} from './translate'
 import {rotateDEG} from "./rotate";
 import {fromObject} from "./fromObject";
 import {scale} from "./scale";
+import {skewDEG} from "./skew";
 
 
 /**
@@ -34,7 +35,7 @@ function convertMatrixDescriptorToMatrix(matrixDescriptor) {
       return translate(params.tx)
 
     case 'scale':
-      if(hasParam('sy'))
+      if (hasParam('sy'))
         return scale(params.sx, params.sy)
 
       return scale(params.sx)
@@ -46,12 +47,10 @@ function convertMatrixDescriptorToMatrix(matrixDescriptor) {
       return rotateDEG(params.angle)
 
     case 'skewX':
-      //TODO
-      return;
+      return skewDEG(params.angle, 0)
 
     case 'skewY':
-      //TODO
-      return;
+      return skewDEG(0, params.angle)
 
     default:
       throw new Error('Unsupported descriptor')

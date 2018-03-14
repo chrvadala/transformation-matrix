@@ -3,6 +3,7 @@ import {assert} from 'chai'
 import {translate} from "../src/translate";
 import {rotateDEG} from "../src/rotate";
 import {scale} from "../src/scale";
+import {skewDEG} from "../src/skew";
 
 describe('fromTransformAttribute', () => {
   describe('atomic transformations', () => {
@@ -76,12 +77,24 @@ describe('fromTransformAttribute', () => {
       )
     })
 
-    it.skip('should parse skewX(<skew-angle>)', () => {
-      //TODO
+    it('should parse skewX(<skew-angle>)', () => {
+      assert.deepEqual(
+        fromTransformAttribute('skewX(45)'),
+        {
+          descriptors: [{type: 'skewX', angle: 45}],
+          matrices: [skewDEG(45, 0)]
+        }
+      )
     })
 
-    it.skip('should parse skewY(<skew-angle>)', () => {
-      //TODO
+    it('should parse skewY(<skew-angle>)', () => {
+      assert.deepEqual(
+        fromTransformAttribute('skewY(45)'),
+        {
+          descriptors: [{type: 'skewY', angle: 45}],
+          matrices: [skewDEG(0, 45)]
+        }
+      )
     })
 
     it('should throw exception', () => {
