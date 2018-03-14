@@ -1,10 +1,11 @@
+let isNumeric = n => typeof n === 'number' && !isNaN(n) && isFinite(n);
+
 /**
  * Check if the object contain an affine matrix
  * @param object
  * @return {boolean}
  */
 export function isAffineMatrix(object) {
-  let isNumeric = n => typeof n === 'number' && !isNaN(n) && isFinite(n);
   return typeof object === 'object'
     && object.hasOwnProperty('a')
     && isNumeric(object.a)
