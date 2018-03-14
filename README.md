@@ -119,6 +119,8 @@ Warning: This should be considered BETA until it is released a stable version of
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
 - [**React SVG Pan Zoom**](https://github.com/chrvadala/react-svg-pan-zoom)
+- [**ngx-graph**](https://github.com/swimlane/ngx-graph)
+- [**learn-anything**](https://github.com/learn-anything/learn-anything)
 - [**Others...**](https://github.com/chrvadala/transformation-matrix/network/dependents)
 - Pull request your project!
 
