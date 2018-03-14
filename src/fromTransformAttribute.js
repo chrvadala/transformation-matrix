@@ -7,15 +7,14 @@ import {skewDEG} from "./skew";
 
 
 /**
- * Parse SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>
+ * Parser for SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>
  * Warning: This should be considered BETA until it is released a stable version of pegjs.
  * @param transformString string
- * @param generateMatrices boolean
  * @returns {{descriptors: *, matrices: *}} Parsed matrices
  */
-export function fromTransformAttribute(transformString, generateMatrices = true) {
+export function fromTransformAttribute(transformString) {
   let descriptors = parse(transformString)
-  let matrices = generateMatrices ? descriptors.map(convertMatrixDescriptorToMatrix) : undefined
+  let matrices = descriptors.map(convertMatrixDescriptorToMatrix)
   return {descriptors, matrices}
 }
 
