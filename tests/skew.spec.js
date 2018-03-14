@@ -1,5 +1,5 @@
 import {applyToPoint} from '../src/applyToPoint';
-import {skew} from '../src/skew';
+import {skewDEG} from '../src/skew';
 import {assert} from 'chai'
 import {transform} from '../src/transform'
 
@@ -9,7 +9,7 @@ describe('skew', () => {
   it('should return a skew matrix', () => {
     //example https://msdn.microsoft.com/en-us/library/system.windows.media.matrix.skew(v=vs.110).aspx#Anchor_1
     let m = {a: 5, b: 10, c: 15, d: 20, e: 25, f: 30}
-    let skewMatrix = skew(45, 180);
+    let skewMatrix = skewDEG(45, 180);
 
     let skewedMatrix = transform(skewMatrix, m)
 
@@ -24,7 +24,7 @@ describe('skew', () => {
 
   it('should transform a point on X axis', () => {
     const point = {x: 5, y: 4}
-    const pointI = applyToPoint(skew(10, 0), point)
+    const pointI = applyToPoint(skewDEG(10, 0), point)
     //https://jsfiddle.net/t1yLa3ed/1/
     assert.approximately(pointI.x, 5.70530792283386, precision)
     assert.approximately(pointI.y, 4, precision)
@@ -32,7 +32,7 @@ describe('skew', () => {
 
   it('should transform a point on Y axis', () => {
     const point = {x: 5, y: 4}
-    const pointI = applyToPoint(skew(0, 10), point)
+    const pointI = applyToPoint(skewDEG(0, 10), point)
     //https://jsfiddle.net/t1yLa3ed/2/
     assert.approximately(pointI.x, 5, precision)
     assert.approximately(pointI.y, 4.8816349035423245, precision)
