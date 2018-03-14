@@ -100,14 +100,15 @@ Warning: This should be considered BETA until it is released a stable version of
 ## Changelog
 - **0.0** - Preview version
 - **1.0** - First public version
-- **1.1** - Split lib into different files
+- **1.1** - Splits lib into different files
 - **1.2** - Adds shear operation
 - **1.3** - Adds umd support
 - **1.4** - Adds typescript definitions
-- **1.5** - Upgrade deps
+- **1.5** - Upgrades deps
 - **1.6** - Adds optional parameter support on `translate(tx)`, `scale(sx)`, `rotate(angle, cx, cy)`
-- **1.7** - Upgrade deps
+- **1.7** - Upgrades deps
 - **1.8** - Fixes [#12](https://github.com/chrvadala/transformation-matrix/issues/12), Adds `fromTransformAttribute`, Discontinues node 4 support
+- **1.9** - Adds `skew(ax, ay)` function, Upgrades deps
 
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
