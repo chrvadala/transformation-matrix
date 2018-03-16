@@ -17,7 +17,7 @@ declare module 'transformation-matrix/applyToPoint' {
 }
 
 declare module 'transformation-matrix/fromString' {
-  /** Parse a string matrix formatted as matrix(a,b,c,d,e,f) */
+  /** Parse a string matrix formatted as `matrix(a,b,c,d,e,f)` */
   export function fromString(str: string): Matrix;
 }
 
@@ -26,16 +26,14 @@ declare module 'transformation-matrix/fromObject' {
    * Extract an affine matrix from an object that contains a,b,c,d,e,f keys.
    * Each value could be a float or a string that contains a float
    */
-  export function fromObject(
-    object: {
-      a: string | number;
-      b: string | number;
-      c: string | number;
-      d: string | number;
-      e: string | number;
-      f: string | number;
-    },
-  ): Matrix;
+  export function fromObject(object: {
+    a: string | number;
+    b: string | number;
+    c: string | number;
+    d: string | number;
+    e: string | number;
+    f: string | number;
+  }): Matrix;
 }
 
 declare module 'transformation-matrix/identity' {
@@ -54,15 +52,27 @@ declare module 'transformation-matrix/isAffineMatrix' {
 }
 
 declare module 'transformation-matrix/rotate' {
-  /** Calculate a rotation matrix */
-  export function rotate(angle: number): Matrix;
-  /** Calculate a rotation matrix with a DEG angle */
-  export function rotateDEG(angle: number): Matrix;
+  /**
+   * Calculate a rotation matrix
+   * @param angle Angle in radians
+   * @param cx If (cx,cy) are supplied the rotate is about this point
+   * @param cy If (cx,cy) are supplied the rotate is about this point
+   */
+  export function rotate(angle: number, cx?: number, cy?: number): Matrix;
+  /** Calculate a rotation matrix with a DEG angle
+   * @param angle Angle in degree
+   * @param cx If (cx,cy) are supplied the rotate is about this point
+   * @param cy If (cx,cy) are supplied the rotate is about this point*/
+  export function rotateDEG(angle: number, cx?: number, cy?: number): Matrix;
 }
 
 declare module 'transformation-matrix/scale' {
-  /** Calculate a scaling matrix */
-  export function scale(sx: number, sy: number): Matrix;
+  /**
+   * Calculate a scaling matrix
+   * @param sx Scaling on axis x
+   * @param sy Scaling on axis y (default `sx`)
+   */
+  export function scale(sx: number, sy?: number): Matrix;
 }
 
 declare module 'transformation-matrix/shear' {
@@ -70,12 +80,26 @@ declare module 'transformation-matrix/shear' {
   export function shear(shx: number, shy: number): Matrix;
 }
 
+declare module 'transformation-matrix/skew' {
+  /** Calculate a skew matrix */
+  export function skew(ax: number, ay: number): Matrix;
+}
+
 declare module 'transformation-matrix/toString' {
-  /** Serialize the matrix to a string that can be used with CSS or SVG */
+  /**
+   * Serialize the matrix to a string that can be used with CSS or SVG
+   * @returns {string} String that contains a matrix formatted as `matrix(a,b,c,d,e,f)`
+   */
   export function toSVG(matrix: Matrix): string;
-  /** Serialize the matrix to a string that can be used with CSS or SVG */
+  /**
+   * Serialize the matrix to a string that can be used with CSS or SVG
+   * @returns {string} String that contains a matrix formatted as `matrix(a,b,c,d,e,f)`
+   */
   export function toCSS(matrix: Matrix): string;
-  /** Serialize the matrix to a string that can be used with CSS or SVG */
+  /**
+   * Serialize the matrix to a string that can be used with CSS or SVG
+   * @returns {string} String that contains a matrix formatted as `matrix(a,b,c,d,e,f)`
+   */
   export function toString(matrix: Matrix): string;
 }
 
@@ -85,8 +109,12 @@ declare module 'transformation-matrix/transform' {
 }
 
 declare module 'transformation-matrix/translate' {
-  /** Calculate a translate matrix */
-  export function translate(tx: number, ty: number): Matrix;
+  /**
+   * Calculate a translate matrix
+   * @param tx Translation on axis x
+   * @param ty Translation on axis y (default `0`)
+   */
+  export function translate(tx: number, ty?: number): Matrix;
 }
 
 declare module 'transformation-matrix' {
@@ -98,6 +126,7 @@ declare module 'transformation-matrix' {
   export * from 'transformation-matrix/isAffineMatrix';
   export * from 'transformation-matrix/rotate';
   export * from 'transformation-matrix/scale';
+  export * from 'transformation-matrix/skew';
   export * from 'transformation-matrix/shear';
   export * from 'transformation-matrix/toString';
   export * from 'transformation-matrix/transform';
