@@ -116,6 +116,7 @@ Warning: This should be considered BETA until it is released a stable version of
 - **1.8** - Fixes [#12](https://github.com/chrvadala/transformation-matrix/issues/12), Adds `fromTransformAttribute`, Discontinues node 4 support
 - **1.9** - Adds `skew(ax, ay)`, Upgrades deps, Improves `fromTransformAttribute`
 - **1.10**- Updates typescript definitions [#15](https://github.com/chrvadala/transformation-matrix/pull/15)
+- **1.11**- Upgrades deps
 
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
