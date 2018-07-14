@@ -1,5 +1,8 @@
 language: node_js
 
+script:
+  - yarn test:ci
+
 os:
   - linux
   - osx
@@ -13,5 +16,3 @@ cache:
   yarn: true
   directories:
     - node_modules
-
-script: yarn test:ci
