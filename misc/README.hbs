@@ -8,7 +8,19 @@ Javascript isomorphic 2D affine transformations written in ES6 syntax. Manipulat
 [![Coverage Status](https://coveralls.io/repos/github/chrvadala/transformation-matrix/badge.svg?branch=master)](https://coveralls.io/github/chrvadala/transformation-matrix?branch=master)
 [![npm](https://img.shields.io/npm/v/transformation-matrix.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/transformation-matrix)
 [![Downloads](https://img.shields.io/npm/dm/transformation-matrix.svg)](https://www.npmjs.com/package/transformation-matrix)
-[![Beerpay](https://beerpay.io/chrvadala/transformation-matrix/badge.svg?style=beer)](https://beerpay.io/chrvadala/transformation-matrix)
+[![Donate](https://img.shields.io/badge/donate-PayPal-green.svg)](https://www.paypal.me/chrvadala/25)
+
+> Transformations, i.e. *linear invertible automorphisms*, are used to map a picture into another one with different size, position and orientation. Given a basis, transformations are represented by means of squared invertible matrices, called **transformation matrices**.
+
+> A geometric transformation is defined as a one-to-one mapping of a point space to itself, which preservers some geometric relations of figures.
+
+> - [Geometric Programming for Computer Aided Design](https://books.google.it/books?vid=ISBN9780471899426)
+
+This library allows to:
+- generate transformation matrices for the following operations: **translation**, **rotation**, **scale**, **shear**, **skew**
+- merge multiple transformation matrices in a single matrix that is the **composition of multiple matrices**
+- work with strings in both directions: **parse**, **render**
+- **apply a transformation matrix to point(s)**
 
 ## Usage example (ES6)
 ```js
@@ -54,6 +66,7 @@ available at [http://chrvadala.github.io/transformation-matrix/](http://chrvadal
 - **1.9** - Adds `skew(ax, ay)`, Upgrades deps, Improves `fromTransformAttribute`
 - **1.10**- Updates typescript definitions [#15](https://github.com/chrvadala/transformation-matrix/pull/15)
 - **1.11**- Upgrades deps
+- **1.12**- Migrates tests on [Jest](https://jestjs.io/), Integrates [standard.js](https://standardjs.com/), Upgrades deps
 
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
