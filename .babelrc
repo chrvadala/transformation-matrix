@@ -3,6 +3,11 @@
     "transform-object-rest-spread"
   ],
   "env": {
+    "test": {
+      "presets": [
+        "es2015"
+      ]
+    },
     "commonjs": {
       "presets": [
         "es2015"

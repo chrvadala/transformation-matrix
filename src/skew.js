@@ -1,5 +1,5 @@
-//https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skew
-const {tan} = Math;
+// https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skew
+const {tan} = Math
 
 /**
  * Calculate a skew matrix
@@ -7,11 +7,15 @@ const {tan} = Math;
  * @param ay Skew on axis y
  * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
  */
-export function skew(ax, ay) {
+export function skew (ax, ay) {
   return {
-    a: 1, c: tan(ax), e: 0,
-    b: tan(ay), d: 1, f: 0
-  };
+    a: 1,
+    c: tan(ax),
+    e: 0,
+    b: tan(ay),
+    d: 1,
+    f: 0
+  }
 }
 
 /**
@@ -20,6 +24,6 @@ export function skew(ax, ay) {
  * @param ay Skew on axis y
  * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
  */
-export function skewDEG(ax, ay){
+export function skewDEG (ax, ay) {
   return skew(ax * Math.PI / 180, ay * Math.PI / 180)
 }

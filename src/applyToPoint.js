@@ -4,10 +4,10 @@
  * @param point Point
  * @returns {{x: number, y: number}} Point
  */
-export function applyToPoint(matrix, point) {
+export function applyToPoint (matrix, point) {
   return {
     x: matrix.a * point.x + matrix.c * point.y + matrix.e,
-    y: matrix.b * point.x + matrix.d * point.y + matrix.f,
+    y: matrix.b * point.x + matrix.d * point.y + matrix.f
   }
 }
 
@@ -17,6 +17,6 @@ export function applyToPoint(matrix, point) {
  * @param points Array of points
  * @returns {array} Array of points
  */
-export function applyToPoints(matrix, points) {
-  return points.map(point => applyToPoint(matrix, point));
+export function applyToPoints (matrix, points) {
+  return points.map(point => applyToPoint(matrix, point))
 }

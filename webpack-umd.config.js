@@ -1,8 +1,7 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = function (env) {
-
-  let minimize = env && env.hasOwnProperty('minimize');
+  let minimize = env && env.hasOwnProperty('minimize')
 
   let config = {
     mode: 'production',
@@ -12,10 +11,10 @@ module.exports = function (env) {
     output: {
       path: path.join(__dirname, 'build-umd'),
       filename: `transformation-matrix${minimize ? '.min' : ''}.js`,
-      library: "TransformationMatrix",
-      libraryTarget: "umd"
+      library: 'TransformationMatrix',
+      libraryTarget: 'umd'
     },
-    devtool: "source-map",
+    devtool: 'source-map',
     resolve: {
       extensions: ['.js']
     },
@@ -33,6 +32,6 @@ module.exports = function (env) {
     optimization: {
       minimize: Boolean(minimize)
     }
-  };
-  return config;
-};
+  }
+  return config
+}
