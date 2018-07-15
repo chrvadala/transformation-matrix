@@ -17,11 +17,11 @@ Javascript isomorphic 2D affine transformations written in ES6 syntax. Manipulat
 [![Downloads](https://img.shields.io/npm/dm/transformation-matrix.svg)](https://www.npmjs.com/package/transformation-matrix)
 [![Donate](https://img.shields.io/badge/donate-PayPal-green.svg)](https://www.paypal.me/chrvadala/25)
 
-> Transformations, i.e. *linear invertible automorphisms*, are used to map a picture into another one with different size, position and orientation. Given a basis, transformations are represented by means of squared invertible matrices, called **transformation matrices**.
+Transformations, i.e. *linear invertible automorphisms*, are used to map a picture into another one with different size, position and orientation. Given a basis, transformations are represented by means of squared invertible matrices, called **transformation matrices**.
 
-> A geometric transformation is defined as a one-to-one mapping of a point space to itself, which preservers some geometric relations of figures.
+A geometric transformation is defined as a one-to-one mapping of a point space to itself, which preservers some geometric relations of figures.
 
-> - [Geometric Programming for Computer Aided Design](https://books.google.it/books?vid=ISBN9780471899426)
+- [Geometric Programming for Computer Aided Design](https://books.google.it/books?vid=ISBN9780471899426)
 
 This library allows to:
 - generate transformation matrices for the following operations: **translation**, **rotation**, **scale**, **shear**, **skew**
