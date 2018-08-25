@@ -19,5 +19,6 @@ describe('index', () => {
     expect(typeof lib.fromString).toBe('function')
     expect(typeof lib.isAffineMatrix).toBe('function')
     expect(typeof lib.fromObject).toBe('function')
+    expect(typeof lib.compose).toBe('function')
   })
 })

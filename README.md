@@ -114,6 +114,9 @@ Warning: This should be considered BETA until it is released a stable version of
 <dt><a href="#transform">transform(...matrices)</a> ⇒ <code>Object</code></dt>
 <dd><p>Merge multiple matrices into one</p>
 </dd>
+<dt><a href="#compose">compose(...matrices)</a> ⇒ <code>Object</code></dt>
+<dd><p>Merge multiple matrices into one (alias of <code>transform</code>)</p>
+</dd>
 <dt><a href="#translate">translate(tx, [ty])</a> ⇒ <code>Object</code></dt>
 <dd><p>Calculate a translate matrix</p>
 </dd>
@@ -363,6 +366,18 @@ Serialize the matrix to a string that can be used with CSS or SVG
 
 ## transform(...matrices) ⇒ <code>Object</code>
 Merge multiple matrices into one
+
+**Kind**: global function  
+**Returns**: <code>Object</code> - Affine matrix  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ...matrices | <code>object</code> | list of matrices |
+
+<a name="compose"></a>
+
+## compose(...matrices) ⇒ <code>Object</code>
+Merge multiple matrices into one (alias of `transform`)
 
 **Kind**: global function  
 **Returns**: <code>Object</code> - Affine matrix  

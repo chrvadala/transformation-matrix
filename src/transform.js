@@ -33,3 +33,12 @@ export function transform (...matrices) {
       return transform(m, ...rest)
   }
 }
+
+/**
+ * Merge multiple matrices into one (alias of `transform`)
+ * @param matrices {...object} list of matrices
+ * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
+ */
+export function compose (...matrices) {
+  return transform(...matrices)
+}
