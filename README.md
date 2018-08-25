@@ -29,16 +29,17 @@ This library allows to:
 
 ## Usage example (ES6)
 ```js
-import {scale, rotate, translate, transform, applyToPoint} from 'transformation-matrix';
-let {scale, rotate, translate, transform, applyToPoint} = window.TransformationMatrix;
-let {scale, rotate, translate, transform, applyToPoint} = require('transformation-matrix')
+import {scale, rotate, translate, compose, applyToPoint} from 'transformation-matrix';
+let {scale, rotate, translate, compose, applyToPoint} = window.TransformationMatrix;
+let {scale, rotate, translate, compose, applyToPoint} = require('transformation-matrix')
 
-let matrix = transform(
+let matrix = compose(
   translate(40,40),
   rotate(Math.PI/2),
   scale(2, 4)
 );
 let point = applyToPoint(matrix, {x: 42, y: 42});
+// { x: -128, y: 124.00000000000001 }
 ```
 
 ## Setup

@@ -1,7 +1,7 @@
-const transformationMatrix = require('transformation-matrix')
-const {scale, rotate, translate, transform, applyToPoint} = transformationMatrix
+const transformationMatrix = require('.')
+const {scale, rotate, translate, compose, applyToPoint} = transformationMatrix
 
-let matrix = transform(
+let matrix = compose(
   translate(40, 40),
   rotate(Math.PI / 2),
   scale(2, 4)
