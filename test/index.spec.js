@@ -13,6 +13,8 @@ describe('index', () => {
     expect(typeof lib.translate).toBe('function')
     expect(typeof lib.scale).toBe('function')
     expect(typeof lib.shear).toBe('function')
+    expect(typeof lib.skew).toBe('function')
+    expect(typeof lib.skewDEG).toBe('function')
     expect(typeof lib.rotate).toBe('function')
     expect(typeof lib.rotateDEG).toBe('function')
     expect(typeof lib.inverse).toBe('function')

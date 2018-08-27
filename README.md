@@ -138,7 +138,7 @@ Warning: This should be considered BETA until it is released a stable version of
 - **1.10**- Updates typescript definitions [#15](https://github.com/chrvadala/transformation-matrix/pull/15)
 - **1.11**- Upgrades deps
 - **1.12**- Migrates tests on [Jest](https://jestjs.io/), Integrates [standard.js](https://standardjs.com/), Upgrades deps
-- **1.13**- Adds `compose` function, Upgrades deps
+- **1.13**- Adds `compose` function, Upgrades deps, Exposes skew operation [#37](https://github.com/chrvadala/transformation-matrix/pull/37)
 
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
@@ -152,6 +152,7 @@ Warning: This should be considered BETA until it is released a stable version of
 - [chrvadala](https://github.com/chrvadala) (author)
 - [forabi](https://github.com/forabi) (TypeScript definitions)
 - [nidu](https://github.com/nidu) (PEG.js descriptor)
+- [aubergene](https://github.com/aubergene) (bugfix #37)
 
 # API
 <a name="applyToPoint"></a>
