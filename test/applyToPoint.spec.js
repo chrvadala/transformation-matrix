@@ -11,10 +11,15 @@ describe('applyToPoint', () => {
     d: 2,
     f: -40
   }
-  it('should return a transformed point', () => {
+  it('should return a transformed object point', () => {
     expect(applyToPoint(identity(), {x: 0, y: 0})).toEqual({x: 0, y: 0})
     expect(applyToPoint(m1, {x: 30, y: 30})).toEqual({x: 20, y: 20})
     expect(applyToPoint(m1, {x: 50, y: 50})).toEqual({x: 60, y: 60})
+  })
+  it('should return a transformed array point', () => {
+    expect(applyToPoint(identity(), [0, 0])).toEqual([0, 0])
+    expect(applyToPoint(m1, [30, 30])).toEqual([20, 20])
+    expect(applyToPoint(m1, [50, 50])).toEqual([60, 60])
   })
 })
 

@@ -31,8 +31,12 @@ let matrix = compose(
   rotate(Math.PI/2),
   scale(2, 4)
 );
-let point = applyToPoint(matrix, {x: 42, y: 42});
+
+applyToPoint(matrix, {x: 42, y: 42});
 // { x: -128, y: 124.00000000000001 }
+
+applyToPoint(matrix, [16, 24]);
+//  [ -56, 72 ]
 ```
 
 ## Setup
