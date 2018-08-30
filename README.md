@@ -27,22 +27,6 @@ This library allows us to:
 - work with strings in both directions: **parse**, **render**
 - **apply a transformation matrix to point(s)**
 
-## Data Model
-A **Transformation Matrix** is defined as a `Object` with 6 keys: `a`, `b`, `c`, `d`, `e` and `f`.
-```js
-const matrix = { a: 1, c: 0, e: 0,
-                 b: 0, d: 1, f: 0 }
-```
-A point can be defined in two different ways:
-- as `Object`, with inside two keys: `x` and `y`
-```js
-const point = { x: 24, y: 42 }
-```
-- as `Array`, with two items in the form `[x, y]`
-```js
-const point = [ 24, 42 ]
-```
-
 ## Usage example (ES6)
 ```js
 import {scale, rotate, translate, compose, applyToPoint} from 'transformation-matrix';
@@ -70,6 +54,23 @@ yarn add transformation-matrix
 ```
 ```html
 <script src="https://unpkg.com/transformation-matrix@1"></script>
+```
+
+
+## Data Model
+A **Transformation Matrix** is defined as an `Object` with 6 keys: `a`, `b`, `c`, `d`, `e` and `f`.
+```js
+const matrix = { a: 1, c: 0, e: 0,
+                 b: 0, d: 1, f: 0 }
+```
+A **Point** can be defined in two different ways:
+- as `Object`, with inside two keys: `x` and `y`
+```js
+const point = { x: 24, y: 42 }
+```
+- as `Array`, with two items in the form `[x, y]`
+```js
+const point = [ 24, 42 ]
 ```
 
 ## Live Demo
@@ -159,7 +160,7 @@ Warning: This should be considered BETA until it is released a stable version of
 - **1.11**- Upgrades deps
 - **1.12**- Migrates tests on [Jest](https://jestjs.io/), Integrates [standard.js](https://standardjs.com/), Upgrades deps
 - **1.13**- Adds `compose` function, Upgrades deps, Exposes skew operation [#37](https://github.com/chrvadala/transformation-matrix/pull/37)
-- **1.14**- Adds support for points defined as Array in the form `[x, y]` [38](https://github.com/chrvadala/transformation-matrix/pull/38)
+- **1.14**- Adds support for points defined as `Array` in the form `[x, y]` [#38](https://github.com/chrvadala/transformation-matrix/pull/38)
 
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
