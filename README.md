@@ -21,11 +21,27 @@ Javascript isomorphic 2D affine transformations written in ES6 syntax. Manipulat
 Transformations, i.e. *linear invertible automorphisms*, are used to map a picture into another one with different size, position and orientation. Given a basis, transformations are represented by means of squared invertible matrices, called **transformation matrices**.
 A geometric transformation is defined as a one-to-one mapping of a point space to itself, which preservers some geometric relations of figures. - [Geometric Programming for Computer Aided Design](https://books.google.it/books?vid=ISBN9780471899426)
 
-This library allows to:
+This library allows us to:
 - generate transformation matrices for the following operations: **translation**, **rotation**, **scale**, **shear**, **skew**
 - merge multiple transformation matrices in a single matrix that is the **composition of multiple matrices**
 - work with strings in both directions: **parse**, **render**
 - **apply a transformation matrix to point(s)**
+
+## Data Model
+A **Transformation Matrix** is defined as a `Object` with 6 keys: `a`, `b`, `c`, `d`, `e` and `f`.
+```js
+const matrix = { a: 1, c: 0, e: 0,
+                 b: 0, d: 1, f: 0 }
+```
+A point can be defined in two different ways:
+- as `Object`, with inside two keys: `x` and `y`
+```js
+const point = { x: 24, y: 42 }
+```
+- as `Array`, with two items in the form `[x, y]`
+```js
+const point = [ 24, 42 ]
+```
 
 ## Usage example (ES6)
 ```js
@@ -38,8 +54,12 @@ let matrix = compose(
   rotate(Math.PI/2),
   scale(2, 4)
 );
-let point = applyToPoint(matrix, {x: 42, y: 42});
+
+applyToPoint(matrix, {x: 42, y: 42});
 // { x: -128, y: 124.00000000000001 }
+
+applyToPoint(matrix, [16, 24]);
+//  [ -56, 72 ]
 ```
 
 ## Setup
@@ -59,7 +79,7 @@ available at [http://chrvadala.github.io/transformation-matrix/](http://chrvadal
 ## Functions
 
 <dl>
-<dt><a href="#applyToPoint">applyToPoint(matrix, point)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#applyToPoint">applyToPoint(matrix, point)</a> ⇒ <code>Object</code> | <code>Array</code></dt>
 <dd><p>Calculate a point transformed with an affine matrix</p>
 </dd>
 <dt><a href="#applyToPoints">applyToPoints(matrix, points)</a> ⇒ <code>array</code></dt>
@@ -139,6 +159,7 @@ Warning: This should be considered BETA until it is released a stable version of
 - **1.11**- Upgrades deps
 - **1.12**- Migrates tests on [Jest](https://jestjs.io/), Integrates [standard.js](https://standardjs.com/), Upgrades deps
 - **1.13**- Adds `compose` function, Upgrades deps, Exposes skew operation [#37](https://github.com/chrvadala/transformation-matrix/pull/37)
+- **1.14**- Adds support for points defined as Array in the form `[x, y]` [38](https://github.com/chrvadala/transformation-matrix/pull/38)
 
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
@@ -150,18 +171,18 @@ Warning: This should be considered BETA until it is released a stable version of
 
 ## Contributors
 - [chrvadala](https://github.com/chrvadala) (author)
-- [forabi](https://github.com/forabi) (TypeScript definitions)
+- [forabi](https://github.com/forabi)
 - [nidu](https://github.com/nidu) (PEG.js descriptor)
-- [aubergene](https://github.com/aubergene) (bugfix #37)
+- [aubergene](https://github.com/aubergene)
 
 # API
 <a name="applyToPoint"></a>
 
-## applyToPoint(matrix, point) ⇒ <code>Object</code>
+## applyToPoint(matrix, point) ⇒ <code>Object</code> \| <code>Array</code>
 Calculate a point transformed with an affine matrix
 
 **Kind**: global function  
-**Returns**: <code>Object</code> - Point  
+**Returns**: <code>Object</code> \| <code>Array</code> - Point  
 
 | Param | Description |
 | --- | --- |

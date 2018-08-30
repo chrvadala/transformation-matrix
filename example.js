@@ -8,5 +8,7 @@ let matrix = compose(
 )
 
 let point = applyToPoint(matrix, {x: 42, y: 42})
-
 console.log(point)
+
+let point2 = applyToPoint(matrix, [16, 24])
+console.log(point2)
