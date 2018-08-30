@@ -2,7 +2,7 @@
  * Calculate a point transformed with an affine matrix
  * @param matrix Affine matrix
  * @param point Point
- * @returns {{x: number, y: number}} Point
+ * @returns {{x: number, y: number} | Array} Point
  */
 export function applyToPoint (matrix, point) {
   return Array.isArray(point) ? [
