@@ -5,7 +5,10 @@
  * @returns {{x: number, y: number}} Point
  */
 export function applyToPoint (matrix, point) {
-  return {
+  return Array.isArray(point) ? [
+    matrix.a * point[0] + matrix.c * point[1] + matrix.e,
+    matrix.b * point[0] + matrix.d * point[1] + matrix.f
+  ] : {
     x: matrix.a * point.x + matrix.c * point.y + matrix.e,
     y: matrix.b * point.x + matrix.d * point.y + matrix.f
   }
