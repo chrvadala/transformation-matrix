@@ -4,7 +4,7 @@ import { roundElements } from './roundElements'
 
 /**
  * Returns a matrix that transforms a triangle t1 into another triangle t2, or throws an exception if it is impossible.
- * @param t1 array containing the three points for the triangle as a Point array [{{x: number, y: number}}, {{x: number, y: number}}, {{x: number, y: number}}]
+ * @param t1 [{x: number, y: number}}, {{x: number, y: number}}, {{x: number, y: number}}] array containing the three points for the triangle as a Point array
  * @param t2 See description for t1.
  * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
  * @throws Exception if the matrix becomes not invertible
