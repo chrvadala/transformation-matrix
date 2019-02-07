@@ -33,4 +33,9 @@ describe('fromTriangles', () => {
     const triangleB = [{ x: 0, y: 6 }, { x: 9, y: 0 }, { x: -9, y: 0 }]
     expect(fromTriangles(triangleA, triangleB)).toEqual(scale(3))
   })
+  it('should return a scaling matrix for a Point expressed array', () => {
+    const triangleA = [[0, 2], [3, 0], [-3, 0]]
+    const triangleB = [{ x: 0, y: 6 }, { x: 9, y: 0 }, { x: -9, y: 0 }]
+    expect(fromTriangles(triangleA, triangleB)).toEqual(scale(3))
+  })
 })
