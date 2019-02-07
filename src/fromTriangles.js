@@ -4,8 +4,8 @@ import { smoothMatrix } from './smoothMatrix'
 
 /**
  * Returns a matrix that transforms a triangle t1 into another triangle t2, or throws an exception if it is impossible.
- * @param t1 {Array.<{x: number, y: number}, {x: number, y: number}, {x: number, y: number}> | Array.<Array<number>>} an array of points containing the three points for the triangle in the first coordinate system
- * @param t2 {Array.<{x: number, y: number}, {x: number, y: number}, {x: number, y: number}> | Array.<Array<number>>} an array of points containing the three points for the triangle in the second coordinate system
+ * @param t1 {Array.<{x: number, y: number}> | Array.<Array<number>>} an array of points containing the three points for the triangle in the first coordinate system
+ * @param t2 {Array.<{x: number, y: number}> | Array.<Array<number>>} an array of points containing the three points for the same triangle in the second coordinate system
  * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix which transforms t1 to t2
  * @throws Exception if the matrix becomes not invertible
  */
