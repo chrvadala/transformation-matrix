@@ -1,6 +1,6 @@
 import { inverse } from './inverse'
 import { transform } from './transform'
-import { roundElements } from './roundElements'
+import { smoothMatrix } from './smoothMatrix'
 
 /**
  * Returns a matrix that transforms a triangle t1 into another triangle t2, or throws an exception if it is impossible.
@@ -40,5 +40,5 @@ export function fromTriangles (t1, t2) {
   let affineMatrix = transform([r2, inverseR1])
 
   // round the matrix elements to smooth the finite inversion
-  return roundElements(affineMatrix)
+  return smoothMatrix(affineMatrix)
 }

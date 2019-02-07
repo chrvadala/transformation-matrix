@@ -4,8 +4,7 @@
  * @param precision a precision to use for Math.round. Defaults to 10000000000 (meaning which rounds to the 10th digit after the comma).
  * @returns {{a: number, b: number, c: number, d: number, e: number, f: number}} the rounded matrix
  */
-
-export function roundElements (m, precision) {
+export function smoothMatrix (m, precision) {
   if (typeof precision === 'undefined') {
     precision = 10000000000
   }
