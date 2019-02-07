@@ -97,6 +97,9 @@ Each value could be a float or a string that contains a float</p>
 <dd><p>Parser for SVG Trasform Attribute <a href="http://www.w3.org/TR/SVG/coords.html#TransformAttribute">http://www.w3.org/TR/SVG/coords.html#TransformAttribute</a> <br/>
 Warning: This should be considered BETA until it is released a stable version of pegjs.</p>
 </dd>
+<dt><a href="#fromTriangles">fromTriangles(t1, t2)</a> ⇒ <code>Object</code></dt>
+<dd><p>Returns a matrix that transforms a triangle t1 into another triangle t2, or throws an exception if it is impossible.</p>
+</dd>
 <dt><a href="#identity">identity()</a> ⇒ <code>Object</code></dt>
 <dd><p>Identity matrix</p>
 </dd>
@@ -123,6 +126,9 @@ Warning: This should be considered BETA until it is released a stable version of
 </dd>
 <dt><a href="#skewDEG">skewDEG(ax, ay)</a> ⇒ <code>Object</code></dt>
 <dd><p>Calculate a skew matrix using DEG angles</p>
+</dd>
+<dt><a href="#smoothMatrix">smoothMatrix(m, precision)</a> ⇒ <code>Object</code></dt>
+<dd><p>Rounds all elements of the given matrix using the given precision</p>
 </dd>
 <dt><a href="#toCSS">toCSS(matrix)</a> ⇒ <code>string</code></dt>
 <dd><p>Serialize the matrix to a string that can be used with CSS or SVG</p>
@@ -175,6 +181,7 @@ Warning: This should be considered BETA until it is released a stable version of
 - [forabi](https://github.com/forabi)
 - [nidu](https://github.com/nidu) (PEG.js descriptor)
 - [aubergene](https://github.com/aubergene)
+- [SophiaLi1](https://github.com/SophiaLi1)
 
 # API
 <a name="applyToPoint"></a>
@@ -206,8 +213,7 @@ Calculate an array of points transformed with an affine matrix
 <a name="fromObject"></a>
 
 ## fromObject(object) ⇒ <code>Object</code>
-Extract an affine matrix from an object that contains a,b,c,d,e,f keys
-Each value could be a float or a string that contains a float
+Extract an affine matrix from an object that contains a,b,c,d,e,f keysEach value could be a float or a string that contains a float
 
 **Kind**: global function  
 **Returns**: <code>Object</code> - }  
@@ -231,8 +237,7 @@ Parse a string matrix formatted as matrix(a,b,c,d,e,f)
 <a name="fromTransformAttribute"></a>
 
 ## fromTransformAttribute(transformString) ⇒ <code>Object</code>
-Parser for SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>
-Warning: This should be considered BETA until it is released a stable version of pegjs.
+Parser for SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>Warning: This should be considered BETA until it is released a stable version of pegjs.
 
 **Kind**: global function  
 **Returns**: <code>Object</code> - Parsed matrices  
@@ -240,6 +245,23 @@ Warning: This should be considered BETA until it is released a stable version of
 | Param | Description |
 | --- | --- |
 | transformString | string |
+
+<a name="fromTriangles"></a>
+
+## fromTriangles(t1, t2) ⇒ <code>Object</code>
+Returns a matrix that transforms a triangle t1 into another triangle t2, or throws an exception if it is impossible.
+
+**Kind**: global function  
+**Returns**: <code>Object</code> - Affine matrix which transforms t1 to t2  
+**Throws**:
+
+- Exception if the matrix becomes not invertible
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| t1 | <code>Array.&lt;{x: number, y: number}&gt;</code> \| <code>Array.&lt;Array.&lt;number&gt;&gt;</code> | an array of points containing the three points for the first triangle |
+| t2 | <code>Array.&lt;{x: number, y: number}&gt;</code> \| <code>Array.&lt;Array.&lt;number&gt;&gt;</code> | an array of points containing the three points for the second triangle |
 
 <a name="identity"></a>
 
@@ -350,6 +372,19 @@ Calculate a skew matrix using DEG angles
 | --- | --- |
 | ax | Skew on axis x |
 | ay | Skew on axis y |
+
+<a name="smoothMatrix"></a>
+
+## smoothMatrix(m, precision) ⇒ <code>Object</code>
+Rounds all elements of the given matrix using the given precision
+
+**Kind**: global function  
+**Returns**: <code>Object</code> - the rounded matrix  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| m | <code>Object</code> | a matrix to round |
+| precision |  | a precision to use for Math.round. Defaults to 10000000000 (meaning which rounds to the 10th digit after the comma). |
 
 <a name="toCSS"></a>
 
