@@ -37,5 +37,9 @@ describe('fromTriangles', () => {
     const triangleA = [[0, 2], [3, 0], [-3, 0]]
     const triangleB = [{ x: 0, y: 6 }, { x: 9, y: 0 }, { x: -9, y: 0 }]
     expect(fromTriangles(triangleA, triangleB)).toEqual(scale(3))
+
+    const triangleC = [{x: 0, y: 2}, {x: 3, y: 0}, {x: -3, y: 0}]
+    const triangleD = [[ 0, 6 ], [ 9, 0 ], [ -9, 0 ]]
+    expect(fromTriangles(triangleC, triangleD)).toEqual(scale(3))
   })
 })
