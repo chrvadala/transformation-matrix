@@ -167,6 +167,7 @@ Warning: This should be considered BETA until it is released a stable version of
 - **1.12**- Migrates tests on [Jest](https://jestjs.io/), Integrates [standard.js](https://standardjs.com/), Upgrades deps
 - **1.13**- Adds `compose` function, Upgrades deps, Exposes skew operation [#37](https://github.com/chrvadala/transformation-matrix/pull/37)
 - **1.14**- Adds support for points defined as `Array` in the form `[x, y]` [#38](https://github.com/chrvadala/transformation-matrix/pull/38)
+- **1.15**- Adds `fromTriangle` and `smoothMatrix` functions [#41](https://github.com/chrvadala/transformation-matrix/issues/41)
 
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
@@ -213,7 +214,8 @@ Calculate an array of points transformed with an affine matrix
 <a name="fromObject"></a>
 
 ## fromObject(object) ⇒ <code>Object</code>
-Extract an affine matrix from an object that contains a,b,c,d,e,f keysEach value could be a float or a string that contains a float
+Extract an affine matrix from an object that contains a,b,c,d,e,f keys
+Each value could be a float or a string that contains a float
 
 **Kind**: global function  
 **Returns**: <code>Object</code> - }  
@@ -237,7 +239,8 @@ Parse a string matrix formatted as matrix(a,b,c,d,e,f)
 <a name="fromTransformAttribute"></a>
 
 ## fromTransformAttribute(transformString) ⇒ <code>Object</code>
-Parser for SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>Warning: This should be considered BETA until it is released a stable version of pegjs.
+Parser for SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>
+Warning: This should be considered BETA until it is released a stable version of pegjs.
 
 **Kind**: global function  
 **Returns**: <code>Object</code> - Parsed matrices  
