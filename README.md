@@ -127,7 +127,7 @@ Warning: This should be considered BETA until it is released a stable version of
 <dt><a href="#skewDEG">skewDEG(ax, ay)</a> ⇒ <code>Object</code></dt>
 <dd><p>Calculate a skew matrix using DEG angles</p>
 </dd>
-<dt><a href="#smoothMatrix">smoothMatrix(m, precision)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#smoothMatrix">smoothMatrix(m, [precision])</a> ⇒ <code>Object</code></dt>
 <dd><p>Rounds all elements of the given matrix using the given precision</p>
 </dd>
 <dt><a href="#toCSS">toCSS(matrix)</a> ⇒ <code>string</code></dt>
@@ -378,7 +378,7 @@ Calculate a skew matrix using DEG angles
 
 <a name="smoothMatrix"></a>
 
-## smoothMatrix(m, precision) ⇒ <code>Object</code>
+## smoothMatrix(m, [precision]) ⇒ <code>Object</code>
 Rounds all elements of the given matrix using the given precision
 
 **Kind**: global function  
@@ -387,7 +387,7 @@ Rounds all elements of the given matrix using the given precision
 | Param | Type | Description |
 | --- | --- | --- |
 | m | <code>Object</code> | a matrix to round |
-| precision |  | a precision to use for Math.round. Defaults to 10000000000 (meaning which rounds to the 10th digit after the comma). |
+| [precision] |  | a precision to use for Math.round. Defaults to 10000000000 (meaning which rounds to the 10th digit after the comma). |
 
 <a name="toCSS"></a>
 
