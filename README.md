@@ -97,6 +97,9 @@ Each value could be a float or a string that contains a float</p>
 <dd><p>Parser for SVG Trasform Attribute <a href="http://www.w3.org/TR/SVG/coords.html#TransformAttribute">http://www.w3.org/TR/SVG/coords.html#TransformAttribute</a> <br/>
 Warning: This should be considered BETA until it is released a stable version of pegjs.</p>
 </dd>
+<dt><a href="#fromTriangles">fromTriangles(t1, t2)</a> ⇒ <code>Object</code></dt>
+<dd><p>Returns a matrix that transforms a triangle t1 into another triangle t2, or throws an exception if it is impossible.</p>
+</dd>
 <dt><a href="#identity">identity()</a> ⇒ <code>Object</code></dt>
 <dd><p>Identity matrix</p>
 </dd>
@@ -123,6 +126,9 @@ Warning: This should be considered BETA until it is released a stable version of
 </dd>
 <dt><a href="#skewDEG">skewDEG(ax, ay)</a> ⇒ <code>Object</code></dt>
 <dd><p>Calculate a skew matrix using DEG angles</p>
+</dd>
+<dt><a href="#smoothMatrix">smoothMatrix(m, [precision])</a> ⇒ <code>Object</code></dt>
+<dd><p>Rounds all elements of the given matrix using the given precision</p>
 </dd>
 <dt><a href="#toCSS">toCSS(matrix)</a> ⇒ <code>string</code></dt>
 <dd><p>Serialize the matrix to a string that can be used with CSS or SVG</p>
@@ -161,6 +167,7 @@ Warning: This should be considered BETA until it is released a stable version of
 - **1.12**- Migrates tests on [Jest](https://jestjs.io/), Integrates [standard.js](https://standardjs.com/), Upgrades deps
 - **1.13**- Adds `compose` function, Upgrades deps, Exposes skew operation [#37](https://github.com/chrvadala/transformation-matrix/pull/37)
 - **1.14**- Adds support for points defined as `Array` in the form `[x, y]` [#38](https://github.com/chrvadala/transformation-matrix/pull/38)
+- **1.15**- Adds `fromTriangle` and `smoothMatrix` functions [#41](https://github.com/chrvadala/transformation-matrix/issues/41)
 
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
@@ -175,6 +182,7 @@ Warning: This should be considered BETA until it is released a stable version of
 - [forabi](https://github.com/forabi)
 - [nidu](https://github.com/nidu) (PEG.js descriptor)
 - [aubergene](https://github.com/aubergene)
+- [SophiaLi1](https://github.com/SophiaLi1)
 
 # API
 <a name="applyToPoint"></a>
@@ -240,6 +248,23 @@ Warning: This should be considered BETA until it is released a stable version of
 | Param | Description |
 | --- | --- |
 | transformString | string |
+
+<a name="fromTriangles"></a>
+
+## fromTriangles(t1, t2) ⇒ <code>Object</code>
+Returns a matrix that transforms a triangle t1 into another triangle t2, or throws an exception if it is impossible.
+
+**Kind**: global function  
+**Returns**: <code>Object</code> - Affine matrix which transforms t1 to t2  
+**Throws**:
+
+- Exception if the matrix becomes not invertible
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| t1 | <code>Array.&lt;{x: number, y: number}&gt;</code> \| <code>Array.&lt;Array.&lt;number&gt;&gt;</code> | an array of points containing the three points for the first triangle |
+| t2 | <code>Array.&lt;{x: number, y: number}&gt;</code> \| <code>Array.&lt;Array.&lt;number&gt;&gt;</code> | an array of points containing the three points for the second triangle |
 
 <a name="identity"></a>
 
@@ -350,6 +375,19 @@ Calculate a skew matrix using DEG angles
 | --- | --- |
 | ax | Skew on axis x |
 | ay | Skew on axis y |
+
+<a name="smoothMatrix"></a>
+
+## smoothMatrix(m, [precision]) ⇒ <code>Object</code>
+Rounds all elements of the given matrix using the given precision
+
+**Kind**: global function  
+**Returns**: <code>Object</code> - the rounded matrix  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| m | <code>Object</code> | a matrix to round |
+| [precision] |  | a precision to use for Math.round. Defaults to 10000000000 (meaning which rounds to the 10th digit after the comma). |
 
 <a name="toCSS"></a>
 
