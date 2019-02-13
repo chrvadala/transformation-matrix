@@ -147,6 +147,20 @@ declare module 'transformation-matrix/translate' {
   export function translate(tx: number, ty?: number): Matrix;
 }
 
+declare module 'transformation-matrix/fromTriangles' {
+  import { Matrix } from 'transformation-matrix';
+  import { Point } from 'transformation-matrix';
+
+  /**
+   * Returns a matrix that transforms a triangle t1 into another triangle t2, or throws an exception if it is impossible.
+   * @param t1 {Array.<{x: number, y: number}> | Array.<Array<number>>} an array of points containing the three points for the first triangle
+   * @param t2 {Array.<{x: number, y: number}> | Array.<Array<number>>} an array of points containing the three points for the second triangle
+   * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix which transforms t1 to t2
+   * @throws Exception if the matrix becomes not invertible
+   */
+  export function fromTriangles(t1: Array<Array<number>> | Array<Point>, t2: Array<Array<number>> | Array<Point>,): Matrix;
+}
+
 declare module 'transformation-matrix' {
   export * from 'transformation-matrix/applyToPoint';
   export * from 'transformation-matrix/fromObject';
@@ -161,4 +175,5 @@ declare module 'transformation-matrix' {
   export * from 'transformation-matrix/toString';
   export * from 'transformation-matrix/transform';
   export * from 'transformation-matrix/translate';
+  export * from 'transformation-matrix/fromTriangles';
 }
