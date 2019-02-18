@@ -153,12 +153,24 @@ declare module 'transformation-matrix/fromTriangles' {
 
   /**
    * Returns a matrix that transforms a triangle t1 into another triangle t2, or throws an exception if it is impossible.
-   * @param t1 {Array.<{x: number, y: number}> | Array.<Array<number>>} an array of points containing the three points for the first triangle
-   * @param t2 {Array.<{x: number, y: number}> | Array.<Array<number>>} an array of points containing the three points for the second triangle
-   * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix which transforms t1 to t2
+   * @param t1 an array of points containing the three points for the first triangle
+   * @param t2 an array of points containing the three points for the second triangle
+   * @returns Affine matrix which transforms t1 to t2
    * @throws Exception if the matrix becomes not invertible
    */
-  export function fromTriangles(t1: Array<Array<number>> | Array<Point>, t2: Array<Array<number>> | Array<Point>,): Matrix;
+  export function fromTriangles(t1: Array<Array<number>> | Array<Point>, t2: Array<Array<number>> | Array<Point>): Matrix;
+}
+
+declare module 'transformation-matrix/smoothMatrix' {
+  import { Matrix } from 'transformation-matrix';
+
+  /**
+   * Rounds all elements of the given matrix using the given precision
+   * @param m  a matrix to round
+   * @param precision precision to use for Math.round. Defaults to 10000000000 (meaning which rounds to the 10th digit after the comma).
+   * @returns  the rounded matrix
+   */
+  export function smoothMatrix (m : Matrix, precision? : number) : Matrix;
 }
 
 declare module 'transformation-matrix' {
@@ -176,4 +188,5 @@ declare module 'transformation-matrix' {
   export * from 'transformation-matrix/transform';
   export * from 'transformation-matrix/translate';
   export * from 'transformation-matrix/fromTriangles';
+  export * from 'transformation-matrix/smoothMatrix';
 }
