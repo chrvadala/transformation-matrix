@@ -6,7 +6,7 @@
   "typings": "transformation-matrix.d.ts",
   "module": "./build-es/index.js",
   "jsnext:main": "./build-es/index.js",
-  "browser": "./build-umd/transformation-matrix.min.js",
+  "unpkg": "./build-umd/transformation-matrix.min.js",
   "files": [
     "*.md",
     "build-*",

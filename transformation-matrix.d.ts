@@ -1,3 +1,5 @@
+import {Matrix} from "transformation-matrix";
+
 declare module 'transformation-matrix' {
   type Matrix = {
     a: number;
@@ -134,6 +136,13 @@ declare module 'transformation-matrix/transform' {
 
   /** Merge multiple matrices into one */
   export function transform(...matrices: Matrix[]): Matrix;
+}
+
+declare module 'transformation-matrix/compose' {
+  import { Matrix } from 'transformation-matrix';
+
+  /** Merge multiple matrices into one */
+  export function compose(...matrices: Matrix[]): Matrix;
 }
 
 declare module 'transformation-matrix/translate' {

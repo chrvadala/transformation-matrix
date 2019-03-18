@@ -22,5 +22,7 @@ describe('index', () => {
     expect(typeof lib.isAffineMatrix).toBe('function')
     expect(typeof lib.fromObject).toBe('function')
     expect(typeof lib.compose).toBe('function')
+    expect(typeof lib.smoothMatrix).toBe('function')
+    expect(typeof lib.fromTriangles).toBe('function')
   })
 })
