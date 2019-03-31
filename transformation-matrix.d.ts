@@ -1,5 +1,3 @@
-import {Matrix} from "transformation-matrix";
-
 declare module 'transformation-matrix' {
   type Matrix = {
     a: number;
