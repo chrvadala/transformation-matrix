@@ -183,6 +183,8 @@ Warning: This should be considered BETA until it is released a stable version of
 - [nidu](https://github.com/nidu) (PEG.js descriptor)
 - [aubergene](https://github.com/aubergene)
 - [SophiaLi1](https://github.com/SophiaLi1)
+- [Shuhei-Tsunoda](https://github.com/Shuhei-Tsunoda)
+
 
 # API
 <a name="applyToPoint"></a>
