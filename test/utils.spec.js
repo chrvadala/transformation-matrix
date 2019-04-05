@@ -1,14 +1,42 @@
 /* global describe, it, expect */
-import { isUndefined } from '../src/utils'
+import { isNumeric, isObject, isUndefined } from '../src/utils'
 
 describe('utils', () => {
   describe('isUndefined', () => {
-    it('should be undefined', () => {
+    it('should return true', () => {
       expect(isUndefined(undefined)).toBe(true)
+    })
 
+    it('should return true', () => {
       expect(isUndefined(200)).toBe(false)
       expect(isUndefined(Number(200))).toBe(false)
       expect(isUndefined(null)).toBe(false)
+    })
+  })
+
+  describe('isNumeric', () => {
+    it('should return true', () => {
+      expect(isNumeric(100)).toBe(true)
+      expect(isNumeric(100.10)).toBe(true)
+    })
+
+    it('should return true', () => {
+      expect(isNumeric('100')).toBe(false)
+      expect(isNumeric('100.10')).toBe(false)
+    })
+  })
+
+  describe('isObject', () => {
+    it('should return true', () => {
+      expect(isObject({})).toBe(true)
+      expect(isObject({a: 100})).toBe(true)
+    })
+
+    it('should return false', () => {
+      expect(isObject(100)).toBe(false)
+      expect(isObject(false)).toBe(false)
+      expect(isObject([])).toBe(false)
+      expect(isObject(null)).toBe(false)
     })
   })
 })
