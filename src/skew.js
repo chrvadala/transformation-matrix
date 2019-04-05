@@ -1,5 +1,5 @@
 // https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skew
-const {tan} = Math
+const { tan } = Math
 
 /**
  * Calculate a skew matrix

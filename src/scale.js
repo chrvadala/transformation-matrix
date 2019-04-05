@@ -1,4 +1,4 @@
-import {isUndefined} from './utils'
+import { isUndefined } from './utils'
 
 /**
  * Calculate a scaling matrix

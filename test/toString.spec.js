@@ -1,5 +1,5 @@
 /* global describe, it, expect */
-import {toString, toCSS, toSVG} from '../src/toString'
+import { toString, toCSS, toSVG } from '../src/toString'
 
 describe('toString', () => {
   it('should return a transformation matrix string', () => {

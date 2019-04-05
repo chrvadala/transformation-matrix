@@ -1,8 +1,8 @@
-import {isUndefined} from './utils'
-import {translate} from './translate'
-import {transform} from './transform'
+import { isUndefined } from './utils'
+import { translate } from './translate'
+import { transform } from './transform'
 
-const {cos, sin, PI} = Math
+const { cos, sin, PI } = Math
 /**
  * Calculate a rotation matrix
  * @param angle Angle in radians

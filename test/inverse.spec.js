@@ -1,6 +1,6 @@
 /* global describe, it, expect */
-import {applyToPoints} from '../src/applyToPoint'
-import {inverse} from '../src/inverse'
+import { applyToPoints } from '../src/applyToPoint'
+import { inverse } from '../src/inverse'
 
 describe('inverse', () => {
   it('should return inverse matrix', () => {
@@ -32,8 +32,8 @@ describe('inverse', () => {
       d: 2,
       f: -40
     }
-    const points = [{x: 30, y: 30}, {x: 50, y: 50}]
-    const transPoints = [{x: 20, y: 20}, {x: 60, y: 60}]
+    const points = [{ x: 30, y: 30 }, { x: 50, y: 50 }]
+    const transPoints = [{ x: 20, y: 20 }, { x: 60, y: 60 }]
 
     expect(applyToPoints(inverse(m1), transPoints)).toEqual(points)
   })

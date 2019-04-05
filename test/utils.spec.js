@@ -1,5 +1,5 @@
 /* global describe, it, expect */
-import {isUndefined} from '../src/utils'
+import { isUndefined } from '../src/utils'
 
 describe('utils', () => {
   describe('isUndefined', () => {

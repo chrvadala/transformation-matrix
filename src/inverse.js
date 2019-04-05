@@ -6,7 +6,7 @@
 export function inverse (matrix) {
   // http://www.wolframalpha.com/input/?i=Inverse+%5B%7B%7Ba,c,e%7D,%7Bb,d,f%7D,%7B0,0,1%7D%7D%5D
 
-  let {a, b, c, d, e, f} = matrix
+  let { a, b, c, d, e, f } = matrix
 
   let denom = a * d - b * c
 
