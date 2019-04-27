@@ -3,9 +3,9 @@ const { tan } = Math
 
 /**
  * Calculate a skew matrix
- * @param ax Skew on axis x
- * @param ay Skew on axis y
- * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
+ * @param ax {number} Skew on axis x
+ * @param ay {number} Skew on axis y
+ * @returns {Matrix} Affine Matrix
  */
 export function skew (ax, ay) {
   return {
@@ -20,9 +20,9 @@ export function skew (ax, ay) {
 
 /**
  * Calculate a skew matrix using DEG angles
- * @param ax Skew on axis x
- * @param ay Skew on axis y
- * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
+ * @param ax {number} Skew on axis x
+ * @param ay {number} Skew on axis y
+ * @returns {Matrix} Affine Matrix
  */
 export function skewDEG (ax, ay) {
   return skew(ax * Math.PI / 180, ay * Math.PI / 180)

@@ -5,9 +5,13 @@
 const matrixRegex = /^matrix\(\s*([0-9_+-.e]+)\s*,\s*([0-9_+-.e]+)\s*,\s*([0-9_+-.e]+)\s*,\s*([0-9_+-.e]+)\s*,\s*([0-9_+-.e]+)\s*,\s*([0-9_+-.e]+)\s*\)$/i
 
 /**
- * Parse a string matrix formatted as matrix(a,b,c,d,e,f)
- * @param string String with a matrix
- * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
+ * Parse a string formatted as matrix(a,b,c,d,e,f)
+ * @param string {string} String with an affine matrix
+ * @returns {Matrix} Affine Matrix
+ *
+ * @example
+ * > fromString('matrix(1,2,3,4,5,6)')
+ * {a: 1, b: 2, c: 3, d: 4, c: 5, e: 6}
  */
 export function fromString (string) {
   let parsed = string.match(matrixRegex)

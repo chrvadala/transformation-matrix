@@ -56,23 +56,6 @@ yarn add transformation-matrix
 <script src="https://unpkg.com/transformation-matrix@1"></script>
 ```
 
-
-## Data Model
-A **Transformation Matrix** is defined as an `Object` with 6 keys: `a`, `b`, `c`, `d`, `e` and `f`.
-```js
-const matrix = { a: 1, c: 0, e: 0,
-                 b: 0, d: 1, f: 0 }
-```
-A **Point** can be defined in two different ways:
-- as `Object`, with inside two keys: `x` and `y`
-```js
-const point = { x: 24, y: 42 }
-```
-- as `Array`, with two items in the form `[x, y]`
-```js
-const point = [ 24, 42 ]
-```
-
 ## Live Demo
 available at [http://chrvadala.github.io/transformation-matrix/](http://chrvadala.github.io/transformation-matrix/)
 
@@ -80,72 +63,75 @@ available at [http://chrvadala.github.io/transformation-matrix/](http://chrvadal
 ## Functions
 
 <dl>
-<dt><a href="#applyToPoint">applyToPoint(matrix, point)</a> ⇒ <code>Object</code> | <code>Array</code></dt>
+<dt><a href="#applyToPoint">applyToPoint(matrix, point)</a> ⇒ <code>Point</code></dt>
 <dd><p>Calculate a point transformed with an affine matrix</p>
 </dd>
-<dt><a href="#applyToPoints">applyToPoints(matrix, points)</a> ⇒ <code>array</code></dt>
+<dt><a href="#applyToPoints">applyToPoints(matrix, points)</a> ⇒ <code>Array.&lt;Point&gt;</code></dt>
 <dd><p>Calculate an array of points transformed with an affine matrix</p>
 </dd>
-<dt><a href="#fromObject">fromObject(object)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#fromDefinition">fromDefinition(definitionOrArrayOfDefinition)</a> ⇒ <code>Array.&lt;Matrix&gt;</code></dt>
+<dd><p>Converts array of matrix descriptor to array of matrix</p>
+</dd>
+<dt><a href="#fromObject">fromObject(object)</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Extract an affine matrix from an object that contains a,b,c,d,e,f keys
-Each value could be a float or a string that contains a float</p>
+Any value could be a float or a string that contains a float</p>
 </dd>
-<dt><a href="#fromString">fromString(string)</a> ⇒ <code>Object</code></dt>
-<dd><p>Parse a string matrix formatted as matrix(a,b,c,d,e,f)</p>
+<dt><a href="#fromString">fromString(string)</a> ⇒ <code>Matrix</code></dt>
+<dd><p>Parse a string formatted as matrix(a,b,c,d,e,f)</p>
 </dd>
-<dt><a href="#fromTransformAttribute">fromTransformAttribute(transformString)</a> ⇒</dt>
+<dt><a href="#fromTransformAttribute">fromTransformAttribute(transformString)</a> ⇒ <code>Array.&lt;Matrix&gt;</code></dt>
 <dd><p>Parser for SVG Trasform Attribute <a href="http://www.w3.org/TR/SVG/coords.html#TransformAttribute">http://www.w3.org/TR/SVG/coords.html#TransformAttribute</a> <br/>
 Warning: This should be considered BETA until it is released a stable version of pegjs.</p>
 </dd>
-<dt><a href="#fromTriangles">fromTriangles(t1, t2)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#fromTriangles">fromTriangles(t1, t2)</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Returns a matrix that transforms a triangle t1 into another triangle t2, or throws an exception if it is impossible.</p>
 </dd>
-<dt><a href="#identity">identity()</a> ⇒ <code>Object</code></dt>
+<dt><a href="#identity">identity()</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Identity matrix</p>
 </dd>
-<dt><a href="#inverse">inverse(matrix)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#inverse">inverse(matrix)</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Calculate a matrix that is the inverse of the provided matrix</p>
 </dd>
 <dt><a href="#isAffineMatrix">isAffineMatrix(object)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Check if the object contain an affine matrix</p>
 </dd>
-<dt><a href="#rotate">rotate(angle, [cx], [cy])</a> ⇒ <code>Object</code></dt>
+<dt><a href="#rotate">rotate(angle, [cx], [cy])</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Calculate a rotation matrix</p>
 </dd>
-<dt><a href="#rotateDEG">rotateDEG(angle, [cx], [cy])</a> ⇒ <code>Object</code></dt>
+<dt><a href="#rotateDEG">rotateDEG(angle, [cx], [cy])</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Calculate a rotation matrix with a DEG angle</p>
 </dd>
-<dt><a href="#scale">scale(sx, [sy])</a> ⇒ <code>Object</code></dt>
+<dt><a href="#scale">scale(sx, [sy])</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Calculate a scaling matrix</p>
 </dd>
-<dt><a href="#shear">shear(shx, shy)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#shear">shear(shx, shy)</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Calculate a shear matrix</p>
 </dd>
-<dt><a href="#skew">skew(ax, ay)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#skew">skew(ax, ay)</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Calculate a skew matrix</p>
 </dd>
-<dt><a href="#skewDEG">skewDEG(ax, ay)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#skewDEG">skewDEG(ax, ay)</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Calculate a skew matrix using DEG angles</p>
 </dd>
-<dt><a href="#smoothMatrix">smoothMatrix(m, [precision])</a> ⇒ <code>Object</code></dt>
+<dt><a href="#smoothMatrix">smoothMatrix(matrix, [precision])</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Rounds all elements of the given matrix using the given precision</p>
 </dd>
 <dt><a href="#toCSS">toCSS(matrix)</a> ⇒ <code>string</code></dt>
-<dd><p>Serialize the matrix to a string that can be used with CSS or SVG</p>
+<dd><p>Serialize an affine matrix to a string that can be used with CSS or SVG</p>
 </dd>
 <dt><a href="#toSVG">toSVG(matrix)</a> ⇒ <code>string</code></dt>
-<dd><p>Serialize the matrix to a string that can be used with CSS or SVG</p>
+<dd><p>Serialize an affine matrix to a string that can be used with CSS or SVG</p>
 </dd>
 <dt><a href="#toString">toString(matrix)</a> ⇒ <code>string</code></dt>
-<dd><p>Serialize the matrix to a string that can be used with CSS or SVG</p>
+<dd><p>Serialize an affine matrix to a string that can be used with CSS or SVG</p>
 </dd>
-<dt><a href="#transform">transform(...matrices)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#transform">transform(matrices)</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Merge multiple matrices into one</p>
 </dd>
-<dt><a href="#compose">compose(...matrices)</a> ⇒ <code>Object</code></dt>
-<dd><p>Merge multiple matrices into one (alias of <code>transform</code>)</p>
+<dt><a href="#compose">compose(matrices)</a> ⇒ <code>Matrix</code></dt>
+<dd><p>Merge multiple matrices into one</p>
 </dd>
-<dt><a href="#translate">translate(tx, [ty])</a> ⇒ <code>Object</code></dt>
+<dt><a href="#translate">translate(tx, [ty])</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Calculate a translate matrix</p>
 </dd>
 </dl>
@@ -170,6 +156,342 @@ Warning: This should be considered BETA until it is released a stable version of
 - **1.15**- Adds `fromTriangle` and `smoothMatrix` functions [#41](https://github.com/chrvadala/transformation-matrix/issues/41)
 - **2.0**- Migrates to Babel 7 and updates dependencies; introduces `fromDefinition` function, changes fromTransformAttribute return object
 
+# API
+
+## Data Model
+A transformation **Matrix** is defined as a `Plain Object` with 6 keys: `a`, `b`, `c`, `d`, `e` and `f`.
+```js
+const matrix = {
+a: 1, c: 0, e: 0,
+b: 0, d: 1, f: 0
+}
+```
+A **Point** can be defined in two different ways:
+- as `Plain Object`, with inside two keys: `x` and `y`
+```js
+const point = { x: 24, y: 42 }
+```
+- as `Array`, with two items in the form `[x, y]`
+```js
+const point = [ 24, 42 ]
+```
+
+<a name="applyToPoint"></a>
+
+## applyToPoint(matrix, point) ⇒ <code>Point</code>
+Calculate a point transformed with an affine matrix
+
+**Kind**: global function  
+**Returns**: <code>Point</code> - Point  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| matrix | <code>Matrix</code> | Affine Matrix |
+| point | <code>Point</code> | Point |
+
+<a name="applyToPoints"></a>
+
+## applyToPoints(matrix, points) ⇒ <code>Array.&lt;Point&gt;</code>
+Calculate an array of points transformed with an affine matrix
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;Point&gt;</code> - Array of point  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| matrix | <code>Matrix</code> | Affine Matrix |
+| points | <code>Array.&lt;Point&gt;</code> | Array of point |
+
+<a name="fromDefinition"></a>
+
+## fromDefinition(definitionOrArrayOfDefinition) ⇒ <code>Array.&lt;Matrix&gt;</code>
+Converts array of matrix descriptor to array of matrix
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;Matrix&gt;</code> - Array of matrix  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| definitionOrArrayOfDefinition | <code>Array.&lt;Object&gt;</code> | Array of object describing the matrix |
+
+**Example**  
+```js
+fromDefinition([
+ { type: 'matrix', a:1, b:2, c:3, d:4, e:5, f:6 },
+ { type: 'translate', tx: 10, ty: 20 },
+ { type: 'scale', sx: 2, sy: 4 },
+ { type: 'rotate', angle: 90, sx: 50, sy: 25 },
+ { type: 'skewX', angle: 45 },
+ { type: 'skewY',  angle: 45 },
+ { type: 'shear', shx: 10, shy: 20}
+])
+```
+<a name="fromObject"></a>
+
+## fromObject(object) ⇒ <code>Matrix</code>
+Extract an affine matrix from an object that contains a,b,c,d,e,f keys
+Any value could be a float or a string that contains a float
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - Affine Matrix  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| object | <code>Object</code> | Object that contains a,b,c,d,e,f keys |
+
+<a name="fromString"></a>
+
+## fromString(string) ⇒ <code>Matrix</code>
+Parse a string formatted as matrix(a,b,c,d,e,f)
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - Affine Matrix  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | String with an affine matrix |
+
+**Example**  
+```js
+> fromString('matrix(1,2,3,4,5,6)')
+{a: 1, b: 2, c: 3, d: 4, c: 5, e: 6}
+```
+<a name="fromTransformAttribute"></a>
+
+## fromTransformAttribute(transformString) ⇒ <code>Array.&lt;Matrix&gt;</code>
+Parser for SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>
+Warning: This should be considered BETA until it is released a stable version of pegjs.
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;Matrix&gt;</code> - Array of MatrixDescriptor  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| transformString | <code>string</code> | Transform string as defined by w3 Consortium |
+
+**Example**  
+```js
+> fromTransformAttribute('translate(-10,-10) scale(2,2) translate(10,10)')
+[
+ { type: 'translate', tx: -10, ty: -10},
+ { type: 'scale', sx: 2, sy: 2 },
+ { type: 'translate', tx: 10, ty: 10}
+]
+```
+<a name="fromTriangles"></a>
+
+## fromTriangles(t1, t2) ⇒ <code>Matrix</code>
+Returns a matrix that transforms a triangle t1 into another triangle t2, or throws an exception if it is impossible.
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - Matrix which transforms t1 to t2  
+**Throws**:
+
+- Exception if the matrix becomes not invertible
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| t1 | <code>Array.&lt;Point&gt;</code> | Array of points containing the three points for the first triangle |
+| t2 | <code>Array.&lt;Point&gt;</code> | Array of points containing the three points for the second triangle |
+
+<a name="identity"></a>
+
+## identity() ⇒ <code>Matrix</code>
+Identity matrix
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - Affine Matrix  
+<a name="inverse"></a>
+
+## inverse(matrix) ⇒ <code>Matrix</code>
+Calculate a matrix that is the inverse of the provided matrix
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - Inverted Affine Matrix  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| matrix | <code>Matrix</code> | Affine Matrix |
+
+<a name="isAffineMatrix"></a>
+
+## isAffineMatrix(object) ⇒ <code>boolean</code>
+Check if the object contain an affine matrix
+
+**Kind**: global function  
+**Returns**: <code>boolean</code> - True if is an object and contains an affine matrix  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| object | <code>Object</code> | Generic Plain Object |
+
+<a name="rotate"></a>
+
+## rotate(angle, [cx], [cy]) ⇒ <code>Matrix</code>
+Calculate a rotation matrix
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - Affine Matrix  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| angle | <code>number</code> | Angle in radians |
+| [cx] | <code>number</code> | If (cx,cy) are supplied the rotate is about this point |
+| [cy] | <code>number</code> | If (cx,cy) are supplied the rotate is about this point |
+
+<a name="rotateDEG"></a>
+
+## rotateDEG(angle, [cx], [cy]) ⇒ <code>Matrix</code>
+Calculate a rotation matrix with a DEG angle
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - Affine Matrix  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| angle | <code>number</code> | Angle in degree |
+| [cx] | <code>number</code> | If (cx,cy) are supplied the rotate is about this point |
+| [cy] | <code>number</code> | If (cx,cy) are supplied the rotate is about this point |
+
+<a name="scale"></a>
+
+## scale(sx, [sy]) ⇒ <code>Matrix</code>
+Calculate a scaling matrix
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - Affine Matrix  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| sx | <code>number</code> |  | Scaling on axis x |
+| [sy] | <code>number</code> | <code>sx</code> | Scaling on axis y (default sx) |
+
+<a name="shear"></a>
+
+## shear(shx, shy) ⇒ <code>Matrix</code>
+Calculate a shear matrix
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - Affine Matrix  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| shx | <code>number</code> | Shear on axis x |
+| shy | <code>number</code> | Shear on axis y |
+
+<a name="skew"></a>
+
+## skew(ax, ay) ⇒ <code>Matrix</code>
+Calculate a skew matrix
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - Affine Matrix  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ax | <code>number</code> | Skew on axis x |
+| ay | <code>number</code> | Skew on axis y |
+
+<a name="skewDEG"></a>
+
+## skewDEG(ax, ay) ⇒ <code>Matrix</code>
+Calculate a skew matrix using DEG angles
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - Affine Matrix  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ax | <code>number</code> | Skew on axis x |
+| ay | <code>number</code> | Skew on axis y |
+
+<a name="smoothMatrix"></a>
+
+## smoothMatrix(matrix, [precision]) ⇒ <code>Matrix</code>
+Rounds all elements of the given matrix using the given precision
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - The rounded Affine Matrix  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| matrix | <code>Matrix</code> | An affine matrix to round |
+| [precision] | <code>number</code> | A precision to use for Math.round. Defaults to 10000000000 (meaning which rounds to the 10th digit after the comma). |
+
+<a name="toCSS"></a>
+
+## toCSS(matrix) ⇒ <code>string</code>
+Serialize an affine matrix to a string that can be used with CSS or SVG
+
+**Kind**: global function  
+**Returns**: <code>string</code> - String that contains an affine matrix formatted as matrix(a,b,c,d,e,f)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| matrix | <code>Matrix</code> | Affine Matrix |
+
+<a name="toSVG"></a>
+
+## toSVG(matrix) ⇒ <code>string</code>
+Serialize an affine matrix to a string that can be used with CSS or SVG
+
+**Kind**: global function  
+**Returns**: <code>string</code> - String that contains an affine matrix formatted as matrix(a,b,c,d,e,f)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| matrix | <code>Matrix</code> | Affine Matrix |
+
+<a name="toString"></a>
+
+## toString(matrix) ⇒ <code>string</code>
+Serialize an affine matrix to a string that can be used with CSS or SVG
+
+**Kind**: global function  
+**Returns**: <code>string</code> - String that contains an affine matrix formatted as matrix(a,b,c,d,e,f)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| matrix | <code>Matrix</code> | Affine Matrix |
+
+<a name="transform"></a>
+
+## transform(matrices) ⇒ <code>Matrix</code>
+Merge multiple matrices into one
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - Affine Matrix  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| matrices | <code>Array.&lt;Matrix&gt;</code> | Array of affine matrix |
+
+<a name="compose"></a>
+
+## compose(matrices) ⇒ <code>Matrix</code>
+Merge multiple matrices into one
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - Affine Matrix  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| matrices | <code>Array.&lt;Matrix&gt;</code> | Array of matrix |
+
+<a name="translate"></a>
+
+## translate(tx, [ty]) ⇒ <code>Matrix</code>
+Calculate a translate matrix
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - Affine Matrix  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| tx | <code>number</code> |  | Translation on axis x |
+| [ty] | <code>number</code> | <code>0</code> | Translation on axis y |
+
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
 - [**React SVG Pan Zoom**](https://github.com/chrvadala/react-svg-pan-zoom)
@@ -184,282 +506,3 @@ Warning: This should be considered BETA until it is released a stable version of
 - [nidu](https://github.com/nidu) (PEG.js descriptor)
 - [aubergene](https://github.com/aubergene)
 - [SophiaLi1](https://github.com/SophiaLi1)
-
-# API
-<a name="applyToPoint"></a>
-
-## applyToPoint(matrix, point) ⇒ <code>Object</code> \| <code>Array</code>
-Calculate a point transformed with an affine matrix
-
-**Kind**: global function  
-**Returns**: <code>Object</code> \| <code>Array</code> - Point  
-
-| Param | Description |
-| --- | --- |
-| matrix | Affine matrix |
-| point | Point |
-
-<a name="applyToPoints"></a>
-
-## applyToPoints(matrix, points) ⇒ <code>array</code>
-Calculate an array of points transformed with an affine matrix
-
-**Kind**: global function  
-**Returns**: <code>array</code> - Array of points  
-
-| Param | Description |
-| --- | --- |
-| matrix | Affine matrix |
-| points | Array of points |
-
-<a name="fromObject"></a>
-
-## fromObject(object) ⇒ <code>Object</code>
-Extract an affine matrix from an object that contains a,b,c,d,e,f keys
-Each value could be a float or a string that contains a float
-
-**Kind**: global function  
-**Returns**: <code>Object</code> - }  
-
-| Param |
-| --- |
-| object | 
-
-<a name="fromString"></a>
-
-## fromString(string) ⇒ <code>Object</code>
-Parse a string matrix formatted as matrix(a,b,c,d,e,f)
-
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix  
-
-| Param | Description |
-| --- | --- |
-| string | String with a matrix |
-
-<a name="fromTransformAttribute"></a>
-
-## fromTransformAttribute(transformString) ⇒
-Parser for SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>
-Warning: This should be considered BETA until it is released a stable version of pegjs.
-
-**Kind**: global function  
-**Returns**: Array Parsed matrix descriptor  
-
-| Param | Description |
-| --- | --- |
-| transformString | string |
-
-<a name="fromTriangles"></a>
-
-## fromTriangles(t1, t2) ⇒ <code>Object</code>
-Returns a matrix that transforms a triangle t1 into another triangle t2, or throws an exception if it is impossible.
-
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix which transforms t1 to t2  
-**Throws**:
-
-- Exception if the matrix becomes not invertible
-
-
-| Param | Type | Description |
-| --- | --- | --- |
-| t1 | <code>Array.&lt;{x: number, y: number}&gt;</code> \| <code>Array.&lt;Array.&lt;number&gt;&gt;</code> | an array of points containing the three points for the first triangle |
-| t2 | <code>Array.&lt;{x: number, y: number}&gt;</code> \| <code>Array.&lt;Array.&lt;number&gt;&gt;</code> | an array of points containing the three points for the second triangle |
-
-<a name="identity"></a>
-
-## identity() ⇒ <code>Object</code>
-Identity matrix
-
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix  
-<a name="inverse"></a>
-
-## inverse(matrix) ⇒ <code>Object</code>
-Calculate a matrix that is the inverse of the provided matrix
-
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix  
-
-| Param | Description |
-| --- | --- |
-| matrix | Affine matrix |
-
-<a name="isAffineMatrix"></a>
-
-## isAffineMatrix(object) ⇒ <code>boolean</code>
-Check if the object contain an affine matrix
-
-**Kind**: global function  
-
-| Param |
-| --- |
-| object | 
-
-<a name="rotate"></a>
-
-## rotate(angle, [cx], [cy]) ⇒ <code>Object</code>
-Calculate a rotation matrix
-
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix *  
-
-| Param | Description |
-| --- | --- |
-| angle | Angle in radians |
-| [cx] | If (cx,cy) are supplied the rotate is about this point |
-| [cy] | If (cx,cy) are supplied the rotate is about this point |
-
-<a name="rotateDEG"></a>
-
-## rotateDEG(angle, [cx], [cy]) ⇒ <code>Object</code>
-Calculate a rotation matrix with a DEG angle
-
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix  
-
-| Param | Description |
-| --- | --- |
-| angle | Angle in degree |
-| [cx] | If (cx,cy) are supplied the rotate is about this point |
-| [cy] | If (cx,cy) are supplied the rotate is about this point |
-
-<a name="scale"></a>
-
-## scale(sx, [sy]) ⇒ <code>Object</code>
-Calculate a scaling matrix
-
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix  
-
-| Param | Default | Description |
-| --- | --- | --- |
-| sx |  | Scaling on axis x |
-| [sy] | <code>sx</code> | Scaling on axis y (default sx) |
-
-<a name="shear"></a>
-
-## shear(shx, shy) ⇒ <code>Object</code>
-Calculate a shear matrix
-
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix  
-
-| Param | Description |
-| --- | --- |
-| shx | Shear on axis x |
-| shy | Shear on axis y |
-
-<a name="skew"></a>
-
-## skew(ax, ay) ⇒ <code>Object</code>
-Calculate a skew matrix
-
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix  
-
-| Param | Description |
-| --- | --- |
-| ax | Skew on axis x |
-| ay | Skew on axis y |
-
-<a name="skewDEG"></a>
-
-## skewDEG(ax, ay) ⇒ <code>Object</code>
-Calculate a skew matrix using DEG angles
-
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix  
-
-| Param | Description |
-| --- | --- |
-| ax | Skew on axis x |
-| ay | Skew on axis y |
-
-<a name="smoothMatrix"></a>
-
-## smoothMatrix(m, [precision]) ⇒ <code>Object</code>
-Rounds all elements of the given matrix using the given precision
-
-**Kind**: global function  
-**Returns**: <code>Object</code> - the rounded matrix  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| m | <code>Object</code> | a matrix to round |
-| [precision] |  | a precision to use for Math.round. Defaults to 10000000000 (meaning which rounds to the 10th digit after the comma). |
-
-<a name="toCSS"></a>
-
-## toCSS(matrix) ⇒ <code>string</code>
-Serialize the matrix to a string that can be used with CSS or SVG
-
-**Kind**: global function  
-**Returns**: <code>string</code> - String that contains a matrix formatted as matrix(a,b,c,d,e,f)  
-
-| Param | Description |
-| --- | --- |
-| matrix | Affine matrix |
-
-<a name="toSVG"></a>
-
-## toSVG(matrix) ⇒ <code>string</code>
-Serialize the matrix to a string that can be used with CSS or SVG
-
-**Kind**: global function  
-**Returns**: <code>string</code> - String that contains a matrix formatted as matrix(a,b,c,d,e,f)  
-
-| Param | Description |
-| --- | --- |
-| matrix | Affine matrix |
-
-<a name="toString"></a>
-
-## toString(matrix) ⇒ <code>string</code>
-Serialize the matrix to a string that can be used with CSS or SVG
-
-**Kind**: global function  
-**Returns**: <code>string</code> - String that contains a matrix formatted as matrix(a,b,c,d,e,f)  
-
-| Param | Description |
-| --- | --- |
-| matrix | Affine matrix |
-
-<a name="transform"></a>
-
-## transform(...matrices) ⇒ <code>Object</code>
-Merge multiple matrices into one
-
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| ...matrices | <code>object</code> | list of matrices |
-
-<a name="compose"></a>
-
-## compose(...matrices) ⇒ <code>Object</code>
-Merge multiple matrices into one (alias of `transform`)
-
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| ...matrices | <code>object</code> | list of matrices |
-
-<a name="translate"></a>
-
-## translate(tx, [ty]) ⇒ <code>Object</code>
-Calculate a translate matrix
-
-**Kind**: global function  
-**Returns**: <code>Object</code> - Affine matrix  
-
-| Param | Default | Description |
-| --- | --- | --- |
-| tx |  | Translation on axis x |
-| [ty] | <code>0</code> | Translation on axis y |
-

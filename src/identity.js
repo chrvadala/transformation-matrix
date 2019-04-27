@@ -1,6 +1,6 @@
 /**
  * Identity matrix
- * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
+ * @returns {Matrix} Affine Matrix
  */
 export function identity () {
   return {

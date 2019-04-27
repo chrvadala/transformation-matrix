@@ -5,6 +5,23 @@ import { rotateDEG } from './rotate'
 import { skewDEG } from './skew'
 import { shear } from './shear'
 
+/**
+ * Converts array of matrix descriptor to array of matrix
+ * @param definitionOrArrayOfDefinition {Object[]} Array of object describing the matrix
+ * @returns {Matrix[]} Array of matrix
+ *
+ * @example
+ * fromDefinition([
+ *  { type: 'matrix', a:1, b:2, c:3, d:4, e:5, f:6 },
+ *  { type: 'translate', tx: 10, ty: 20 },
+ *  { type: 'scale', sx: 2, sy: 4 },
+ *  { type: 'rotate', angle: 90, sx: 50, sy: 25 },
+ *  { type: 'skewX', angle: 45 },
+ *  { type: 'skewY',  angle: 45 },
+ *  { type: 'shear', shx: 10, shy: 20}
+ * ])
+ *
+ */
 export function fromDefinition (definitionOrArrayOfDefinition) {
   return Array.isArray(definitionOrArrayOfDefinition)
     ? definitionOrArrayOfDefinition.map(mapper)

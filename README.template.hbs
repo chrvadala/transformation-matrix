@@ -49,23 +49,6 @@ yarn add transformation-matrix
 <script src="https://unpkg.com/transformation-matrix@1"></script>
 ```
 
-
-## Data Model
-A **Transformation Matrix** is defined as an `Object` with 6 keys: `a`, `b`, `c`, `d`, `e` and `f`.
-```js
-const matrix = { a: 1, c: 0, e: 0,
-                 b: 0, d: 1, f: 0 }
-```
-A **Point** can be defined in two different ways:
-- as `Object`, with inside two keys: `x` and `y`
-```js
-const point = { x: 24, y: 42 }
-```
-- as `Array`, with two items in the form `[x, y]`
-```js
-const point = [ 24, 42 ]
-```
-
 ## Live Demo
 available at [http://chrvadala.github.io/transformation-matrix/](http://chrvadala.github.io/transformation-matrix/)
 
@@ -92,6 +75,28 @@ available at [http://chrvadala.github.io/transformation-matrix/](http://chrvadal
 - **1.15**- Adds `fromTriangle` and `smoothMatrix` functions [#41](https://github.com/chrvadala/transformation-matrix/issues/41)
 - **2.0**- Migrates to Babel 7 and updates dependencies; introduces `fromDefinition` function, changes fromTransformAttribute return object
 
+# API
+
+## Data Model
+A transformation **Matrix** is defined as a `Plain Object` with 6 keys: `a`, `b`, `c`, `d`, `e` and `f`.
+```js
+const matrix = {
+a: 1, c: 0, e: 0,
+b: 0, d: 1, f: 0
+}
+```
+A **Point** can be defined in two different ways:
+- as `Plain Object`, with inside two keys: `x` and `y`
+```js
+const point = { x: 24, y: 42 }
+```
+- as `Array`, with two items in the form `[x, y]`
+```js
+const point = [ 24, 42 ]
+```
+
+{{>all-docs~}}
+
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
 - [**React SVG Pan Zoom**](https://github.com/chrvadala/react-svg-pan-zoom)
@@ -106,6 +111,3 @@ available at [http://chrvadala.github.io/transformation-matrix/](http://chrvadal
 - [nidu](https://github.com/nidu) (PEG.js descriptor)
 - [aubergene](https://github.com/aubergene)
 - [SophiaLi1](https://github.com/SophiaLi1)
-
-# API
-{{>all-docs~}}

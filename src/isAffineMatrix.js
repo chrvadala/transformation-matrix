@@ -2,8 +2,8 @@ import { isNumeric, isObject } from './utils'
 
 /**
  * Check if the object contain an affine matrix
- * @param object
- * @return {boolean}
+ * @param object {Object} Generic Plain Object
+ * @return {boolean} True if is an object and contains an affine matrix
  */
 
 export function isAffineMatrix (object) {
