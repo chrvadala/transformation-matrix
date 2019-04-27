@@ -216,7 +216,7 @@ Converts array of matrix descriptor to array of matrix
 
 **Example**  
 ```js
-fromDefinition([
+> fromDefinition([
  { type: 'matrix', a:1, b:2, c:3, d:4, e:5, f:6 },
  { type: 'translate', tx: 10, ty: 20 },
  { type: 'scale', sx: 2, sy: 4 },
@@ -225,6 +225,16 @@ fromDefinition([
  { type: 'skewY',  angle: 45 },
  { type: 'shear', shx: 10, shy: 20}
 ])
+
+[
+ { a: 1, b: 2, c: 3, d: 4, e: 5, f: 6 },
+ { a: 1, c: 0, e: 10, b: 0, d: 1, f: 20 },
+ { a: 2, c: 0, e: 0, b: 0, d: 4, f: 0 },
+ { a: 6.123, c: -1, e: 0, b: 1, d: 6.123, f: 0 },
+ { a: 1, c: 0.99.., e: 0, b: 0, d: 1, f: 0 },
+ { a: 1, c: 0, e: 0, b: 0.99, d: 1, f: 0 },
+ { a: 1, c: 10, e: 0, b: 20, d: 1, f: 0 }
+]
 ```
 <a name="fromObject"></a>
 
@@ -277,6 +287,9 @@ Warning: This should be considered BETA until it is released a stable version of
  { type: 'scale', sx: 2, sy: 2 },
  { type: 'translate', tx: 10, ty: 10}
 ]
+
+> compose(fromDefinition(fromTransformAttribute('translate(-10, -10) scale(10, 10)')))
+{ a: 10, c: 0, e: -10, b: 0, d: 10, f: -10 }
 ```
 <a name="fromTriangles"></a>
 
