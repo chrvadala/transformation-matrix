@@ -1,6 +1,6 @@
 /* global describe, it, expect */
-import {applyToPoint, applyToPoints} from '../src/applyToPoint'
-import {identity} from '../src/identity'
+import { applyToPoint, applyToPoints } from '../src/applyToPoint'
+import { identity } from '../src/identity'
 
 describe('applyToPoint', () => {
   const m1 = { // trans(40,40) scale(2,2) trans(-40,-40)
@@ -12,9 +12,9 @@ describe('applyToPoint', () => {
     f: -40
   }
   it('should return a transformed object point', () => {
-    expect(applyToPoint(identity(), {x: 0, y: 0})).toEqual({x: 0, y: 0})
-    expect(applyToPoint(m1, {x: 30, y: 30})).toEqual({x: 20, y: 20})
-    expect(applyToPoint(m1, {x: 50, y: 50})).toEqual({x: 60, y: 60})
+    expect(applyToPoint(identity(), { x: 0, y: 0 })).toEqual({ x: 0, y: 0 })
+    expect(applyToPoint(m1, { x: 30, y: 30 })).toEqual({ x: 20, y: 20 })
+    expect(applyToPoint(m1, { x: 50, y: 50 })).toEqual({ x: 60, y: 60 })
   })
   it('should return a transformed array point', () => {
     expect(applyToPoint(identity(), [0, 0])).toEqual([0, 0])
@@ -32,10 +32,10 @@ describe('applyToPoints', () => {
     d: 2,
     f: -40
   }
-  const points = [{x: 30, y: 30}, {x: 50, y: 50}]
-  const transPoints = [{x: 20, y: 20}, {x: 60, y: 60}]
+  const points = [{ x: 30, y: 30 }, { x: 50, y: 50 }]
+  const transPoints = [{ x: 20, y: 20 }, { x: 60, y: 60 }]
   it('should return transformed points', () => {
-    expect(applyToPoints(identity(), [{x: 0, y: 0}])).toEqual([{x: 0, y: 0}])
+    expect(applyToPoints(identity(), [{ x: 0, y: 0 }])).toEqual([{ x: 0, y: 0 }])
     expect(applyToPoints(m1, points)).toEqual(transPoints)
   })
 })

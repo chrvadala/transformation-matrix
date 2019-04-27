@@ -1,6 +1,6 @@
 /* global describe, it, expect */
-import {applyToPoint} from '../src/applyToPoint'
-import {shear} from '../src/shear'
+import { applyToPoint } from '../src/applyToPoint'
+import { shear } from '../src/shear'
 
 describe('shear', () => {
   it('should return a scale matrix', () => {
@@ -16,8 +16,8 @@ describe('shear', () => {
   })
 
   it('should transform a point', () => {
-    expect(applyToPoint(shear(10, 0), {x: 0, y: 30})).toEqual({x: 300, y: 30})
-    expect(applyToPoint(shear(0, 10), {x: 30, y: 0})).toEqual({x: 30, y: 300})
-    expect(applyToPoint(shear(20, 10), {x: 30, y: 15})).toEqual({x: 330, y: 315})
+    expect(applyToPoint(shear(10, 0), { x: 0, y: 30 })).toEqual({ x: 300, y: 30 })
+    expect(applyToPoint(shear(0, 10), { x: 30, y: 0 })).toEqual({ x: 30, y: 300 })
+    expect(applyToPoint(shear(20, 10), { x: 30, y: 15 })).toEqual({ x: 330, y: 315 })
   })
 })

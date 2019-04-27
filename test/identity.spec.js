@@ -1,5 +1,5 @@
 /* global describe, it, expect */
-import {identity} from '../src/index'
+import { identity } from '../src/index'
 
 describe('identity', () => {
   it('should return identity matrix', () => {

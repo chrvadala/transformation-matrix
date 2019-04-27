@@ -1,11 +1,11 @@
-let isNumeric = n => typeof n === 'number' && !isNaN(n) && isFinite(n)
-let isObject = obj => obj != null && (typeof obj === 'object')
+import { isNumeric, isObject } from './utils'
 
 /**
  * Check if the object contain an affine matrix
- * @param object
- * @return {boolean}
+ * @param object {Object} Generic Plain Object
+ * @return {boolean} True if is an object and contains an affine matrix
  */
+
 export function isAffineMatrix (object) {
   return isObject(object) &&
     object.hasOwnProperty('a') &&

@@ -1,7 +1,7 @@
 /**
  * Merge multiple matrices into one
- * @param matrices {...object} list of matrices
- * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
+ * @param matrices {Matrix[]} Array of affine matrix
+ * @returns {Matrix} Affine Matrix
  */
 export function transform (...matrices) {
   matrices = Array.isArray(matrices[0]) ? matrices[0] : matrices
@@ -35,9 +35,9 @@ export function transform (...matrices) {
 }
 
 /**
- * Merge multiple matrices into one (alias of `transform`)
- * @param matrices {...object} list of matrices
- * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
+ * Merge multiple matrices into one
+ * @param matrices {Matrix[]} Array of matrix
+ * @returns {Matrix} Affine Matrix
  */
 export function compose (...matrices) {
   return transform(...matrices)

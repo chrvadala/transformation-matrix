@@ -1,10 +1,10 @@
-import {isUndefined} from './utils'
+import { isUndefined } from './utils'
 
 /**
  * Calculate a scaling matrix
- * @param sx Scaling on axis x
- * @param [sy = sx] Scaling on axis y (default sx)
- * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
+ * @param sx {number} Scaling on axis x
+ * @param [sy = sx] {number} Scaling on axis y (default sx)
+ * @returns {Matrix} Affine Matrix
  */
 export function scale (sx, sy = undefined) {
   if (isUndefined(sy)) sy = sx

@@ -1,8 +1,8 @@
 /**
  * Calculate a shear matrix
- * @param shx Shear on axis x
- * @param shy Shear on axis y
- * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
+ * @param shx {number} Shear on axis x
+ * @param shy {number} Shear on axis y
+ * @returns {Matrix} Affine Matrix
  */
 export function shear (shx, shy) {
   return {

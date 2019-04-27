@@ -1,8 +1,8 @@
 /**
  * Extract an affine matrix from an object that contains a,b,c,d,e,f keys
- * Each value could be a float or a string that contains a float
- * @param object
- * @return {{a: *, b: *, c: *, e: *, d: *, f: *}}}
+ * Any value could be a float or a string that contains a float
+ * @param object {Object} Object that contains a,b,c,d,e,f keys
+ * @return {Matrix} Affine Matrix
  */
 export function fromObject (object) {
   return {

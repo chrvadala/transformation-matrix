@@ -1,6 +1,6 @@
 /* global describe, it, expect */
-import {applyToPoint} from '../src/applyToPoint'
-import {scale} from '../src/scale'
+import { applyToPoint } from '../src/applyToPoint'
+import { scale } from '../src/scale'
 
 describe('scale', () => {
   it('should return a scale matrix', () => {
@@ -13,9 +13,9 @@ describe('scale', () => {
       d: 40,
       f: 0
     })
-    expect(applyToPoint(m, {x: 0, y: 0})).toEqual({x: 0, y: 0})
-    expect(applyToPoint(m, {x: 50, y: 80})).toEqual({x: 1000, y: 3200})
-    expect(applyToPoint(scale(Number(20), Number(40)), {x: 50, y: 80})).toEqual({x: 1000, y: 3200})
+    expect(applyToPoint(m, { x: 0, y: 0 })).toEqual({ x: 0, y: 0 })
+    expect(applyToPoint(m, { x: 50, y: 80 })).toEqual({ x: 1000, y: 3200 })
+    expect(applyToPoint(scale(Number(20), Number(40)), { x: 50, y: 80 })).toEqual({ x: 1000, y: 3200 })
   })
 
   it('should use sy=sx as default', () => {
@@ -28,8 +28,8 @@ describe('scale', () => {
       d: 20,
       f: 0
     })
-    expect(applyToPoint(m, {x: 0, y: 0})).toEqual({x: 0, y: 0})
-    expect(applyToPoint(m, {x: 50, y: 80})).toEqual({x: 1000, y: 1600})
-    expect(applyToPoint(scale(20, undefined), {x: 50, y: 80})).toEqual({x: 1000, y: 1600})
+    expect(applyToPoint(m, { x: 0, y: 0 })).toEqual({ x: 0, y: 0 })
+    expect(applyToPoint(m, { x: 50, y: 80 })).toEqual({ x: 1000, y: 1600 })
+    expect(applyToPoint(scale(20, undefined), { x: 50, y: 80 })).toEqual({ x: 1000, y: 1600 })
   })
 })

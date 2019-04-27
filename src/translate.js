@@ -1,8 +1,8 @@
 /**
  * Calculate a translate matrix
- * @param tx Translation on axis x
- * @param [ty = 0] Translation on axis y
- * @returns {{a: number, b: number, c: number, e: number, d: number, f: number}} Affine matrix
+ * @param tx {number} Translation on axis x
+ * @param [ty = 0] {number} Translation on axis y
+ * @returns {Matrix} Affine Matrix
  */
 export function translate (tx, ty = 0) {
   return {
