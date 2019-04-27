@@ -53,11 +53,8 @@ npm install transformation-matrix
 yarn add transformation-matrix
 ```
 ```html
-<script src="https://unpkg.com/transformation-matrix@1"></script>
+<script src="https://unpkg.com/transformation-matrix@2"></script>
 ```
-
-## Live Demo
-available at [http://chrvadala.github.io/transformation-matrix/](http://chrvadala.github.io/transformation-matrix/)
 
 # Reference
 ## Functions
