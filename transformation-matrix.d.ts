@@ -181,6 +181,7 @@ declare module 'transformation-matrix/smoothMatrix' {
 }
 
 declare module 'transformation-matrix/fromDefinition' {
+  import { Point, Matrix } from 'transformation-matrix';
   /**
    * Converts array of matrix descriptor to array of matrix
    * @param definitionOrArrayOfDefinition {Object[]} Array of object describing the matrix
@@ -207,10 +208,11 @@ declare module 'transformation-matrix/fromDefinition' {
    *  { a: 1, c: 10, e: 0, b: 20, d: 1, f: 0 }
    * ]
    **/
-  export function fromDefinition(...definitionOrArrayOfDefinition: Matrix[]): Matix[];
+  export function fromDefinition(...definitionOrArrayOfDefinition: Matrix[]): Matrix[];
 }
 
 declare module 'transformation-matrix/fromTransformAttribute' {
+  import { Point, Matrix } from 'transformation-matrix';
   /**
    * Parser for SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>
    * Warning: This should be considered BETA until it is released a stable version of pegjs.
