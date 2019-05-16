@@ -517,4 +517,5 @@ Calculate a translate matrix
 - [aubergene](https://github.com/aubergene)
 - [SophiaLi1](https://github.com/SophiaLi1)
 - [Shuhei-Tsunoda](https://github.com/Shuhei-Tsunoda)
+- [antonyRoberts](https://github.com/antonyRoberts)
 
