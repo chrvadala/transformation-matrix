@@ -182,6 +182,16 @@ declare module 'transformation-matrix/smoothMatrix' {
 
 declare module 'transformation-matrix/fromDefinition' {
   import { Point, Matrix } from 'transformation-matrix';
+  
+  type MatrixDescriptor = 
+   |  { type: 'matrix', a: number, b: number, c: number, d: number, e: number, f: number }
+   |  { type: 'translate', tx: number, ty: number }
+   |  { type: 'scale', sx: number, sy: number }
+   |  { type: 'rotate', angle: number, sx: number, sy: number }
+   |  { type: 'skewX', angle: number }
+   |  { type: 'skewY',  angle: number }
+   |  { type: 'shear', shx: number, shy: number}
+  
   /**
    * Converts array of matrix descriptor to array of matrix
    * @param definitionOrArrayOfDefinition {Object[]} Array of object describing the matrix
@@ -208,7 +218,7 @@ declare module 'transformation-matrix/fromDefinition' {
    *  { a: 1, c: 10, e: 0, b: 20, d: 1, f: 0 }
    * ]
    **/
-  export function fromDefinition(...definitionOrArrayOfDefinition: Matrix[]): Matrix[];
+  export function fromDefinition(...definitionOrArrayOfDefinition: MatrixDescriptor | MatrixDescriptor[]): Matrix[];
 }
 
 declare module 'transformation-matrix/fromTransformAttribute' {
