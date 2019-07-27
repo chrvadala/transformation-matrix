@@ -14,7 +14,7 @@ const matrixRegex = /^matrix\(\s*([0-9_+-.e]+)\s*,\s*([0-9_+-.e]+)\s*,\s*([0-9_+
  * {a: 1, b: 2, c: 3, d: 4, c: 5, e: 6}
  */
 export function fromString (string) {
-  let parsed = string.match(matrixRegex)
+  const parsed = string.match(matrixRegex)
   if (parsed === null || parsed.length < 7) throw new Error(`'${string}' is not a matrix`)
   return {
     a: parseFloat(parsed[1]),

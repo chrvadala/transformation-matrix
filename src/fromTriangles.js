@@ -11,24 +11,24 @@ import { smoothMatrix } from './smoothMatrix'
  */
 export function fromTriangles (t1, t2) {
   // point p = first point of the triangle
-  let px1 = t1[0].x != null ? t1[0].x : t1[0][0]
-  let py1 = t1[0].y != null ? t1[0].y : t1[0][1]
-  let px2 = t2[0].x != null ? t2[0].x : t2[0][0]
-  let py2 = t2[0].y != null ? t2[0].y : t2[0][1]
+  const px1 = t1[0].x != null ? t1[0].x : t1[0][0]
+  const py1 = t1[0].y != null ? t1[0].y : t1[0][1]
+  const px2 = t2[0].x != null ? t2[0].x : t2[0][0]
+  const py2 = t2[0].y != null ? t2[0].y : t2[0][1]
 
   // point q = second point of the triangle
-  let qx1 = t1[1].x != null ? t1[1].x : t1[1][0]
-  let qy1 = t1[1].y != null ? t1[1].y : t1[1][1]
-  let qx2 = t2[1].x != null ? t2[1].x : t2[1][0]
-  let qy2 = t2[1].y != null ? t2[1].y : t2[1][1]
+  const qx1 = t1[1].x != null ? t1[1].x : t1[1][0]
+  const qy1 = t1[1].y != null ? t1[1].y : t1[1][1]
+  const qx2 = t2[1].x != null ? t2[1].x : t2[1][0]
+  const qy2 = t2[1].y != null ? t2[1].y : t2[1][1]
 
   // point r = third point of the triangle
-  let rx1 = t1[2].x != null ? t1[2].x : t1[2][0]
-  let ry1 = t1[2].y != null ? t1[2].y : t1[2][1]
-  let rx2 = t2[2].x != null ? t2[2].x : t2[2][0]
-  let ry2 = t2[2].y != null ? t2[2].y : t2[2][1]
+  const rx1 = t1[2].x != null ? t1[2].x : t1[2][0]
+  const ry1 = t1[2].y != null ? t1[2].y : t1[2][1]
+  const rx2 = t2[2].x != null ? t2[2].x : t2[2][0]
+  const ry2 = t2[2].y != null ? t2[2].y : t2[2][1]
 
-  let r1 = {
+  const r1 = {
     a: px1 - rx1,
     b: py1 - ry1,
     c: qx1 - rx1,
@@ -36,7 +36,7 @@ export function fromTriangles (t1, t2) {
     e: rx1,
     f: ry1
   }
-  let r2 = {
+  const r2 = {
     a: px2 - rx2,
     b: py2 - ry2,
     c: qx2 - rx2,
@@ -45,8 +45,8 @@ export function fromTriangles (t1, t2) {
     f: ry2
   }
 
-  let inverseR1 = inverse(r1)
-  let affineMatrix = transform([r2, inverseR1])
+  const inverseR1 = inverse(r1)
+  const affineMatrix = transform([r2, inverseR1])
 
   // round the matrix elements to smooth the finite inversion
   return smoothMatrix(affineMatrix)

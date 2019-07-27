@@ -11,9 +11,9 @@ const { cos, sin, PI } = Math
  * @returns {Matrix} Affine Matrix
  */
 export function rotate (angle, cx, cy) {
-  let cosAngle = cos(angle)
-  let sinAngle = sin(angle)
-  let rotationMatrix = {
+  const cosAngle = cos(angle)
+  const sinAngle = sin(angle)
+  const rotationMatrix = {
     a: cosAngle,
     c: -sinAngle,
     e: 0,

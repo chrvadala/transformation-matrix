@@ -3,7 +3,7 @@ import { identity } from '../src/index'
 
 describe('identity', () => {
   it('should return identity matrix', () => {
-    let m = identity()
+    const m = identity()
     expect(typeof m).toBe('object')
     expect(m).toEqual({
       a: 1,

@@ -56,7 +56,7 @@ describe('transform', () => {
   })
 
   it('should return m1 * m2 * m3 = m123', () => {
-    let m1 = {
+    const m1 = {
       a: 1,
       c: 0,
       e: 40,
@@ -64,7 +64,7 @@ describe('transform', () => {
       d: 1,
       f: 40
     }
-    let m2 = {
+    const m2 = {
       a: 2,
       c: 0,
       e: 0,
@@ -72,7 +72,7 @@ describe('transform', () => {
       d: 2,
       f: 0
     }
-    let m3 = {
+    const m3 = {
       a: 1,
       c: 0,
       e: -40,

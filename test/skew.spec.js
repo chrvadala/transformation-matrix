@@ -8,10 +8,10 @@ const precision = 0.000001
 describe('skew', () => {
   it('should return a skew matrix', () => {
     // example https://msdn.microsoft.com/en-us/library/system.windows.media.matrix.skew(v=vs.110).aspx#Anchor_1
-    let m = { a: 5, b: 10, c: 15, d: 20, e: 25, f: 30 }
-    let skewMatrix = skewDEG(45, 180)
+    const m = { a: 5, b: 10, c: 15, d: 20, e: 25, f: 30 }
+    const skewMatrix = skewDEG(45, 180)
 
-    let skewedMatrix = transform(skewMatrix, m)
+    const skewedMatrix = transform(skewMatrix, m)
 
     expect(Math.abs(skewedMatrix.a - 15)).toBeLessThanOrEqual(precision)
     expect(Math.abs(skewedMatrix.b - 10)).toBeLessThanOrEqual(precision)

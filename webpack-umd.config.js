@@ -1,9 +1,9 @@
 const path = require('path')
 
 module.exports = function (env) {
-  let minimize = env && env.hasOwnProperty('minimize')
+  const minimize = env && ('minimize' in env)
 
-  let config = {
+  const config = {
     mode: 'production',
     entry: {
       TransformationMatrix: path.resolve(__dirname, 'src', 'index.js')

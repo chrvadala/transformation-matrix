@@ -8,16 +8,16 @@ import { isNumeric, isObject } from './utils'
 
 export function isAffineMatrix (object) {
   return isObject(object) &&
-    object.hasOwnProperty('a') &&
+    'a' in object &&
     isNumeric(object.a) &&
-    object.hasOwnProperty('b') &&
+    'b' in object &&
     isNumeric(object.b) &&
-    object.hasOwnProperty('c') &&
+    'c' in object &&
     isNumeric(object.c) &&
-    object.hasOwnProperty('d') &&
+    'd' in object &&
     isNumeric(object.d) &&
-    object.hasOwnProperty('e') &&
+    'e' in object &&
     isNumeric(object.e) &&
-    object.hasOwnProperty('f') &&
+    'f' in object &&
     isNumeric(object.f)
 }

@@ -4,7 +4,7 @@ import { shear } from '../src/shear'
 
 describe('shear', () => {
   it('should return a scale matrix', () => {
-    let m = shear(10, 20)
+    const m = shear(10, 20)
     expect(m).toEqual({
       a: 1,
       c: 10,

@@ -4,7 +4,7 @@ import { translate } from '../src/translate'
 
 describe('translate', () => {
   it('should return a transform matrix', () => {
-    let m = translate(40, 60)
+    const m = translate(40, 60)
     expect(m).toEqual({
       a: 1,
       c: 0,
@@ -18,7 +18,7 @@ describe('translate', () => {
   })
 
   it('should use ty=0 as default', () => {
-    let m = translate(40)
+    const m = translate(40)
     expect(m).toEqual({
       a: 1,
       c: 0,

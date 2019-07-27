@@ -4,7 +4,7 @@ import { scale } from '../src/scale'
 
 describe('scale', () => {
   it('should return a scale matrix', () => {
-    let m = scale(20, 40)
+    const m = scale(20, 40)
     expect(m).toEqual({
       a: 20,
       c: 0,
@@ -19,7 +19,7 @@ describe('scale', () => {
   })
 
   it('should use sy=sx as default', () => {
-    let m = scale(20)
+    const m = scale(20)
     expect(m).toEqual({
       a: 20,
       c: 0,

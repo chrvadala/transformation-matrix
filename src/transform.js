@@ -28,8 +28,8 @@ export function transform (...matrices) {
       return multiply(matrices[0], matrices[1])
 
     default:
-      let [m1, m2, ...rest] = matrices
-      let m = multiply(m1, m2)
+      const [m1, m2, ...rest] = matrices
+      const m = multiply(m1, m2)
       return transform(m, ...rest)
   }
 }
