@@ -218,7 +218,10 @@ declare module 'transformation-matrix/fromDefinition' {
    *  { a: 1, c: 10, e: 0, b: 20, d: 1, f: 0 }
    * ]
    **/
-  export function fromDefinition(...definitionOrArrayOfDefinition: MatrixDescriptor | MatrixDescriptor[]): Matrix[];
+  export function fromDefinition(defintion: MatrixDescriptor): Matrix;
+  export function fromDefinition(
+    arrayOfDefintion: MatrixDescriptor[]
+  ): Matrix[];
 }
 
 declare module 'transformation-matrix/fromTransformAttribute' {
