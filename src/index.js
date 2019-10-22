@@ -1,4 +1,5 @@
 export * from './applyToPoint'
+export * from './decompose'
 export * from './fromObject'
 export * from './fromString'
 export * from './identity'

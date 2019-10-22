@@ -66,6 +66,12 @@ yarn add transformation-matrix
 <dt><a href="#applyToPoints">applyToPoints(matrix, points)</a> ⇒ <code>Array.&lt;Point&gt;</code></dt>
 <dd><p>Calculate an array of points transformed with an affine matrix</p>
 </dd>
+<dt><a href="#decompose">decompose(matrix)</a> ⇒ <code>Object</code></dt>
+<dd><p>Decomposes the matrix into primitive transform values.</p>
+<p>Warning: it only decomposes translate, rotate and scale primitives, not skew. If you
+pass a matrix which have been affected by a shear or skew transformation, this function
+won&#39;t work properly.</p>
+</dd>
 <dt><a href="#fromDefinition">fromDefinition(definitionOrArrayOfDefinition)</a> ⇒ <code>Array.&lt;Matrix&gt;</code></dt>
 <dd><p>Converts array of matrix descriptor to array of matrix</p>
 </dd>
@@ -200,6 +206,44 @@ Calculate an array of points transformed with an affine matrix
 | matrix | <code>Matrix</code> | Affine Matrix |
 | points | <code>Array.&lt;Point&gt;</code> | Array of point |
 
+<a name="decompose"></a>
+
+## decompose(matrix) ⇒ <code>Object</code>
+Decomposes the matrix into primitive transform values.
+
+Warning: it only decomposes translate, rotate and scale primitives, not skew. If you
+pass a matrix which have been affected by a shear or skew transformation, this function
+won't work properly.
+
+**Kind**: global function  
+**Returns**: <code>Object</code> - Matrix decomposition object  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| matrix | <code>Matrix</code> | Affine Matrix to decompose |
+
+**Example**  
+```js
+const matrix = compose(
+   identity(),
+   translate(10, 10),
+   scale(1.5, 2),
+   rotate(3.14)
+)
+
+decompose(matrix)
+-> {
+   translate: {
+     x: 10,
+     y: 10
+   },
+   scale: {
+     sx: 1.5,
+     sy: 2
+   },
+   rotate: 3.14 // Always in radians.
+}
+```
 <a name="fromDefinition"></a>
 
 ## fromDefinition(definitionOrArrayOfDefinition) ⇒ <code>Array.&lt;Matrix&gt;</code>
@@ -520,4 +564,4 @@ Calculate a translate matrix
 - [Shuhei-Tsunoda](https://github.com/Shuhei-Tsunoda)
 - [antonyRoberts](https://github.com/antonyRoberts)
 - [mcwebb](https://github.com/mcwebb)
-
+- [d-asensio](https://github.com/d-asensio)

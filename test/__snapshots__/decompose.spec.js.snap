@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`decompose should decompose distortion scaling 1`] = `
+Object {
+  "rotate": 0,
+  "scale": Object {
+    "sx": 1.5,
+    "sy": 1,
+  },
+  "translate": Object {
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`decompose should decompose negative rotation (4th quadrant) 1`] = `
+Object {
+  "rotate": -1.396263401595464,
+  "scale": Object {
+    "sx": 1,
+    "sy": 1,
+  },
+  "translate": Object {
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`decompose should decompose negative rotation 1`] = `
+Object {
+  "rotate": -0.6981317007977318,
+  "scale": Object {
+    "sx": 0.9999999999999999,
+    "sy": 0.9999999999999999,
+  },
+  "translate": Object {
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`decompose should decompose negative translation 1`] = `
+Object {
+  "rotate": 0,
+  "scale": Object {
+    "sx": 1,
+    "sy": 1,
+  },
+  "translate": Object {
+    "x": -20,
+    "y": -30,
+  },
+}
+`;
+
+exports[`decompose should decompose positive rotation (3th quadrant) 1`] = `
+Object {
+  "rotate": -1.7453292519943295,
+  "scale": Object {
+    "sx": 0.9999999999999999,
+    "sy": 0.9999999999999999,
+  },
+  "translate": Object {
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`decompose should decompose positive rotation 1`] = `
+Object {
+  "rotate": 0.6981317007977318,
+  "scale": Object {
+    "sx": 0.9999999999999999,
+    "sy": 0.9999999999999999,
+  },
+  "translate": Object {
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`decompose should decompose positive translation 1`] = `
+Object {
+  "rotate": 0,
+  "scale": Object {
+    "sx": 1,
+    "sy": 1,
+  },
+  "translate": Object {
+    "x": 20,
+    "y": 30,
+  },
+}
+`;
+
+exports[`decompose should decompose proportional scaling 1`] = `
+Object {
+  "rotate": 0,
+  "scale": Object {
+    "sx": 1.5,
+    "sy": 1.5,
+  },
+  "translate": Object {
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
+
+exports[`decompose should not return transformations on identity decomposition 1`] = `
+Object {
+  "rotate": 0,
+  "scale": Object {
+    "sx": 1,
+    "sy": 1,
+  },
+  "translate": Object {
+    "x": 0,
+    "y": 0,
+  },
+}
+`;
