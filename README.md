@@ -520,4 +520,5 @@ Calculate a translate matrix
 - [Shuhei-Tsunoda](https://github.com/Shuhei-Tsunoda)
 - [antonyRoberts](https://github.com/antonyRoberts)
 - [mcwebb](https://github.com/mcwebb)
+- [https://github.com/signalwerk](https://github.com/signalwerk)
 
