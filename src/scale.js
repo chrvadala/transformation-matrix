@@ -1,4 +1,6 @@
 import { isUndefined } from './utils'
+import { translate } from './translate'
+import { transform } from './transform'
 
 /**
  * Calculate a scaling matrix
@@ -6,9 +8,10 @@ import { isUndefined } from './utils'
  * @param [sy = sx] {number} Scaling on axis y (default sx)
  * @returns {Matrix} Affine Matrix
  */
-export function scale (sx, sy = undefined) {
+export function scale (sx, sy = undefined, cx = undefined, cy = undefined) {
   if (isUndefined(sy)) sy = sx
-  return {
+
+  const scaleMatrix = {
     a: sx,
     c: 0,
     e: 0,
@@ -16,4 +19,14 @@ export function scale (sx, sy = undefined) {
     d: sy,
     f: 0
   }
+
+  if (isUndefined(cx) || isUndefined(cy)) {
+    return scaleMatrix
+  }
+
+  return transform([
+    translate(cx, cy),
+    scaleMatrix,
+    translate(-cx, -cy)
+  ])
 }
