@@ -1,6 +1,6 @@
 /**
  * Merge multiple matrices into one
- * @param matrices {Matrix[]} Array of affine matrix
+ * @param matrices {...Matrix | Matrix[]} Matrices listed as separate parameters or in an array
  * @returns {Matrix} Affine Matrix
  */
 export function transform (...matrices) {
@@ -36,7 +36,7 @@ export function transform (...matrices) {
 
 /**
  * Merge multiple matrices into one
- * @param matrices {Matrix[]} Array of matrix
+ * @param matrices {...Matrix | Matrix[]} Matrices listed as separate parameters or in an array
  * @returns {Matrix} Affine Matrix
  */
 export function compose (...matrices) {
