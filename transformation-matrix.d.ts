@@ -8,9 +8,18 @@ declare module 'transformation-matrix' {
     f: number;
   };
 
-  type Point = { x: number; y: number };
+  type MatrixDescriptor = 
+   |  { type: 'matrix', a: number, b: number, c: number, d: number, e: number, f: number }
+   |  { type: 'translate', tx: number, ty: number }
+   |  { type: 'scale', sx: number, sy: number }
+   |  { type: 'rotate', angle: number, sx: number, sy: number }
+   |  { type: 'skewX', angle: number }
+   |  { type: 'skewY',  angle: number }
+   |  { type: 'shear', shx: number, shy: number}
+  
+  type Point = { x: number; y: number } | [number, number];
 
-  export { Point, Matrix };
+  export { Point, Matrix, MatrixDescriptor };
 }
 
 declare module 'transformation-matrix/applyToPoint' {
@@ -133,13 +142,11 @@ declare module 'transformation-matrix/transform' {
   import { Matrix } from 'transformation-matrix';
 
   /** Merge multiple matrices into one */
+  export function transform(matrices: Matrix[]): Matrix;
   export function transform(...matrices: Matrix[]): Matrix;
-}
-
-declare module 'transformation-matrix/compose' {
-  import { Matrix } from 'transformation-matrix';
 
   /** Merge multiple matrices into one */
+  export function compose(matrices: Matrix[]): Matrix;
   export function compose(...matrices: Matrix[]): Matrix;
 }
 
@@ -155,8 +162,7 @@ declare module 'transformation-matrix/translate' {
 }
 
 declare module 'transformation-matrix/fromTriangles' {
-  import { Matrix } from 'transformation-matrix';
-  import { Point } from 'transformation-matrix';
+  import { Point, Matrix } from 'transformation-matrix';
 
   /**
    * Returns a matrix that transforms a triangle t1 into another triangle t2, or throws an exception if it is impossible.
@@ -165,7 +171,7 @@ declare module 'transformation-matrix/fromTriangles' {
    * @returns Affine matrix which transforms t1 to t2
    * @throws Exception if the matrix becomes not invertible
    */
-  export function fromTriangles(t1: Array<Array<number>> | Array<Point>, t2: Array<Array<number>> | Array<Point>): Matrix;
+  export function fromTriangles(t1: Array<Point>, t2: Array<Point>): Matrix;
 }
 
 declare module 'transformation-matrix/smoothMatrix' {
@@ -181,17 +187,8 @@ declare module 'transformation-matrix/smoothMatrix' {
 }
 
 declare module 'transformation-matrix/fromDefinition' {
-  import { Point, Matrix } from 'transformation-matrix';
-  
-  type MatrixDescriptor = 
-   |  { type: 'matrix', a: number, b: number, c: number, d: number, e: number, f: number }
-   |  { type: 'translate', tx: number, ty: number }
-   |  { type: 'scale', sx: number, sy: number }
-   |  { type: 'rotate', angle: number, sx: number, sy: number }
-   |  { type: 'skewX', angle: number }
-   |  { type: 'skewY',  angle: number }
-   |  { type: 'shear', shx: number, shy: number}
-  
+  import { Point, Matrix, MatrixDescriptor } from 'transformation-matrix';
+
   /**
    * Converts array of matrix descriptor to array of matrix
    * @param definitionOrArrayOfDefinition {Object[]} Array of object describing the matrix
@@ -218,19 +215,19 @@ declare module 'transformation-matrix/fromDefinition' {
    *  { a: 1, c: 10, e: 0, b: 20, d: 1, f: 0 }
    * ]
    **/
-  export function fromDefinition(defintion: MatrixDescriptor): Matrix;
+  export function fromDefinition(definition: MatrixDescriptor): Matrix;
   export function fromDefinition(
-    arrayOfDefintion: MatrixDescriptor[]
+    arrayOfDefinition: MatrixDescriptor[]
   ): Matrix[];
 }
 
 declare module 'transformation-matrix/fromTransformAttribute' {
-  import { Point, Matrix } from 'transformation-matrix';
+  import { MatrixDescriptor } from 'transformation-matrix';
   /**
    * Parser for SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>
    * Warning: This should be considered BETA until it is released a stable version of pegjs.
    * @param transformString {string} Transform string as defined by w3 Consortium
-   * @returns {Matrix[]} Array of MatrixDescriptor
+   * @returns {MatrixDescriptor[]} Array of MatrixDescriptor
    *
    * @example
    * > fromTransformAttribute('translate(-10,-10) scale(2,2) translate(10,10)')
@@ -243,7 +240,7 @@ declare module 'transformation-matrix/fromTransformAttribute' {
    * > compose(fromDefinition(fromTransformAttribute('translate(-10, -10) scale(10, 10)')))
    * { a: 10, c: 0, e: -10, b: 0, d: 10, f: -10 }
    */
-  export function fromTransformAttribute(transformString: string): Matrix[];
+  export function fromTransformAttribute(transformString: string): MatrixDescriptor[];
 }
 
 declare module 'transformation-matrix' {
