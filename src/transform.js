@@ -27,10 +27,11 @@ export function transform (...matrices) {
     case 2:
       return multiply(matrices[0], matrices[1])
 
-    default:
+    default: {
       const [m1, m2, ...rest] = matrices
       const m = multiply(m1, m2)
       return transform(m, ...rest)
+    }
   }
 }
 
