@@ -8,7 +8,7 @@ declare module 'transformation-matrix' {
     f: number;
   };
 
-  type MatrixDescriptor = 
+  type MatrixDescriptor =
    |  { type: 'matrix', a: number, b: number, c: number, d: number, e: number, f: number }
    |  { type: 'translate', tx: number, ty: number }
    |  { type: 'scale', sx: number, sy: number }
@@ -16,7 +16,7 @@ declare module 'transformation-matrix' {
    |  { type: 'skewX', angle: number }
    |  { type: 'skewY',  angle: number }
    |  { type: 'shear', shx: number, shy: number}
-  
+
   type Point = { x: number; y: number } | [number, number];
 
   export { Point, Matrix, MatrixDescriptor };

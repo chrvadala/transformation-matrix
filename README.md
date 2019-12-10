@@ -76,7 +76,7 @@ Any value could be a float or a string that contains a float</p>
 <dt><a href="#fromString">fromString(string)</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Parse a string formatted as matrix(a,b,c,d,e,f)</p>
 </dd>
-<dt><a href="#fromTransformAttribute">fromTransformAttribute(transformString)</a> ⇒ <code>Array.&lt;Matrix&gt;</code></dt>
+<dt><a href="#fromTransformAttribute">fromTransformAttribute(transformString)</a> ⇒ <code>Array.&lt;MatrixDescriptor&gt;</code></dt>
 <dd><p>Parser for SVG Trasform Attribute <a href="http://www.w3.org/TR/SVG/coords.html#TransformAttribute">http://www.w3.org/TR/SVG/coords.html#TransformAttribute</a> <br/>
 Warning: This should be considered BETA until it is released a stable version of pegjs.</p>
 </dd>
@@ -153,6 +153,7 @@ Warning: This should be considered BETA until it is released a stable version of
 - **1.15**- Adds `fromTriangle` and `smoothMatrix` functions [#41](https://github.com/chrvadala/transformation-matrix/issues/41)
 - **2.0**- Migrates to Babel 7 and updates dependencies; introduces `fromDefinition` function; breaking changes on `fromTransformAttribute` function; improves docs
 - **2.1**- Upgrades deps; Adds Node.js v12 to CI
+- **2.2**- Upgrades deps; Improves doc [#66](https://github.com/chrvadala/transformation-matrix/pull/66); Adds tsc check
 
 # API
 
@@ -266,12 +267,12 @@ Parse a string formatted as matrix(a,b,c,d,e,f)
 ```
 <a name="fromTransformAttribute"></a>
 
-## fromTransformAttribute(transformString) ⇒ <code>Array.&lt;Matrix&gt;</code>
+## fromTransformAttribute(transformString) ⇒ <code>Array.&lt;MatrixDescriptor&gt;</code>
 Parser for SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>
 Warning: This should be considered BETA until it is released a stable version of pegjs.
 
 **Kind**: global function  
-**Returns**: <code>Array.&lt;Matrix&gt;</code> - Array of MatrixDescriptor  
+**Returns**: <code>Array.&lt;MatrixDescriptor&gt;</code> - Array of MatrixDescriptor  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -476,7 +477,7 @@ Merge multiple matrices into one
 
 | Param | Type | Description |
 | --- | --- | --- |
-| matrices | <code>Array.&lt;Matrix&gt;</code> | Array of affine matrix |
+| matrices | <code>Matrix</code> \| <code>Array.&lt;Matrix&gt;</code> | Matrices listed as separate parameters or in an array |
 
 <a name="compose"></a>
 
@@ -488,7 +489,7 @@ Merge multiple matrices into one
 
 | Param | Type | Description |
 | --- | --- | --- |
-| matrices | <code>Array.&lt;Matrix&gt;</code> | Array of matrix |
+| matrices | <code>Matrix</code> \| <code>Array.&lt;Matrix&gt;</code> | Matrices listed as separate parameters or in an array |
 
 <a name="translate"></a>
 
@@ -520,5 +521,6 @@ Calculate a translate matrix
 - [Shuhei-Tsunoda](https://github.com/Shuhei-Tsunoda)
 - [antonyRoberts](https://github.com/antonyRoberts)
 - [mcwebb](https://github.com/mcwebb)
-- [https://github.com/signalwerk](https://github.com/signalwerk)
+- [signalwerk](https://github.com/signalwerk)
+- [estollnitz](https://github.com/estollnitz)
 
