@@ -1,3 +1,6 @@
+type PointObjectNotation = { x: number; y: number };
+type PointArrayNotation = [number, number];
+
 declare module 'transformation-matrix' {
   type Matrix = {
     a: number;
@@ -17,7 +20,7 @@ declare module 'transformation-matrix' {
    |  { type: 'skewY',  angle: number }
    |  { type: 'shear', shx: number, shy: number}
 
-  type Point = { x: number; y: number } | [number, number];
+  type Point = PointObjectNotation | PointArrayNotation;
 
   export { Point, Matrix, MatrixDescriptor };
 }
@@ -26,9 +29,15 @@ declare module 'transformation-matrix/applyToPoint' {
   import { Point, Matrix } from 'transformation-matrix';
 
   /** Calculate a point transformed with an affine matrix */
-  export function applyToPoint(matrix: Matrix, point: Point): Point;
+  export function applyToPoint<P extends Point>(
+    matrix: Matrix,
+    point: P,
+  ): P extends PointObjectNotation ? PointObjectNotation : PointArrayNotation;
   /** Calculate an array of points transformed with an affine matrix */
-  export function applyToPoints(matrix: Matrix, points: Point[]): Point[];
+  export function applyToPoints<P extends Point>(
+    matrix: Matrix,
+    points: P[],
+  ): P extends PointObjectNotation ? PointObjectNotation[] : PointArrayNotation[];
 }
 
 declare module 'transformation-matrix/fromString' {
