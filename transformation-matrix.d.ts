@@ -26,9 +26,9 @@ declare module 'transformation-matrix/applyToPoint' {
   import { Point, Matrix } from 'transformation-matrix';
 
   /** Calculate a point transformed with an affine matrix */
-  export function applyToPoint(matrix: Matrix, point: Point): Point;
+  export function applyToPoint<P extends Point>(matrix: Matrix, point: P): P;
   /** Calculate an array of points transformed with an affine matrix */
-  export function applyToPoints(matrix: Matrix, points: Point[]): Point[];
+  export function applyToPoints<P extends Point>(matrix: Matrix, points: P[]): P[];
 }
 
 declare module 'transformation-matrix/fromString' {
