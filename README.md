@@ -98,7 +98,7 @@ Warning: This should be considered BETA until it is released a stable version of
 <dt><a href="#rotateDEG">rotateDEG(angle, [cx], [cy])</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Calculate a rotation matrix with a DEG angle</p>
 </dd>
-<dt><a href="#scale">scale(sx, [sy])</a> ⇒ <code>Matrix</code></dt>
+<dt><a href="#scale">scale(sx, [sy], [cx], [cy])</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Calculate a scaling matrix</p>
 </dd>
 <dt><a href="#shear">shear(shx, shy)</a> ⇒ <code>Matrix</code></dt>
@@ -154,6 +154,7 @@ Warning: This should be considered BETA until it is released a stable version of
 - **2.0**- Migrates to Babel 7 and updates dependencies; introduces `fromDefinition` function; breaking changes on `fromTransformAttribute` function; improves docs
 - **2.1**- Upgrades deps; Adds Node.js v12 to CI
 - **2.2**- Upgrades deps; Improves typescript definition [#66](https://github.com/chrvadala/transformation-matrix/pull/66)
+- **2.3**- Adds `(cx,cy)` on `scale` function [#62](https://github.com/chrvadala/transformation-matrix/pull/62); Improves typescript definition [#66](https://github.com/chrvadala/transformation-matrix/pull/67); Upgrades deps
 
 # API
 
@@ -368,7 +369,7 @@ Calculate a rotation matrix with a DEG angle
 
 <a name="scale"></a>
 
-## scale(sx, [sy]) ⇒ <code>Matrix</code>
+## scale(sx, [sy], [cx], [cy]) ⇒ <code>Matrix</code>
 Calculate a scaling matrix
 
 **Kind**: global function  
@@ -378,6 +379,8 @@ Calculate a scaling matrix
 | --- | --- | --- | --- |
 | sx | <code>number</code> |  | Scaling on axis x |
 | [sy] | <code>number</code> | <code>sx</code> | Scaling on axis y (default sx) |
+| [cx] | <code>number</code> |  | If (cx,cy) are supplied the scaling is about this point |
+| [cy] | <code>number</code> |  | If (cx,cy) are supplied the scaling is about this point |
 
 <a name="shear"></a>
 
