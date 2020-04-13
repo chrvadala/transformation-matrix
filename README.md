@@ -526,4 +526,6 @@ Calculate a translate matrix
 - [mcwebb](https://github.com/mcwebb)
 - [signalwerk](https://github.com/signalwerk)
 - [estollnitz](https://github.com/estollnitz)
+- [rodrigoapereira](https://github.com/rodrigoapereira)
+- [formatlos](https://github.com/formatlos)
 
