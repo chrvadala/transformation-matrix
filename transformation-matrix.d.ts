@@ -107,10 +107,13 @@ declare module 'transformation-matrix/scale' {
 
   /**
    * Calculate a scaling matrix
-   * @param sx Scaling on axis x
-   * @param sy Scaling on axis y (default `sx`)
+   * @param sx {number} Scaling on axis x
+   * @param [sy = sx] {number} Scaling on axis y (default `sx`)
+   * @param [cx] {number} If (cx,cy) are supplied the scale is relative to this point
+   * @param [cy] {number} If (cx,cy) are supplied the scale is relative to this point
+   * @returns {Matrix} Affine Matrix
    */
-  export function scale(sx: number, sy?: number): Matrix;
+  export function scale(sx: number, sy?: number, cx?: number, cy?: number): Matrix;
 }
 
 declare module 'transformation-matrix/shear' {
