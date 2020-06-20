@@ -156,7 +156,7 @@ Warning: This should be considered BETA until it is released a stable version of
 - **2.1**- Upgrades deps; Adds Node.js v12 to CI
 - **2.2**- Upgrades deps; Improves typescript definition [#66](https://github.com/chrvadala/transformation-matrix/pull/66)
 - **2.3**- Adds `(cx,cy)` on `scale` function [#62](https://github.com/chrvadala/transformation-matrix/pull/62); Improves typescript definition [#66](https://github.com/chrvadala/transformation-matrix/pull/67); Upgrades deps
-
+- **2.4**- Improves typescript definition [#75](https://github.com/chrvadala/transformation-matrix/pull/75)
 # API
 
 ## Data Model
@@ -529,4 +529,5 @@ Calculate a translate matrix
 - [estollnitz](https://github.com/estollnitz)
 - [rodrigoapereira](https://github.com/rodrigoapereira)
 - [formatlos](https://github.com/formatlos)
+- [benhjames](https://github.com/benhjames)
 
