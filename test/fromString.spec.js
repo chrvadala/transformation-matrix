@@ -18,5 +18,8 @@ describe('fromString', () => {
     expect(fromString.bind(this, 'matrix()')).toThrow()
     expect(fromString.bind(this, 'matrix(1,2,3,4,5)')).toThrow()
     expect(fromString.bind(this, 'matrix(a,b,c,d,e,f)')).toThrow()
+
+    expect(fromString('matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,440,-350)'))
+      .toEqual({a:6.123233995736766e-17,b:1,c:-1,d:6.123233995736766e-17,e:440,f:-350})
   })
 })
