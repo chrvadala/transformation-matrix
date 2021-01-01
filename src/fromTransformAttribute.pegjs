@@ -83,15 +83,15 @@ integerConstant
   = ds:digitSequence { return ds.join(""); }
 
 floatingPointConstant
-  = fractionalConstant exponent?
-    / digitSequence exponent
+  = f:fractionalConstant e:exponent? { return [f, e || null].join("")}
+    / d:digitSequence e:exponent { return [d, e].join("")}
 
 fractionalConstant "fractionalConstant"
   = d1:digitSequence? "." d2:digitSequence { return [d1 ? d1.join("") : null, ".", d2.join("")].join(""); }
     / d:digitSequence "." { return d.join(""); }
 
 exponent
-  =  [eE] sign? digitSequence
+  =  [eE] s:sign? d:digitSequence { return ['e', s, d.join("")].join("") }
 
 sign
   = [+-]

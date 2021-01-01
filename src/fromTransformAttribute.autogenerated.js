@@ -198,8 +198,11 @@ function peg$parse(input, options) {
   var peg$f10 = function(n) { return n; };
   var peg$f11 = function(n1, n2) { return [n1, n2]; };
   var peg$f12 = function(ds) { return ds.join(""); };
-  var peg$f13 = function(d1, d2) { return [d1 ? d1.join("") : null, ".", d2.join("")].join(""); };
-  var peg$f14 = function(d) { return d.join(""); };
+  var peg$f13 = function(f, e) { return [f, e || null].join("")};
+  var peg$f14 = function(d, e) { return [d, e].join("")};
+  var peg$f15 = function(d1, d2) { return [d1 ? d1.join("") : null, ".", d2.join("")].join(""); };
+  var peg$f16 = function(d) { return d.join(""); };
+  var peg$f17 = function(s, d) { return ['e', s, d.join("")].join("") };
 
   var peg$currPos = 0;
   var peg$savedPos = 0;
@@ -1228,8 +1231,8 @@ function peg$parse(input, options) {
       if (s2 === peg$FAILED) {
         s2 = null;
       }
-      s1 = [s1, s2];
-      s0 = s1;
+      peg$savedPos = s0;
+      s0 = peg$f13(s1, s2);
     } else {
       peg$currPos = s0;
       s0 = peg$FAILED;
@@ -1240,8 +1243,8 @@ function peg$parse(input, options) {
       if (s1 !== peg$FAILED) {
         s2 = peg$parseexponent();
         if (s2 !== peg$FAILED) {
-          s1 = [s1, s2];
-          s0 = s1;
+          peg$savedPos = s0;
+          s0 = peg$f14(s1, s2);
         } else {
           peg$currPos = s0;
           s0 = peg$FAILED;
@@ -1279,7 +1282,7 @@ function peg$parse(input, options) {
       s3 = peg$parsedigitSequence();
       if (s3 !== peg$FAILED) {
         peg$savedPos = s0;
-        s0 = peg$f13(s1, s3);
+        s0 = peg$f15(s1, s3);
       } else {
         peg$currPos = s0;
         s0 = peg$FAILED;
@@ -1300,7 +1303,7 @@ function peg$parse(input, options) {
         }
         if (s2 !== peg$FAILED) {
           peg$savedPos = s0;
-          s0 = peg$f14(s1);
+          s0 = peg$f16(s1);
         } else {
           peg$currPos = s0;
           s0 = peg$FAILED;
@@ -1337,8 +1340,8 @@ function peg$parse(input, options) {
       }
       s3 = peg$parsedigitSequence();
       if (s3 !== peg$FAILED) {
-        s1 = [s1, s2, s3];
-        s0 = s1;
+        peg$savedPos = s0;
+        s0 = peg$f17(s2, s3);
       } else {
         peg$currPos = s0;
         s0 = peg$FAILED;

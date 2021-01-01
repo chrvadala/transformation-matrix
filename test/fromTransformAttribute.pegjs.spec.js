@@ -31,6 +31,21 @@ describe('fromTransformAttribute.pegjs', () => {
     })
   })
 
+  describe('exponential values', () => {
+    it('should parse without errors', () => {
+      // it is tested with rotate function, but it doesn't matter because any parser make use of the same number parser
+      expect(parse('rotate(1e1)')).toEqual([{ type: 'rotate', angle: 1e1 }])
+      expect(parse('rotate(-1e1)')).toEqual([{ type: 'rotate', angle: -1e1 }])
+      expect(parse('rotate(1e-1)')).toEqual([{ type: 'rotate', angle: 1e-1 }])
+      expect(parse('rotate(-1e-1)')).toEqual([{ type: 'rotate', angle: -1e-1 }])
+
+      expect(parse('rotate(1.1e1)')).toEqual([{ type: 'rotate', angle: 1.1e1 }])
+      expect(parse('rotate(-1.1e1)')).toEqual([{ type: 'rotate', angle: -1.1e1 }])
+      expect(parse('rotate(1.1e-1)')).toEqual([{ type: 'rotate', angle: 1.1e-1 }])
+      expect(parse('rotate(-1.1e-1)')).toEqual([{ type: 'rotate', angle: -1.1e-1 }])
+    })
+  })
+
   describe('complex transformations', () => {
     it('should parse in the right order', () => {
       expect(parse('translate(1,2) translate(3,4) translate(5,6)')).toEqual([
