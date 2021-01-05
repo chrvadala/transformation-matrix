@@ -19,12 +19,30 @@ describe('fromTransformAttribute.pegjs', () => {
       expect(parse('skewY(56.11)')).toEqual([{ type: 'skewY', angle: 56.11 }])
 
       expect(parse('matrix(1 2 3,4,5 6)')).toEqual([{ type: 'matrix', a: 1, b: 2, c: 3, d: 4, e: 5, f: 6 }])
+
+      expect(parse('matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,440,-350)'))
+        .toEqual([{ type: 'matrix', a: 6.123233995736766e-17, b: 1, c: -1, d: 6.123233995736766e-17, e: 440, f: -350 }])
     })
 
     it('should throw exception', () => {
       expect(parse.bind(this, 'rotate(46 51)')).toThrow()
       expect(parse.bind(this, 'skewX(19.08, 4)')).toThrow()
       expect(parse.bind(this, 'matrix(1 2 3,45 6)')).toThrow()
+    })
+  })
+
+  describe('exponential values', () => {
+    it('should parse without errors', () => {
+      // it is tested with rotate function, but it doesn't matter because any parser make use of the same number parser
+      expect(parse('rotate(1e1)')).toEqual([{ type: 'rotate', angle: 1e1 }])
+      expect(parse('rotate(-1e1)')).toEqual([{ type: 'rotate', angle: -1e1 }])
+      expect(parse('rotate(1e-1)')).toEqual([{ type: 'rotate', angle: 1e-1 }])
+      expect(parse('rotate(-1e-1)')).toEqual([{ type: 'rotate', angle: -1e-1 }])
+
+      expect(parse('rotate(1.1e1)')).toEqual([{ type: 'rotate', angle: 1.1e1 }])
+      expect(parse('rotate(-1.1e1)')).toEqual([{ type: 'rotate', angle: -1.1e1 }])
+      expect(parse('rotate(1.1e-1)')).toEqual([{ type: 'rotate', angle: 1.1e-1 }])
+      expect(parse('rotate(-1.1e-1)')).toEqual([{ type: 'rotate', angle: -1.1e-1 }])
     })
   })
 
