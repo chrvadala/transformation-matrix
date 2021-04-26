@@ -7,10 +7,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
           node-version: 12
       - run: echo "VERSION=$(jq -j '.version' package.json)" >> $GITHUB_ENV
@@ -26,10 +26,10 @@ jobs:
       version: ${{ env.VERSION }}
 
   npm-publish:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     needs: build
     steps:
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
           node-version: 12
           registry-url: 'https://registry.npmjs.org'
@@ -44,7 +44,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
 
   tag-release:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     needs: [build, npm-publish]
     steps:
       - uses: actions/checkout@v2
@@ -56,7 +56,7 @@ jobs:
           release: v${{ needs.build.outputs.version }}
 
   gh-release:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     needs: [build, npm-publish]
     steps:
       - name: Create GitHub Release
