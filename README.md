@@ -160,6 +160,7 @@ Warning: This should be considered BETA until it is released a stable version of
 - **2.5**- Upgrades deps; Deprecates NodeJS 8; Adds NodeJs 14 support
 - **2.6**- Upgrades deps; Fixes fromTransformAttribute function [#84](https://github.com/chrvadala/transformation-matrix/pull/84)
 - **2.7**- Upgrades deps;
+- **2.8**- Upgrades deps;
 # API
 
 ## Data Model
