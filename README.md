@@ -67,6 +67,15 @@ yarn add transformation-matrix
 <dt><a href="#applyToPoints">applyToPoints(matrix, points)</a> ⇒ <code>Array.&lt;Point&gt;</code></dt>
 <dd><p>Calculate an array of points transformed with an affine matrix</p>
 </dd>
+<dt><a href="#flipX">flipX()</a> ⇒ <code>Matrix</code></dt>
+<dd><p>Tranformation matrix that mirrors on x-axis</p>
+</dd>
+<dt><a href="#flipY">flipY()</a> ⇒ <code>Matrix</code></dt>
+<dd><p>Tranformation matrix that mirrors on y-axis</p>
+</dd>
+<dt><a href="#flipOrigin">flipOrigin()</a> ⇒ <code>Matrix</code></dt>
+<dd><p>Tranformation matrix that mirrors on origin</p>
+</dd>
 <dt><a href="#fromDefinition">fromDefinition(definitionOrArrayOfDefinition)</a> ⇒ <code>Array.&lt;Matrix&gt;</code></dt>
 <dd><p>Converts array of matrix descriptor to array of matrix</p>
 </dd>
@@ -206,6 +215,27 @@ Calculate an array of points transformed with an affine matrix
 | matrix | <code>Matrix</code> | Affine Matrix |
 | points | <code>Array.&lt;Point&gt;</code> | Array of point |
 
+<a name="flipX"></a>
+
+## flipX() ⇒ <code>Matrix</code>
+Tranformation matrix that mirrors on x-axis
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - Affine Matrix  
+<a name="flipY"></a>
+
+## flipY() ⇒ <code>Matrix</code>
+Tranformation matrix that mirrors on y-axis
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - Affine Matrix  
+<a name="flipOrigin"></a>
+
+## flipOrigin() ⇒ <code>Matrix</code>
+Tranformation matrix that mirrors on origin
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - Affine Matrix  
 <a name="fromDefinition"></a>
 
 ## fromDefinition(definitionOrArrayOfDefinition) ⇒ <code>Array.&lt;Matrix&gt;</code>
