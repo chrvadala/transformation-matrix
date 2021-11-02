@@ -27,6 +27,7 @@ This library allows us to:
 - merge multiple transformation matrices in a single matrix that is the **composition of multiple matrices**
 - work with strings in both directions: **parse**, **render**
 - **apply a transformation matrix to point(s)**
+- **decompose a matrix into translation, rotation and scaling components, with flip decomposition support**
 
 ## Usage example (ES6)
 ```js
@@ -141,6 +142,9 @@ Warning: This should be considered BETA until it is released a stable version of
 <dt><a href="#translate">translate(tx, [ty])</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Calculate a translate matrix</p>
 </dd>
+<dt><a href="#decompose">decompose(matrix, [flipX], [flipY])</a> ⇒ <code>Transform</code></dt>
+<dd><p>Decompose a matrix into translation, rotation and scaling components, optionally take horizontal and vertical flip in to consideration</p>
+</dd>
 </dl>
 
 ## Changelog
@@ -189,6 +193,21 @@ const point = { x: 24, y: 42 }
 - as `Array`, with two items in the form `[x, y]`
 ```js
 const point = [ 24, 42 ]
+```
+
+A **Transform** (used in [decompose](#decompose)) is defined as a `Plain Object` of the following shape:
+```typescript
+interface Transform {
+  translate: {
+    tx: number,
+    ty: number
+  },
+  rotation: number,
+  scale: {
+    sx: number,
+    sy: number
+  }
+}
 ```
 
 <a name="applyToPoint"></a>
@@ -543,6 +562,23 @@ Calculate a translate matrix
 | tx | <code>number</code> |  | Translation on axis x |
 | [ty] | <code>number</code> | <code>0</code> | Translation on axis y |
 
+
+<a name="decompose"></a>
+
+## decompose(matrix, [flipX], [flipY]) ⇒ <code>Transform</code>
+Decompose a matrix into translation, rotation and scaling components, optionally take horizontal and vertical flip in to consideration.
+
+**Kind**: global function  
+**Returns**: <code>Transform</code> - A transform object consisted by its translation, rotation and scaling components.
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| matrix | <code>Matrix</code> | Affine Matrix |
+| flipX | <code>boolean</code> | Whether the matrix contains vertical flip, i.e. mirrors on x-axis |
+| flipY | <code>boolean</code> | Whether the matrix contains horizontal flip, i.e. mirrors on y-axis |
+
+
+
 ## Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
 - [**React SVG Pan Zoom**](https://github.com/chrvadala/react-svg-pan-zoom)
@@ -565,4 +601,4 @@ Calculate a translate matrix
 - [rodrigoapereira](https://github.com/rodrigoapereira)
 - [formatlos](https://github.com/formatlos)
 - [benhjames](https://github.com/benhjames)
-
+- [hillin](https://github.com/hillin)
