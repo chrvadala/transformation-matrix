@@ -256,6 +256,8 @@ declare module 'transformation-matrix/fromTransformAttribute' {
 }
 
 declare module 'transformation-matrix/decompose' {
+  import { Matrix } from 'transformation-matrix';
+
   export interface Transform {
     translate: {
       tx: number,
@@ -281,7 +283,7 @@ declare module 'transformation-matrix/decompose' {
    * @returns {Transform} A transform object consisted by its translation, rotation 
    * and scaling components.
    */
-  export function decompose(matrix: Matrix, flipX: boolean = false, flipY: boolean = false): Transform;
+  export function decompose(matrix: Matrix, flipX?: boolean, flipY?: boolean): Transform;
 }
 
 declare module 'transformation-matrix' {
