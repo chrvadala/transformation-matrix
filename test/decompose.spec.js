@@ -9,7 +9,7 @@ import { compose } from '../src/transform'
 function makeTransform (object) {
   return {
     translate: { tx: object.tx ?? 0, ty: object.ty ?? 0 },
-    rotation: object.rotation ?? 0,
+    rotation: { angle: object.rotation ?? 0 },
     scale: { sx: object.sx ?? 1, sy: object.sy ?? 1 }
   }
 }

@@ -60,7 +60,7 @@ export function decompose (matrix, flipX = false, flipY = false) {
 
   return {
     translate: { tx: matrix.e, ty: matrix.f },
-    rotation: rotation,
+    rotation: { angle: rotation },
     scale: { sx: scaleX, sy: scaleY }
   }
 }

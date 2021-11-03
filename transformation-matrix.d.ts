@@ -263,7 +263,7 @@ declare module 'transformation-matrix/decompose' {
       tx: number,
       ty: number
     },
-    rotation: number,
+    rotation: { angle: number },
     scale: {
       sx: number,
       sy: number
