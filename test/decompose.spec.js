@@ -1,10 +1,11 @@
 /* global describe, it, expect */
-import { rotate } from '../src/rotate'
+import { rotate, rotateDEG } from '../src/rotate'
 import { decompose } from '../src/decompose'
 import { translate } from '../src/translate'
 import { scale } from '../src/scale'
 import { flipX, flipY } from '../src/flip'
 import { compose } from '../src/transform'
+import { applyToPoint } from '../src/applyToPoint'
 
 function makeTransform (object) {
   return {
@@ -68,5 +69,42 @@ describe('decompose', () => {
       rotate(rotation)
     )
     expect(decompose(matrix, true, true)).toEqual(makeTransform({ tx, ty, sx: -sx, sy: -sy, rotation }))
+  })
+
+  it.each([
+    0 + 45 / 2,
+    45,
+    45 + 45 / 2,
+    90,
+    90 + 45 / 2,
+    180,
+    180 + 45 / 2,
+    270,
+    270 + 45 / 2
+  ])('should decompose into an equivalent TSR matrix, rotated by %d DEG', (rotation) => {
+    const tx = 40
+    const ty = 80
+    const scaleX = 2
+    const scaleY = 4
+
+    const matrix = compose(
+      translate(tx, ty),
+      scale(scaleX, scaleY),
+      rotateDEG(rotation)
+    )
+
+    const decomposed = decompose(matrix)
+
+    const matrix2 = compose(
+      translate(decomposed.translate.tx, decomposed.translate.ty),
+      scale(decomposed.scale.sx, decomposed.scale.sy),
+      rotate(decomposed.rotation.angle)
+    )
+
+    const point1 = applyToPoint(matrix, { x: 42, y: 42 })
+    const point2 = applyToPoint(matrix2, { x: 42, y: 42 })
+
+    expect(point2.x).toBeCloseTo(point1.x, 10)
+    expect(point2.y).toBeCloseTo(point1.y, 10)
   })
 })
