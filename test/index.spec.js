@@ -22,7 +22,7 @@ import {
   toSVG,
   transform,
   translate,
-  decompose,
+  decompose
 } from '../src/index'
 
 describe('index', () => {
