@@ -5,7 +5,7 @@ import { compose } from './transform'
  * take horizontal and vertical flip in to consideration.
  * Note this function decomposes a matrix in rotation -> scaling -> translation order. I.e. for
  * certain translation T {tx, ty}, rotation R and scaling S { sx, sy }, it's only true for:
- *  decompose(compose(T, S, R)) === { translate: T, rotation: R, scale: S }
+ *  decomposeTSR(compose(T, S, R)) === { translate: T, rotation: R, scale: S }
  * composing in a different order may yield a different decomposition result.
  * @param matrix {Matrix} Affine Matrix
  * @param  flipX {boolean} Whether the matrix contains vertical flip, i.e. mirrors on x-axis

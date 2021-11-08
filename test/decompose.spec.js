@@ -1,6 +1,6 @@
 /* global describe, it, expect */
 import { rotate, rotateDEG } from '../src/rotate'
-import { decompose } from '../src/decompose'
+import { decomposeTSR } from '../src/decompose'
 import { translate } from '../src/translate'
 import { scale } from '../src/scale'
 import { flipX, flipY } from '../src/flip'
@@ -15,33 +15,33 @@ function makeTransform (object) {
   }
 }
 
-describe('decompose', () => {
-  it('should decompose a translation-only matrix', () => {
+describe('decomposeTSR', () => {
+  it('should decomposeTSR a translation-only matrix', () => {
     const tx = 20
     const ty = 30
-    expect(decompose(translate(tx, ty))).toEqual(makeTransform({ tx, ty }))
+    expect(decomposeTSR(translate(tx, ty))).toEqual(makeTransform({ tx, ty }))
   })
 
-  it('should decompose a rotation-only matrix', () => {
+  it('should decomposeTSR a rotation-only matrix', () => {
     const rotation = Math.PI / 4
-    expect(decompose(rotate(rotation))).toEqual(makeTransform({ rotation }))
+    expect(decomposeTSR(rotate(rotation))).toEqual(makeTransform({ rotation }))
   })
 
-  it('should decompose a scale-only matrix', () => {
+  it('should decomposeTSR a scale-only matrix', () => {
     const sx = 2
     const sy = 1.5
-    expect(decompose(scale(sx, sy))).toEqual(makeTransform({ sx, sy }))
+    expect(decomposeTSR(scale(sx, sy))).toEqual(makeTransform({ sx, sy }))
   })
 
-  it('should decompose a flip-x-only matrix', () => {
-    expect(decompose(flipX(), true)).toEqual(makeTransform({ sy: -1 }))
+  it('should decomposeTSR a flip-x-only matrix', () => {
+    expect(decomposeTSR(flipX(), true)).toEqual(makeTransform({ sy: -1 }))
   })
 
-  it('should decompose a flip-y-only matrix', () => {
-    expect(decompose(flipY(), false, true)).toEqual(makeTransform({ sx: -1 }))
+  it('should decomposeTSR a flip-y-only matrix', () => {
+    expect(decomposeTSR(flipY(), false, true)).toEqual(makeTransform({ sx: -1 }))
   })
 
-  it('should decompose a complex matrix without flips', () => {
+  it('should decomposeTSR a complex matrix without flips', () => {
     const tx = 100
     const ty = -234
     const sx = 2
@@ -52,10 +52,10 @@ describe('decompose', () => {
       scale(sx, sy),
       rotate(rotation)
     )
-    expect(decompose(matrix)).toEqual(makeTransform({ tx, ty, sx, sy, rotation }))
+    expect(decomposeTSR(matrix)).toEqual(makeTransform({ tx, ty, sx, sy, rotation }))
   })
 
-  it('should decompose a complex matrix with flips', () => {
+  it('should decomposeTSR a complex matrix with flips', () => {
     const tx = 100
     const ty = -234
     const sx = 1
@@ -68,7 +68,7 @@ describe('decompose', () => {
       flipY(),
       rotate(rotation)
     )
-    expect(decompose(matrix, true, true)).toEqual(makeTransform({ tx, ty, sx: -sx, sy: -sy, rotation }))
+    expect(decomposeTSR(matrix, true, true)).toEqual(makeTransform({ tx, ty, sx: -sx, sy: -sy, rotation }))
   })
 
   it.each([
@@ -81,7 +81,7 @@ describe('decompose', () => {
     180 + 45 / 2,
     270,
     270 + 45 / 2
-  ])('should decompose into an equivalent TSR matrix, rotated by %d DEG', (rotation) => {
+  ])('should decomposeTSR into an equivalent TSR matrix, rotated by %d DEG', (rotation) => {
     const tx = 40
     const ty = 80
     const scaleX = 2
@@ -93,7 +93,7 @@ describe('decompose', () => {
       rotateDEG(rotation)
     )
 
-    const decomposed = decompose(matrix)
+    const decomposed = decomposeTSR(matrix)
 
     const matrix2 = compose(
       translate(decomposed.translate.tx, decomposed.translate.ty),

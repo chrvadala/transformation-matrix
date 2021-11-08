@@ -22,7 +22,7 @@ import {
   toSVG,
   transform,
   translate,
-  decompose
+  decomposeTSR
 } from '../src/index'
 
 describe('index', () => {
@@ -49,6 +49,6 @@ describe('index', () => {
     expect(typeof smoothMatrix).toBe('function')
     expect(typeof fromTriangles).toBe('function')
     expect(typeof fromDefinition).toBe('function')
-    expect(typeof decompose).toBe('function')
+    expect(typeof decomposeTSR).toBe('function')
   })
 })
