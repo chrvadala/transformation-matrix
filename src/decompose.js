@@ -1,19 +1,19 @@
 import { scale } from './scale'
 import { compose } from './transform'
 /**
- * Decompose a matrix into translation, rotation and scaling components, optionally
+ * Decompose a matrix into translation, scaling and rotation components, optionally
  * take horizontal and vertical flip in to consideration.
- * Note this function decomposes a matrix in rotation -> scale -> translation order. I.e. for
+ * Note this function decomposes a matrix in rotation -> scaling -> translation order. I.e. for
  * certain translation T {tx, ty}, rotation R and scaling S { sx, sy }, it's only true for:
  *  decompose(compose(T, S, R)) === { translate: T, rotation: R, scale: S }
  * composing in a different order may yield a different decomposition result.
  * @param matrix {Matrix} Affine Matrix
  * @param  flipX {boolean} Whether the matrix contains vertical flip, i.e. mirrors on x-axis
  * @param  flipY {boolean} Whether the matrix contains horizontal flip, i.e. mirrors on y-axis
- * @returns {Transform} A transform object consisted by its translation, rotation
- * and scaling components.
+ * @returns {Transform} A transform object consisted by its translation, scaling
+ * and rotation components.
  */
-export function decompose (matrix, flipX = false, flipY = false) {
+export function decomposeTSR (matrix, flipX = false, flipY = false) {
   // Remove flip from the matrix first - flip could be incorrectly interpreted as
   // rotations (e.g. flipX + flipY = rotate by 180 degrees).
   // Note flipX is a vertical flip, and flipY is a horizontal flip.
@@ -60,7 +60,7 @@ export function decompose (matrix, flipX = false, flipY = false) {
 
   return {
     translate: { tx: matrix.e, ty: matrix.f },
-    rotation: { angle: rotation },
-    scale: { sx: scaleX, sy: scaleY }
+    scale: { sx: scaleX, sy: scaleY },
+    rotation: { angle: rotation }
   }
 }

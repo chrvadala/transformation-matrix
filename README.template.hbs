@@ -20,7 +20,7 @@ This library allows us to:
 - merge multiple transformation matrices in a single matrix that is the **composition of multiple matrices**
 - work with strings in both directions: **parse**, **render**
 - **apply a transformation matrix to point(s)**
-- **decompose a matrix into translation, rotation and scaling components, with flip decomposition support**
+- **decompose a matrix into translation, scaling and rotation components, with flip decomposition support**
 
 ## Usage example (ES6)
 ```js
@@ -102,7 +102,7 @@ const point = { x: 24, y: 42 }
 const point = [ 24, 42 ]
 ```
 
-A **Transform** (used in [decompose](#decompose)) is defined as a `Plain Object` of the following shape:
+A **Transform** (used in [decomposeTSR](#decomposeTSR)) is defined as a `Plain Object` of the following shape:
 ```typescript
 interface Transform {
   translate: {
