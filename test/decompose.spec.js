@@ -16,32 +16,32 @@ function makeTransform (object) {
 }
 
 describe('decomposeTSR', () => {
-  it('should decomposeTSR a translation-only matrix', () => {
+  it('should decompose a translation-only matrix', () => {
     const tx = 20
     const ty = 30
     expect(decomposeTSR(translate(tx, ty))).toEqual(makeTransform({ tx, ty }))
   })
 
-  it('should decomposeTSR a rotation-only matrix', () => {
+  it('should decompose a rotation-only matrix', () => {
     const rotation = Math.PI / 4
     expect(decomposeTSR(rotate(rotation))).toEqual(makeTransform({ rotation }))
   })
 
-  it('should decomposeTSR a scale-only matrix', () => {
+  it('should decompose a scale-only matrix', () => {
     const sx = 2
     const sy = 1.5
     expect(decomposeTSR(scale(sx, sy))).toEqual(makeTransform({ sx, sy }))
   })
 
-  it('should decomposeTSR a flip-x-only matrix', () => {
+  it('should decompose a flip-x-only matrix', () => {
     expect(decomposeTSR(flipX(), true)).toEqual(makeTransform({ sy: -1 }))
   })
 
-  it('should decomposeTSR a flip-y-only matrix', () => {
+  it('should decompose a flip-y-only matrix', () => {
     expect(decomposeTSR(flipY(), false, true)).toEqual(makeTransform({ sx: -1 }))
   })
 
-  it('should decomposeTSR a complex matrix without flips', () => {
+  it('should decompose a complex matrix without flips', () => {
     const tx = 100
     const ty = -234
     const sx = 2
@@ -55,7 +55,7 @@ describe('decomposeTSR', () => {
     expect(decomposeTSR(matrix)).toEqual(makeTransform({ tx, ty, sx, sy, rotation }))
   })
 
-  it('should decomposeTSR a complex matrix with flips', () => {
+  it('should decompose a complex matrix with flips', () => {
     const tx = 100
     const ty = -234
     const sx = 1
@@ -81,7 +81,7 @@ describe('decomposeTSR', () => {
     180 + 45 / 2,
     270,
     270 + 45 / 2
-  ])('should decomposeTSR into an equivalent TSR matrix, rotated by %d DEG', (rotation) => {
+  ])('should decompose into an equivalent TSR matrix, rotated by %d DEG', (rotation) => {
     const tx = 40
     const ty = 80
     const scaleX = 2
