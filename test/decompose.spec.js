@@ -71,6 +71,32 @@ describe('decomposeTSR', () => {
     expect(decomposeTSR(matrix, true, true)).toEqual(makeTransform({ tx, ty, sx: -sx, sy: -sy, rotation }))
   })
 
+  it('should decompose an all-zero matrix', () => {
+    const matrix = { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0 }
+    expect(decomposeTSR(matrix)).toEqual(makeTransform({ tx: 0, ty: 0, sx: 0, sy: 0, rotation: 0 }))
+  })
+
+  it('should decompose a matrix with a and c equals to zero while d is positive', () => {
+    const sx = 0
+    const sy = 1
+    const matrix = scale(sx, sy)
+    expect(matrix.a).toBeCloseTo(0)
+    expect(matrix.c).toBeCloseTo(0)
+    expect(matrix.d).toEqual(1)
+    expect(decomposeTSR(matrix)).toEqual(makeTransform({ sx, sy }))
+  })
+
+  it('should decompose a matrix with a and c equals to zero while d is negative', () => {
+    const sx = 0
+    const sy = 1
+    const rotation = Math.PI
+    const matrix = compose(scale(sx, sy), rotate(rotation))
+    expect(matrix.a).toBeCloseTo(0)
+    expect(matrix.c).toBeCloseTo(0)
+    expect(matrix.d).toEqual(-1)
+    expect(decomposeTSR(matrix)).toEqual(makeTransform({ sx, sy, rotation: Math.PI }))
+  })
+
   it.each([
     0 + 45 / 2,
     45,
