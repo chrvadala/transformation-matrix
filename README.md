@@ -69,11 +69,11 @@ yarn add transformation-matrix
 <dd><p>Calculate an array of points transformed with an affine matrix</p>
 </dd>
 <dt><a href="#decomposeTSR">decomposeTSR(matrix, flipX, flipY)</a> ⇒ <code>Transform</code></dt>
-<dd><p>Decompose a matrix into translation, scaling and rotation components, optionally 
+<dd><p>Decompose a matrix into translation, scaling and rotation components, optionally
 take horizontal and vertical flip in to consideration.
 Note this function decomposes a matrix in rotation -&gt; scaling -&gt; translation order. I.e. for
 certain translation T {tx, ty}, rotation R and scaling S { sx, sy }, it&#39;s only true for:
- decompose(compose(T, S, R)) === { translate: T, rotation: R, scale: S }
+ decomposeTSR(compose(T, S, R)) === { translate: T, rotation: R, scale: S }
 composing in a different order may yield a different decomposition result.</p>
 </dd>
 <dt><a href="#flipX">flipX()</a> ⇒ <code>Matrix</code></dt>
@@ -244,10 +244,10 @@ Calculate an array of points transformed with an affine matrix
 <a name="decomposeTSR"></a>
 
 ## decomposeTSR(matrix, flipX, flipY) ⇒ <code>Transform</code>
-Decompose a matrix into translation, scaling and rotation components, optionally take horizontal and vertical flip in to consideration.Note this function decomposes a matrix in rotation -> scaling -> translation order. I.e. forcertain translation T {tx, ty}, rotation R and scaling S { sx, sy }, it's only true for: decompose(compose(T, S, R)) === { translate: T, rotation: R, scale: S }composing in a different order may yield a different decomposition result.
+Decompose a matrix into translation, scaling and rotation components, optionallytake horizontal and vertical flip in to consideration.Note this function decomposes a matrix in rotation -> scaling -> translation order. I.e. forcertain translation T {tx, ty}, rotation R and scaling S { sx, sy }, it's only true for: decomposeTSR(compose(T, S, R)) === { translate: T, rotation: R, scale: S }composing in a different order may yield a different decomposition result.
 
 **Kind**: global function  
-**Returns**: <code>Transform</code> - A transform object consisted by its translation, scaling and rotation components.  
+**Returns**: <code>Transform</code> - A transform object consisted by its translation, scalingand rotation components.  
 
 | Param | Type | Description |
 | --- | --- | --- |
