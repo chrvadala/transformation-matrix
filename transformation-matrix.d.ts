@@ -12,13 +12,13 @@ declare module 'transformation-matrix' {
   };
 
   type MatrixDescriptor =
-   |  { type: 'matrix', a: number, b: number, c: number, d: number, e: number, f: number }
-   |  { type: 'translate', tx: number, ty: number }
-   |  { type: 'scale', sx: number, sy: number }
-   |  { type: 'rotate', angle: number, sx: number, sy: number }
-   |  { type: 'skewX', angle: number }
-   |  { type: 'skewY',  angle: number }
-   |  { type: 'shear', shx: number, shy: number}
+    | { type: 'matrix', a: number, b: number, c: number, d: number, e: number, f: number }
+    | { type: 'translate', tx: number, ty: number }
+    | { type: 'scale', sx: number, sy: number }
+    | { type: 'rotate', angle: number, sx: number, sy: number }
+    | { type: 'skewX', angle: number }
+    | { type: 'skewY', angle: number }
+    | { type: 'shear', shx: number, shy: number }
 
   type Point = PointObjectNotation | PointArrayNotation;
 
@@ -195,7 +195,7 @@ declare module 'transformation-matrix/smoothMatrix' {
    * @param precision precision to use for Math.round. Defaults to 10000000000 (meaning which rounds to the 10th digit after the comma).
    * @returns  the rounded matrix
    */
-  export function smoothMatrix (m : Matrix, precision? : number) : Matrix;
+  export function smoothMatrix(m: Matrix, precision?: number): Matrix;
 }
 
 declare module 'transformation-matrix/fromDefinition' {
@@ -255,6 +255,37 @@ declare module 'transformation-matrix/fromTransformAttribute' {
   export function fromTransformAttribute(transformString: string): MatrixDescriptor[];
 }
 
+declare module 'transformation-matrix/decompose' {
+  import { Matrix } from 'transformation-matrix';
+
+  export interface Transform {
+    translate: {
+      tx: number,
+      ty: number
+    },
+    rotation: { angle: number },
+    scale: {
+      sx: number,
+      sy: number
+    }
+  }
+
+  /**
+   * Decompose a matrix into translation, scaling and rotation components, optionally 
+   * take horizontal and vertical flip in to consideration.
+   * Note this function decomposes a matrix in rotation -> scaling -> translation order. I.e. for
+   * certain translation T {tx, ty}, rotation R and scaling S { sx, sy }, it's only true for:
+   *  decomposeTSR(compose(T, S, R)) === { translate: T, rotation: R, scale: S }
+   * composing in a different order may yield a different decomposition result.
+   * @param matrix {Matrix} Affine Matrix
+   * @param  flipX {boolean} Whether the matrix contains vertical flip, i.e. mirrors on x-axis
+   * @param  flipY {boolean} Whether the matrix contains horizontal flip, i.e. mirrors on y-axis
+   * @returns {Transform} A transform object consisted by its translation, scaling 
+   * and rotation components.
+   */
+  export function decomposeTSR(matrix: Matrix, flipX?: boolean, flipY?: boolean): Transform;
+}
+
 declare module 'transformation-matrix' {
   export * from 'transformation-matrix/applyToPoint';
   export * from 'transformation-matrix/fromObject';
@@ -273,4 +304,5 @@ declare module 'transformation-matrix' {
   export * from 'transformation-matrix/smoothMatrix';
   export * from 'transformation-matrix/fromDefinition';
   export * from 'transformation-matrix/fromTransformAttribute';
+  export * from 'transformation-matrix/decompose';
 }
