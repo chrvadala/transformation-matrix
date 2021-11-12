@@ -180,6 +180,7 @@ Warning: This should be considered BETA until it is released a stable version of
 - **2.7**- Upgrades deps;
 - **2.8**- Upgrades deps;
 - **2.9**- Adds `flipX()`, `flipY()`, `flipOrigin()` functions; Deprecates NodeJS 12 and adds NodeJS 16 support; Upgrades deps;  
+- **2.10** - Adds `decomposeTSR()` function [#88](https://github.com/chrvadala/transformation-matrix/pull/88); Upgrades deps;
 # API
 
 ## Data Model
@@ -244,10 +245,16 @@ Calculate an array of points transformed with an affine matrix
 <a name="decomposeTSR"></a>
 
 ## decomposeTSR(matrix, flipX, flipY) ⇒ <code>Transform</code>
-Decompose a matrix into translation, scaling and rotation components, optionallytake horizontal and vertical flip in to consideration.Note this function decomposes a matrix in rotation -> scaling -> translation order. I.e. forcertain translation T {tx, ty}, rotation R and scaling S { sx, sy }, it's only true for: decomposeTSR(compose(T, S, R)) === { translate: T, rotation: R, scale: S }composing in a different order may yield a different decomposition result.
+Decompose a matrix into translation, scaling and rotation components, optionally
+take horizontal and vertical flip in to consideration.
+Note this function decomposes a matrix in rotation -> scaling -> translation order. I.e. for
+certain translation T {tx, ty}, rotation R and scaling S { sx, sy }, it's only true for:
+ decomposeTSR(compose(T, S, R)) === { translate: T, rotation: R, scale: S }
+composing in a different order may yield a different decomposition result.
 
 **Kind**: global function  
-**Returns**: <code>Transform</code> - A transform object consisted by its translation, scalingand rotation components.  
+**Returns**: <code>Transform</code> - A transform object consisted by its translation, scaling
+and rotation components.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -290,12 +297,31 @@ Converts array of matrix descriptor to array of matrix
 
 **Example**  
 ```js
-> fromDefinition([ { type: 'matrix', a:1, b:2, c:3, d:4, e:5, f:6 }, { type: 'translate', tx: 10, ty: 20 }, { type: 'scale', sx: 2, sy: 4 }, { type: 'rotate', angle: 90, cx: 50, cy: 25 }, { type: 'skewX', angle: 45 }, { type: 'skewY',  angle: 45 }, { type: 'shear', shx: 10, shy: 20}])[ { a: 1, b: 2, c: 3, d: 4, e: 5, f: 6 }, { a: 1, c: 0, e: 10, b: 0, d: 1, f: 20 }, { a: 2, c: 0, e: 0, b: 0, d: 4, f: 0 }, { a: 6.123, c: -1, e: 0, b: 1, d: 6.123, f: 0 }, { a: 1, c: 0.99.., e: 0, b: 0, d: 1, f: 0 }, { a: 1, c: 0, e: 0, b: 0.99, d: 1, f: 0 }, { a: 1, c: 10, e: 0, b: 20, d: 1, f: 0 }]
+> fromDefinition([
+ { type: 'matrix', a:1, b:2, c:3, d:4, e:5, f:6 },
+ { type: 'translate', tx: 10, ty: 20 },
+ { type: 'scale', sx: 2, sy: 4 },
+ { type: 'rotate', angle: 90, cx: 50, cy: 25 },
+ { type: 'skewX', angle: 45 },
+ { type: 'skewY',  angle: 45 },
+ { type: 'shear', shx: 10, shy: 20}
+])
+
+[
+ { a: 1, b: 2, c: 3, d: 4, e: 5, f: 6 },
+ { a: 1, c: 0, e: 10, b: 0, d: 1, f: 20 },
+ { a: 2, c: 0, e: 0, b: 0, d: 4, f: 0 },
+ { a: 6.123, c: -1, e: 0, b: 1, d: 6.123, f: 0 },
+ { a: 1, c: 0.99.., e: 0, b: 0, d: 1, f: 0 },
+ { a: 1, c: 0, e: 0, b: 0.99, d: 1, f: 0 },
+ { a: 1, c: 10, e: 0, b: 20, d: 1, f: 0 }
+]
 ```
 <a name="fromObject"></a>
 
 ## fromObject(object) ⇒ <code>Matrix</code>
-Extract an affine matrix from an object that contains a,b,c,d,e,f keysAny value could be a float or a string that contains a float
+Extract an affine matrix from an object that contains a,b,c,d,e,f keys
+Any value could be a float or a string that contains a float
 
 **Kind**: global function  
 **Returns**: <code>Matrix</code> - Affine Matrix  
@@ -318,12 +344,14 @@ Parse a string formatted as matrix(a,b,c,d,e,f)
 
 **Example**  
 ```js
-> fromString('matrix(1,2,3,4,5,6)'){a: 1, b: 2, c: 3, d: 4, c: 5, e: 6}
+> fromString('matrix(1,2,3,4,5,6)')
+{a: 1, b: 2, c: 3, d: 4, c: 5, e: 6}
 ```
 <a name="fromTransformAttribute"></a>
 
 ## fromTransformAttribute(transformString) ⇒ <code>Array.&lt;MatrixDescriptor&gt;</code>
-Parser for SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>Warning: This should be considered BETA until it is released a stable version of pegjs.
+Parser for SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>
+Warning: This should be considered BETA until it is released a stable version of pegjs.
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;MatrixDescriptor&gt;</code> - Array of MatrixDescriptor  
@@ -334,7 +362,15 @@ Parser for SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#Transform
 
 **Example**  
 ```js
-> fromTransformAttribute('translate(-10,-10) scale(2,2) translate(10,10)')[ { type: 'translate', tx: -10, ty: -10}, { type: 'scale', sx: 2, sy: 2 }, { type: 'translate', tx: 10, ty: 10}]> compose(fromDefinition(fromTransformAttribute('translate(-10, -10) scale(10, 10)'))){ a: 10, c: 0, e: -10, b: 0, d: 10, f: -10 }
+> fromTransformAttribute('translate(-10,-10) scale(2,2) translate(10,10)')
+[
+ { type: 'translate', tx: -10, ty: -10},
+ { type: 'scale', sx: 2, sy: 2 },
+ { type: 'translate', tx: 10, ty: 10}
+]
+
+> compose(fromDefinition(fromTransformAttribute('translate(-10, -10) scale(10, 10)')))
+{ a: 10, c: 0, e: -10, b: 0, d: 10, f: -10 }
 ```
 <a name="fromTriangles"></a>
 
