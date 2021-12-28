@@ -19,51 +19,48 @@ This library allows us to:
 - **apply a transformation matrix to point(s)**
 - **decompose a matrix into translation, scaling and rotation components, with flip decomposition support**
 
-Available Methods:
-
-- Basic Operations:
-  - `identity()`
-  - `flipX()`
-  - `flipY()`
-  - `flipOrigin()`
-  - `rotate(angle, [cx], [cy])`
-  - `rotateDEG(angle, [cx], [cy])`
-  - `scale(sx, [sy], [cx], [cy])`
-  - `shear(shx, shy)`
-  - `skew(ax, ay)`
-  - `skewDEG(ax, ay)`
-  - `smoothMatrix(matrix, [precision])`
-  - `translate(tx, [ty])`
-  - `inverse(matrix)`
-
-- Calculate
-  - `fromDefinition(definitionOrArrayOfDefinition)`
-  - `fromObject(object)`
-  - `fromString(string)`
-  - `fromTransformAttribute(transformString)`
-  - `fromTriangles(t1, t2)`
-
-- Validation:
-  - `isAffineMatrix(object)`
-
-- Apply
-  - `applyToPoint(matrix, point)`
-  - `applyToPoints(matrix, points)`
-
-- Stringify Transformation Matrix
-  - `toCSS(matrix)`
-  - `toSVG(matrix)`
-  - `toString(matrix)`
-
-- Compose Transformation Matrix
-  - `transform(matrices)`
-  - `compose(matrices)`
-
-- Decompose
-  - `decomposeTSR(matrix, flipX, flipY)`
-
 # Documentation
 - [APIs](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md)
+  - Basic Operations:
+    - [`identity()`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#identity)
+    - [`flipX()`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#flipX)
+    - [`flipY()`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#flipY)
+    - [`flipOrigin()`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#flipOrigin)
+    - [`rotate(angle, [cx], [cy])`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#rotate)
+    - [`rotateDEG(angle, [cx], [cy])`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#rotateDEG)
+    - [`scale(sx, [sy], [cx], [cy])`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#scale)
+    - [`shear(shx, shy)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#shear)
+    - [`skew(ax, ay)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#skew)
+    - [`skewDEG(ax, ay)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#skewDEG)
+    - [`smoothMatrix(matrix, [precision])`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#smoothMatrix)
+    - [`translate(tx, [ty])`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#translate)
+    - [`inverse(matrix)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#inverse)
+
+  - Calculate
+    - [`fromDefinition(definitionOrArrayOfDefinition)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#fromDefinition)
+    - [`fromObject(object)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#fromObject)
+    - [`fromString(string)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#fromString)
+    - [`fromTransformAttribute(transformString)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#fromTransformAttribute)
+    - [`fromTriangles(t1, t2)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#fromTriangles)
+
+  - Validation:
+    - [`isAffineMatrix(object)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#isAffineMatrix)
+
+  - Apply
+    - [`applyToPoint(matrix, point)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#applyToPoint)
+    - [`applyToPoints(matrix, points)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#applyToPoints)
+
+  - Stringify Transformation Matrix
+    - [`toCSS(matrix)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#toCSS)
+    - [`toSVG(matrix)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#toSVG)
+    - [`toString(matrix)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#toString)
+
+  - Compose Transformation Matrices
+    - [`transform(matrices)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#transform)
+    - [`compose(matrices)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#compose)
+
+  - Decompose
+    - [`decomposeTSR(matrix, flipX, flipY)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#decomposeTSR)
 
 # Install
 ```sh
