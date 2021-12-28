@@ -3,7 +3,7 @@
   "version": "2.10.0",
   "description": "2d transformation matrix functions written in ES6 syntax. Tree shaking ready!",
   "main": "./build-commonjs/index.js",
-  "typings": "transformation-matrix.d.ts",
+  "typings": "./src/transformation-matrix.d.ts",
   "module": "./src/index.js",
   "jsnext:main": "./src/index.js",
   "unpkg": "./build-umd/transformation-matrix.min.js",
