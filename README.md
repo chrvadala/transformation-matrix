@@ -21,7 +21,7 @@ This library allows us to:
 
 # Documentation
 - [APIs](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md)
-  - Basic Operations:
+  - Basic Operations
     - [`identity()`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#identity)
     - [`flipX()`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#flipX)
     - [`flipY()`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#flipY)
@@ -43,7 +43,7 @@ This library allows us to:
     - [`fromTransformAttribute(transformString)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#fromTransformAttribute)
     - [`fromTriangles(t1, t2)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#fromTriangles)
 
-  - Validation:
+  - Validation
     - [`isAffineMatrix(object)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#isAffineMatrix)
 
   - Apply
@@ -119,6 +119,7 @@ applyToPoint(matrix, [16, 24]);
 - **2.8**- Upgrades deps;
 - **2.9**- Adds `flipX()`, `flipY()`, `flipOrigin()` functions; Deprecates NodeJS 12 and adds NodeJS 16 support; Upgrades deps;  
 - **2.10** - Adds `decomposeTSR()` function [#88](https://github.com/chrvadala/transformation-matrix/pull/88); Upgrades deps;
+- **2.11** - Migrates from yarn to npm; Upgrades deps; New [APIs documentation](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md); Integrates [chrvadala/github-actions](https://github.com/chrvadala/github-actions);
 
 # Contributors
 - [chrvadala](https://github.com/chrvadala) (author)
