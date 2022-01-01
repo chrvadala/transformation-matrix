@@ -43,19 +43,19 @@ This library allows us to:
     - [`fromTransformAttribute(transformString)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#fromTransformAttribute)
     - [`fromTriangles(t1, t2)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#fromTriangles)
 
-  - Validation
+  - Validate
     - [`isAffineMatrix(object)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#isAffineMatrix)
 
   - Apply
     - [`applyToPoint(matrix, point)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#applyToPoint)
     - [`applyToPoints(matrix, points)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#applyToPoints)
 
-  - Stringify Transformation Matrix
+  - Stringify
     - [`toCSS(matrix)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#toCSS)
     - [`toSVG(matrix)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#toSVG)
     - [`toString(matrix)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#toString)
 
-  - Compose Transformation Matrices
+  - Compose
     - [`transform(matrices)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#transform)
     - [`compose(matrices)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#compose)
 
