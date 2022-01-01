@@ -22,7 +22,10 @@ import {
   toSVG,
   transform,
   translate,
-  decomposeTSR
+  decomposeTSR,
+  flipX,
+  flipY,
+  flipOrigin
 } from '../src/index'
 
 describe('index', () => {
@@ -50,5 +53,8 @@ describe('index', () => {
     expect(typeof fromTriangles).toBe('function')
     expect(typeof fromDefinition).toBe('function')
     expect(typeof decomposeTSR).toBe('function')
+    expect(typeof flipX).toBe('function')
+    expect(typeof flipY).toBe('function')
+    expect(typeof flipOrigin).toBe('function')
   })
 })
