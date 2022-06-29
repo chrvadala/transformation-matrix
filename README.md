@@ -120,6 +120,7 @@ applyToPoint(matrix, [16, 24]);
 - **2.9**- Adds `flipX()`, `flipY()`, `flipOrigin()` functions; Deprecates NodeJS 12 and adds NodeJS 16 support; Upgrades deps;  
 - **2.10** - Adds `decomposeTSR()` function [#88](https://github.com/chrvadala/transformation-matrix/pull/88); Upgrades deps;
 - **2.11** - Migrates from yarn to npm; Upgrades deps; New [APIs documentation](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md); Integrates [chrvadala/github-actions](https://github.com/chrvadala/github-actions);
+- **2.12**  Migrates from PEG.js to Peggy [#89](https://github.com/chrvadala/transformation-matrix/pull/89); Upgrades deps;
 
 # Contributors
 - [chrvadala](https://github.com/chrvadala) (author)
