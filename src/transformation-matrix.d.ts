@@ -286,6 +286,25 @@ declare module 'transformation-matrix/decompose' {
   export function decomposeTSR(matrix: Matrix, flipX?: boolean, flipY?: boolean): Transform;
 }
 
+declare module 'transformation-matrix/flip' {
+  import { Matrix } from 'transformation-matrix';
+
+  /**
+   * Tranformation matrix that mirrors on x-axis
+   */
+  export function flipX(): Matrix;
+
+  /**
+   * Tranformation matrix that mirrors on y-axis
+   */
+  export function flipY(): Matrix;
+
+  /**
+   * Tranformation matrix that mirrors on origin
+   */
+  export function flipOrigin(): Matrix;
+}
+
 declare module 'transformation-matrix' {
   export * from 'transformation-matrix/applyToPoint';
   export * from 'transformation-matrix/fromObject';
@@ -305,4 +324,5 @@ declare module 'transformation-matrix' {
   export * from 'transformation-matrix/fromDefinition';
   export * from 'transformation-matrix/fromTransformAttribute';
   export * from 'transformation-matrix/decompose';
+  export * from 'transformation-matrix/flip';
 }
