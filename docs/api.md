@@ -52,6 +52,14 @@ Warning: This should be considered BETA until it is released a stable version of
 <dt><a href="#fromTriangles">fromTriangles(t1, t2)</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Returns a matrix that transforms a triangle t1 into another triangle t2, or throws an exception if it is impossible.</p>
 </dd>
+<dt><a href="#fromOneMovingPoint">fromOneMovingPoint(startingPoint1, endingPoint1)</a></dt>
+<dd><p>Calculate a transformation matrix from a point that starts from A to A&#39;
+This approach can be associated to a pointer that moves on a device</p>
+</dd>
+<dt><a href="#fromTwoMovingPoints">fromTwoMovingPoints(startingPoint1, startingPoint2, endingPoint1, endingPoint2)</a></dt>
+<dd><p>Calculate a transformation matrix about two points that move from positions A and B to A&#39; to B&#39;
+This approach can be associated to a two finger gesture on a touch device</p>
+</dd>
 <dt><a href="#identity">identity()</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Identity matrix</p>
 </dd>
@@ -293,6 +301,34 @@ Returns a matrix that transforms a triangle t1 into another triangle t2, or thro
 | --- | --- | --- |
 | t1 | <code>Array.&lt;Point&gt;</code> | Array of points containing the three points for the first triangle |
 | t2 | <code>Array.&lt;Point&gt;</code> | Array of points containing the three points for the second triangle |
+
+<a name="fromOneMovingPoint"></a>
+
+## fromOneMovingPoint(startingPoint1, endingPoint1)
+Calculate a transformation matrix from a point that starts from A to A'
+This approach can be associated to a pointer that moves on a device
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| startingPoint1 | <code>number</code> | 
+| endingPoint1 | <code>number</code> | 
+
+<a name="fromTwoMovingPoints"></a>
+
+## fromTwoMovingPoints(startingPoint1, startingPoint2, endingPoint1, endingPoint2)
+Calculate a transformation matrix about two points that move from positions A and B to A' to B'
+This approach can be associated to a two finger gesture on a touch device
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| startingPoint1 | <code>number</code> | 
+| startingPoint2 | <code>number</code> | 
+| endingPoint1 | <code>number</code> | 
+| endingPoint2 | <code>number</code> | 
 
 <a name="identity"></a>
 
