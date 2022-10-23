@@ -20,6 +20,7 @@ This library allows us to:
 - **decompose a matrix into translation, scaling and rotation components, with flip decomposition support**
 
 # Documentation
+- [How to handle gestures with transformation-matrix](https://github.com/chrvadala/transformation-matrix/blob/main/docs/gestures.md)
 - [APIs](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md)
   - Basic Operations
     - [`identity()`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#identity)
@@ -61,6 +62,10 @@ This library allows us to:
 
   - Decompose
     - [`decomposeTSR(matrix, flipX, flipY)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#decomposeTSR)
+
+  - Moving points (gestures)
+    - [`function fromOneMovingPoint (startingPoint, endingPoint)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#fromonemovingpointstartingpoint-endingpoint)
+    - [`function fromTwoMovingPoints (startingPoint1, startingPoint2, endingPoint1, endingPoint2)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#fromTwoMovingPoints)
 
 # Install
 ```sh

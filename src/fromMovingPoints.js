@@ -7,12 +7,12 @@ import { scale, rotate, compose } from './index'
 /**
  * Calculate a transformation matrix from a point that starts from A to A'
  * This approach can be associated to a pointer that moves on a device
- * @param {number} startingPoint1
- * @param {number} endingPoint1
+ * @param {number} startingPoint
+ * @param {number} endingPoint
  */
-export function fromOneMovingPoint (startingPoint1, endingPoint1) {
-  const tx = endingPoint1.x - startingPoint1.x
-  const ty = endingPoint1.y - startingPoint1.y
+export function fromOneMovingPoint (startingPoint, endingPoint) {
+  const tx = endingPoint.x - startingPoint.x
+  const ty = endingPoint.y - startingPoint.y
 
   return translate(tx, ty)
 }

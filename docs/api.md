@@ -38,7 +38,7 @@ composing in a different order may yield a different decomposition result.</p>
 <dt><a href="#fromDefinition">fromDefinition(definitionOrArrayOfDefinition)</a> ⇒ <code>Array.&lt;Matrix&gt;</code></dt>
 <dd><p>Converts array of matrix descriptor to array of matrix</p>
 </dd>
-<dt><a href="#fromOneMovingPoint">fromOneMovingPoint(startingPoint1, endingPoint1)</a></dt>
+<dt><a href="#fromOneMovingPoint">fromOneMovingPoint(startingPoint, endingPoint)</a></dt>
 <dd><p>Calculate a transformation matrix from a point that starts from A to A&#39;
 This approach can be associated to a pointer that moves on a device</p>
 </dd>
@@ -232,7 +232,7 @@ Converts array of matrix descriptor to array of matrix
 ```
 <a name="fromOneMovingPoint"></a>
 
-## fromOneMovingPoint(startingPoint1, endingPoint1)
+## fromOneMovingPoint(startingPoint, endingPoint)
 Calculate a transformation matrix from a point that starts from A to A'
 This approach can be associated to a pointer that moves on a device
 
@@ -240,8 +240,8 @@ This approach can be associated to a pointer that moves on a device
 
 | Param | Type |
 | --- | --- |
-| startingPoint1 | <code>number</code> | 
-| endingPoint1 | <code>number</code> | 
+| startingPoint | <code>number</code> | 
+| endingPoint | <code>number</code> | 
 
 <a name="fromTwoMovingPoints"></a>
 
