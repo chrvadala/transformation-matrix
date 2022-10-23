@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0c1116;
+  color: #ccc;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  touch-action: none;
+  position: relative;
+}
+
+#about{
+  position: absolute;
+  top: 10px;
+}
+
+a{
+  color: #58a6ff;
+}

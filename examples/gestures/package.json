@@ -1,0 +1,16 @@
+{
+  "name": "tranformation-matrix-examples-gestures",
+  "version": "0.0.0",
+  "description": "A demo that shows how to use transformation-matrix with mobile gestures",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel index.html --open -p 3000"
+  },
+  "devDependencies": {
+    "parcel": "^2.7.0"
+  },
+  "alias": {
+    "transformation-matrix": "../../"
+  }
+}
