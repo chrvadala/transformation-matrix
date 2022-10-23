@@ -306,17 +306,17 @@ declare module 'transformation-matrix/flip' {
 }
 
 declare module 'transformation-matrix/fromMovingPoints' {
-  import { Matrix } from 'transformation-matrix';
+  import { Point, Matrix } from 'transformation-matrix';
 
   /**
    * Calculate a transformation matrix from a point that starts from A to A' (e.g. desktop gesture)
    */
-  export function fromOneMovingPoint (startingPoint: number, endingPoint: number): Matrix;
+  export function fromOneMovingPoint (startingPoint: Point, endingPoint: Point): Matrix;
 
   /**
    * Calculate a transformation matrix about two points that move from positions A and B to A' to B' (e.g. mobile gesture)
    */
-  export function fromTwoMovingPoints (startingPoint1: number, startingPoint2: number, endingPoint1: number, endingPoint2: number): Matrix;
+  export function fromTwoMovingPoints (startingPoint1: Point, startingPoint2: Point, endingPoint1: Point, endingPoint2: Point): Matrix;
 }
 
 declare module 'transformation-matrix' {

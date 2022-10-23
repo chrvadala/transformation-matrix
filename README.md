@@ -64,8 +64,8 @@ This library allows us to:
     - [`decomposeTSR(matrix, flipX, flipY)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#decomposeTSR)
 
   - Moving points (gestures)
-    - [`function fromOneMovingPoint (startingPoint, endingPoint)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#fromonemovingpointstartingpoint-endingpoint)
-    - [`function fromTwoMovingPoints (startingPoint1, startingPoint2, endingPoint1, endingPoint2)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#fromTwoMovingPoints)
+    - [`fromOneMovingPoint (startingPoint, endingPoint)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#fromonemovingpointstartingpoint-endingpoint)
+    - [`fromTwoMovingPoints (startingPoint1, startingPoint2, endingPoint1, endingPoint2)`](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md#fromTwoMovingPoints)
 
 # Install
 ```sh

@@ -238,10 +238,10 @@ This approach can be associated to a pointer that moves on a device
 
 **Kind**: global function  
 
-| Param | Type |
-| --- | --- |
-| startingPoint | <code>number</code> | 
-| endingPoint | <code>number</code> | 
+| Param | Type | Description |
+| --- | --- | --- |
+| startingPoint | <code>Point</code> | Starting point (A) |
+| endingPoint | <code>Point</code> | Ending point (A') |
 
 <a name="fromTwoMovingPoints"></a>
 
@@ -251,12 +251,12 @@ This approach can be associated to a two finger gesture on a touch device
 
 **Kind**: global function  
 
-| Param | Type |
-| --- | --- |
-| startingPoint1 | <code>number</code> | 
-| startingPoint2 | <code>number</code> | 
-| endingPoint1 | <code>number</code> | 
-| endingPoint2 | <code>number</code> | 
+| Param | Type | Description |
+| --- | --- | --- |
+| startingPoint1 | <code>Point</code> | Starting Point (A) |
+| startingPoint2 | <code>Point</code> | Starting Point (B) |
+| endingPoint1 | <code>Point</code> | Ending point (A') |
+| endingPoint2 | <code>Point</code> | Ending Point (B') |
 
 <a name="fromObject"></a>
 

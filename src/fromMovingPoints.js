@@ -7,8 +7,8 @@ import { scale, rotate, compose } from './index'
 /**
  * Calculate a transformation matrix from a point that starts from A to A'
  * This approach can be associated to a pointer that moves on a device
- * @param {number} startingPoint
- * @param {number} endingPoint
+ * @param {Point} startingPoint - Starting point (A)
+ * @param {Point} endingPoint - Ending point (A')
  */
 export function fromOneMovingPoint (startingPoint, endingPoint) {
   const tx = endingPoint.x - startingPoint.x
@@ -20,10 +20,10 @@ export function fromOneMovingPoint (startingPoint, endingPoint) {
 /**
  * Calculate a transformation matrix about two points that move from positions A and B to A' to B'
  * This approach can be associated to a two finger gesture on a touch device
- * @param {number} startingPoint1
- * @param {number} startingPoint2
- * @param {number} endingPoint1
- * @param {number} endingPoint2
+ * @param {Point} startingPoint1 - Starting Point (A)
+ * @param {Point} startingPoint2 - Starting Point (B)
+ * @param {Point} endingPoint1 - Ending point (A')
+ * @param {Point} endingPoint2 - Ending Point (B')
  */
 export function fromTwoMovingPoints (startingPoint1, startingPoint2, endingPoint1, endingPoint2) {
   // finds translation
