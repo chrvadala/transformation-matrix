@@ -1,6 +1,10 @@
 import { compose, translate, scale, toCSS, fromOneMovingPoint, fromTwoMovingPoints } from 'transformation-matrix'
 
-document.addEventListener('DOMContentLoaded', startup)
+if (document.readyState !== 'loading') {
+  setTimeout(startup, 0)
+} else {
+  document.addEventListener('DOMContentLoaded', startup)
+}
 
 function startup () {
   const initialMatrix = compose([
