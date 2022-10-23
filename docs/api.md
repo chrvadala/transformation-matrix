@@ -38,6 +38,14 @@ composing in a different order may yield a different decomposition result.</p>
 <dt><a href="#fromDefinition">fromDefinition(definitionOrArrayOfDefinition)</a> ⇒ <code>Array.&lt;Matrix&gt;</code></dt>
 <dd><p>Converts array of matrix descriptor to array of matrix</p>
 </dd>
+<dt><a href="#fromOneMovingPoint">fromOneMovingPoint(startingPoint, endingPoint)</a></dt>
+<dd><p>Calculate a transformation matrix from a point that starts from A to A&#39;
+This approach can be associated to a pointer that moves on a device</p>
+</dd>
+<dt><a href="#fromTwoMovingPoints">fromTwoMovingPoints(startingPoint1, startingPoint2, endingPoint1, endingPoint2)</a></dt>
+<dd><p>Calculate a transformation matrix about two points that move from positions A and B to A&#39; to B&#39;
+This approach can be associated to a two finger gesture on a touch device</p>
+</dd>
 <dt><a href="#fromObject">fromObject(object)</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Extract an affine matrix from an object that contains a,b,c,d,e,f keys
 Any value could be a float or a string that contains a float</p>
@@ -222,6 +230,34 @@ Converts array of matrix descriptor to array of matrix
  { a: 1, c: 10, e: 0, b: 20, d: 1, f: 0 }
 ]
 ```
+<a name="fromOneMovingPoint"></a>
+
+## fromOneMovingPoint(startingPoint, endingPoint)
+Calculate a transformation matrix from a point that starts from A to A'
+This approach can be associated to a pointer that moves on a device
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| startingPoint | <code>number</code> | 
+| endingPoint | <code>number</code> | 
+
+<a name="fromTwoMovingPoints"></a>
+
+## fromTwoMovingPoints(startingPoint1, startingPoint2, endingPoint1, endingPoint2)
+Calculate a transformation matrix about two points that move from positions A and B to A' to B'
+This approach can be associated to a two finger gesture on a touch device
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| startingPoint1 | <code>number</code> | 
+| startingPoint2 | <code>number</code> | 
+| endingPoint1 | <code>number</code> | 
+| endingPoint2 | <code>number</code> | 
+
 <a name="fromObject"></a>
 
 ## fromObject(object) ⇒ <code>Matrix</code>
