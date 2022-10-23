@@ -18,7 +18,7 @@ export function fromOneMovingPoint (startingPoint, endingPoint) {
 }
 
 /**
- * Calculate a transformation matrix about two points that move from positions A and B to A' to B'
+ * Calculate a transformation matrix about two points that move from positions A and B to A' and B'
  * This approach can be associated to a two finger gesture on a touch device
  * @param {Point} startingPoint1 - Starting Point (A)
  * @param {Point} startingPoint2 - Starting Point (B)

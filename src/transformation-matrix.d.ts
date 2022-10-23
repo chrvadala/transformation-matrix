@@ -314,7 +314,7 @@ declare module 'transformation-matrix/fromMovingPoints' {
   export function fromOneMovingPoint (startingPoint: Point, endingPoint: Point): Matrix;
 
   /**
-   * Calculate a transformation matrix about two points that move from positions A and B to A' to B' (e.g. mobile gesture)
+   * Calculate a transformation matrix about two points that move from positions A and B to A' and B' (e.g. mobile gesture)
    */
   export function fromTwoMovingPoints (startingPoint1: Point, startingPoint2: Point, endingPoint1: Point, endingPoint2: Point): Matrix;
 }

@@ -43,7 +43,7 @@ composing in a different order may yield a different decomposition result.</p>
 This approach can be associated to a pointer that moves on a device</p>
 </dd>
 <dt><a href="#fromTwoMovingPoints">fromTwoMovingPoints(startingPoint1, startingPoint2, endingPoint1, endingPoint2)</a></dt>
-<dd><p>Calculate a transformation matrix about two points that move from positions A and B to A&#39; to B&#39;
+<dd><p>Calculate a transformation matrix about two points that move from positions A and B to A&#39; and B&#39;
 This approach can be associated to a two finger gesture on a touch device</p>
 </dd>
 <dt><a href="#fromObject">fromObject(object)</a> ⇒ <code>Matrix</code></dt>
@@ -246,7 +246,7 @@ This approach can be associated to a pointer that moves on a device
 <a name="fromTwoMovingPoints"></a>
 
 ## fromTwoMovingPoints(startingPoint1, startingPoint2, endingPoint1, endingPoint2)
-Calculate a transformation matrix about two points that move from positions A and B to A' to B'
+Calculate a transformation matrix about two points that move from positions A and B to A' and B'
 This approach can be associated to a two finger gesture on a touch device
 
 **Kind**: global function  
