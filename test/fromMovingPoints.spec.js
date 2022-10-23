@@ -1,5 +1,5 @@
 /* global describe, test, expect */
-import { fromTwoMovingPoints } from '../src/fromTwoMovingPoints'
+import { fromTwoMovingPoints } from '../src/fromMovingPoints'
 import { scale, translate, compose, rotateDEG } from '../src/index'
 
 const O = { x: 0, y: 0 } // ORIGIN
