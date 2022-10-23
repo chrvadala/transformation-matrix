@@ -127,6 +127,7 @@ applyToPoint(matrix, [16, 24]);
 - **2.11** - Migrates from yarn to npm; Upgrades deps; New [APIs documentation](https://github.com/chrvadala/transformation-matrix/blob/main/docs/api.md); Integrates [chrvadala/github-actions](https://github.com/chrvadala/github-actions);
 - **2.12** - Migrates from PEG.js to Peggy [#89](https://github.com/chrvadala/transformation-matrix/pull/89); Upgrades deps;
 - **2.13** - Upgrades deps; Improves typescript definition; Upgrades gh-actions deps;
+- **2.14** - Upgrades deps; Adds `fromOneMovingPoint` and `fromTwoMovingPoints` functions [#95](https://github.com/chrvadala/transformation-matrix/pull/95)
 
 # Contributors
 - [chrvadala](https://github.com/chrvadala) (author)
