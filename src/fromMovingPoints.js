@@ -2,7 +2,7 @@ import { translate } from './translate'
 import { applyToPoint } from './applyToPoint'
 export { rotate } from './rotate'
 export { scale } from './scale'
-export { compose } from './compose'
+export { compose } from './transform'
 
 // https://manivannan-ai.medium.com/find-the-angle-between-three-points-from-2d-using-python-348c513e2cd
 
