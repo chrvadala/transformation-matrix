@@ -128,6 +128,7 @@ applyToPoint(matrix, [16, 24]);
 - **2.12** - Migrates from PEG.js to Peggy [#89](https://github.com/chrvadala/transformation-matrix/pull/89); Upgrades deps;
 - **2.13** - Upgrades deps; Improves typescript definition; Upgrades gh-actions deps;
 - **2.14** - Upgrades deps; Adds `fromOneMovingPoint` and `fromTwoMovingPoints` functions [#95](https://github.com/chrvadala/transformation-matrix/pull/95)
+- **2.15** - Removes circular dependencies [#97](https://github.com/chrvadala/transformation-matrix/pull/97); Upgrades gh-actions and deps
 
 # Contributors
 - [chrvadala](https://github.com/chrvadala) (author)
@@ -144,6 +145,7 @@ applyToPoint(matrix, [16, 24]);
 - [formatlos](https://github.com/formatlos)
 - [benhjames](https://github.com/benhjames)
 - [hillin](https://github.com/hillin)
+- [jedrzejchalubek](https://github.com/jedrzejchalubek)
 
 # Some projects using transformation-matrix
 - [**React Planner**](https://github.com/cvdlab/react-planner)
