@@ -1,6 +1,8 @@
 import { translate } from './translate'
 import { applyToPoint } from './applyToPoint'
-import { scale, rotate, compose } from './index'
+import { rotate } from './rotate'
+import { scale } from './scale'
+import { compose } from './transform'
 
 // https://manivannan-ai.medium.com/find-the-angle-between-three-points-from-2d-using-python-348c513e2cd
 
