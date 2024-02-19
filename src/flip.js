@@ -1,4 +1,3 @@
-
 /**
  * Tranformation matrix that mirrors on x-axis
  * @returns {Matrix} Affine Matrix
