@@ -8,7 +8,7 @@
     "start": "parcel index.html --open -p 3000"
   },
   "devDependencies": {
-    "parcel": "^2.7.0"
+    "parcel": "^2.11.0"
   },
   "dependencies": {
     "transformation-matrix": "*"
