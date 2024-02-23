@@ -8,8 +8,9 @@
   "jsnext:main": "./src/index.js",
   "unpkg": "./build-umd/transformation-matrix.min.js",
   "files": [
-    "*.md",
-    "build-*",
+    "README.md",
+    "build-commonjs",
+    "build-umd",
     "src",
     "tests",
     "transformation-matrix.d.ts",
