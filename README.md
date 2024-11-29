@@ -153,5 +153,6 @@ applyToPoint(matrix, [16, 24]);
 - [**React SVG Pan Zoom**](https://github.com/chrvadala/react-svg-pan-zoom)
 - [**ngx-graph**](https://github.com/swimlane/ngx-graph)
 - [**learn-anything**](https://github.com/learn-anything/learn-anything)
+- [**react-supergrid**](https://github.com/tscircuit/supergrid)
 - [**Others...**](https://github.com/chrvadala/transformation-matrix/network/dependents)
 - Pull request your project!
