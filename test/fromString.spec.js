@@ -1,8 +1,9 @@
 /* global describe, it, expect */
-import { fromString } from '../src/fromString'
+import { fromString, fromStringLegacy } from '../src/fromString'
 
 describe.each([
-  ['fromString', fromString]
+  ['fromString', fromString],
+  ['fromStringLegacy', fromStringLegacy]
 ])('fromString (implementation: %s)', (fnName, fn) => {
   it('should parse a matrix from string', () => {
     expect(fn('matrix(1,2,3,4,5,6)')).toEqual({ a: 1, b: 2, c: 3, d: 4, e: 5, f: 6 })
@@ -24,15 +25,19 @@ describe.each([
     expect(fn('matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,440,-350)'))
       .toEqual({ a: 6.123233995736766e-17, b: 1, c: -1, d: 6.123233995736766e-17, e: 440, f: -350 })
 
-    // future versions might throw an exception in a case that number is NaN
-    expect(fn('matrix(ee, ee, ee, ee, ee, ee)'))
-      .toEqual({
-        a: Number.NaN,
-        b: Number.NaN,
-        c: Number.NaN,
-        d: Number.NaN,
-        e: Number.NaN,
-        f: Number.NaN
-      })
+    // current version throws an exception in a case that number is NaN
+    if (fnName === 'fromString') expect(fn.bind(this, 'matrix(ee,ee,ee,ee,ee,ee)')).toThrow(new Error("'matrix(ee,ee,ee,ee,ee,ee)' is not a matrix"))
+
+    if (fnName === 'fromStringLegacy') {
+      expect(fn('matrix(ee,ee,ee,ee,ee,ee)'))
+        .toEqual({
+          a: Number.NaN,
+          b: Number.NaN,
+          c: Number.NaN,
+          d: Number.NaN,
+          e: Number.NaN,
+          f: Number.NaN
+        })
+    }
   })
 })
