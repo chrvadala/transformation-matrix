@@ -16,7 +16,7 @@ const matrixRegex = /^matrix\(\s*([0-9_+-.e]+)\s*,\s*([0-9_+-.e]+)\s*,\s*([0-9_+
 export function fromString (string) {
   const parseFloatOrThrow = number => {
     const n = parseFloat(number)
-    if (Number.isFinite(n)) return n //excludes NaN, +Infinite, -Infinite
+    if (Number.isFinite(n)) return n // excludes NaN, +Infinite, -Infinite
     throw new Error(`'${string}' is not a matrix`)
   }
 

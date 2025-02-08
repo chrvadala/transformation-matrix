@@ -28,12 +28,11 @@ describe.each([
     expect(fn.bind(this, 'matrix(-Infinity,-Infinity,-Infinity,-Infinity,-Infinity,-Infinity)'))
       .toThrow(new Error("'matrix(-Infinity,-Infinity,-Infinity,-Infinity,-Infinity,-Infinity)' is not a matrix"))
 
-
     expect(fn('matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,440,-350)'))
       .toEqual({ a: 6.123233995736766e-17, b: 1, c: -1, d: 6.123233995736766e-17, e: 440, f: -350 })
 
     if (fnName === 'fromString') {
-        // current version throws an exception in a case that number is NaN
+      // current version throws an exception in a case that number is NaN
       expect(fn.bind(this, 'matrix(ee,ee,ee,ee,ee,ee)')).toThrow(new Error("'matrix(ee,ee,ee,ee,ee,ee)' is not a matrix"))
       // current version ignores measures, supporting the ability to parse values like this 10px
       expect(fn('matrix(1px,2px,3px,4px,5px,6px)')).toEqual({ a: 1, b: 2, c: 3, d: 4, e: 5, f: 6 })
