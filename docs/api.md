@@ -58,7 +58,7 @@ Any value could be a float or a string that contains a float</p>
 Read this PR for details <a href="https://github.com/chrvadala/transformation-matrix/pull/107">https://github.com/chrvadala/transformation-matrix/pull/107</a></p>
 </dd>
 <dt><a href="#fromTransformAttribute">fromTransformAttribute(transformString)</a> ⇒ <code>Array.&lt;MatrixDescriptor&gt;</code></dt>
-<dd><p>Parser for SVG Trasform Attribute <a href="http://www.w3.org/TR/SVG/coords.html#TransformAttribute">http://www.w3.org/TR/SVG/coords.html#TransformAttribute</a> <br/></p>
+<dd><p>Parser for SVG Trasform Attribute <a href="http://www.w3.org/TR/SVG/coords.html#TransformAttribute">http://www.w3.org/TR/SVG/coords.html#TransformAttribute</a></p>
 </dd>
 <dt><a href="#fromTriangles">fromTriangles(t1, t2)</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Returns a matrix that transforms a triangle t1 into another triangle t2, or throws an exception if it is impossible.</p>
@@ -314,7 +314,7 @@ Read this PR for details [https://github.com/chrvadala/transformation-matrix/pul
 <a name="fromTransformAttribute"></a>
 
 ## fromTransformAttribute(transformString) ⇒ <code>Array.&lt;MatrixDescriptor&gt;</code>
-Parser for SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>
+Parser for SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;MatrixDescriptor&gt;</code> - Array of MatrixDescriptor  
