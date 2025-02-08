@@ -22,11 +22,22 @@ describe.each([
     expect(fn.bind(this, 'matrix(1,2,3,4,5)')).toThrow(new Error("'matrix(1,2,3,4,5)' is not a matrix"))
     expect(fn.bind(this, 'matrix(a,b,c,d,e,f)')).toThrow(new Error("'matrix(a,b,c,d,e,f)' is not a matrix"))
 
+    expect(fn.bind(this, 'matrix(Infinity,Infinity,Infinity,Infinity,Infinity,Infinity)'))
+      .toThrow(new Error("'matrix(Infinity,Infinity,Infinity,Infinity,Infinity,Infinity)' is not a matrix"))
+
+    expect(fn.bind(this, 'matrix(-Infinity,-Infinity,-Infinity,-Infinity,-Infinity,-Infinity)'))
+      .toThrow(new Error("'matrix(-Infinity,-Infinity,-Infinity,-Infinity,-Infinity,-Infinity)' is not a matrix"))
+
+
     expect(fn('matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,440,-350)'))
       .toEqual({ a: 6.123233995736766e-17, b: 1, c: -1, d: 6.123233995736766e-17, e: 440, f: -350 })
 
-    // current version throws an exception in a case that number is NaN
-    if (fnName === 'fromString') expect(fn.bind(this, 'matrix(ee,ee,ee,ee,ee,ee)')).toThrow(new Error("'matrix(ee,ee,ee,ee,ee,ee)' is not a matrix"))
+    if (fnName === 'fromString') {
+        // current version throws an exception in a case that number is NaN
+      expect(fn.bind(this, 'matrix(ee,ee,ee,ee,ee,ee)')).toThrow(new Error("'matrix(ee,ee,ee,ee,ee,ee)' is not a matrix"))
+      // current version ignores measures, supporting the ability to parse values like this 10px
+      expect(fn('matrix(1px,2px,3px,4px,5px,6px)')).toEqual({ a: 1, b: 2, c: 3, d: 4, e: 5, f: 6 })
+    }
 
     if (fnName === 'fromStringLegacy') {
       expect(fn('matrix(ee,ee,ee,ee,ee,ee)'))
@@ -38,6 +49,8 @@ describe.each([
           e: Number.NaN,
           f: Number.NaN
         })
+
+      expect(fn.bind(this, 'matrix(1px,2px,3px,4px,5px,6px)')).toThrow(new Error("'matrix(1px,2px,3px,4px,5px,6px)' is not a matrix"))
     }
   })
 })
