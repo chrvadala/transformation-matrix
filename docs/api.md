@@ -54,11 +54,11 @@ Any value could be a float or a string that contains a float</p>
 <dd><p>Parse a string formatted as matrix(a,b,c,d,e,f)</p>
 </dd>
 <dt><del><a href="#fromStringLegacy">fromStringLegacy(string)</a> ⇒ <code>Matrix</code></del></dt>
-<dd><p>Parse a string formatted as matrix(a,b,c,d,e,f)</p>
+<dd><p>Parse a string formatted as matrix(a,b,c,d,e,f) - Legacy implementation of <code>fromString(matrix)</code>;
+Read this PR for details <a href="https://github.com/chrvadala/transformation-matrix/pull/107">https://github.com/chrvadala/transformation-matrix/pull/107</a></p>
 </dd>
 <dt><a href="#fromTransformAttribute">fromTransformAttribute(transformString)</a> ⇒ <code>Array.&lt;MatrixDescriptor&gt;</code></dt>
-<dd><p>Parser for SVG Trasform Attribute <a href="http://www.w3.org/TR/SVG/coords.html#TransformAttribute">http://www.w3.org/TR/SVG/coords.html#TransformAttribute</a> <br/>
-Warning: This should be considered BETA until it is released a stable version of pegjs.</p>
+<dd><p>Parser for SVG Trasform Attribute <a href="http://www.w3.org/TR/SVG/coords.html#TransformAttribute">http://www.w3.org/TR/SVG/coords.html#TransformAttribute</a> <br/></p>
 </dd>
 <dt><a href="#fromTriangles">fromTriangles(t1, t2)</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Returns a matrix that transforms a triangle t1 into another triangle t2, or throws an exception if it is impossible.</p>
@@ -294,9 +294,10 @@ Parse a string formatted as matrix(a,b,c,d,e,f)
 <a name="fromStringLegacy"></a>
 
 ## ~~fromStringLegacy(string) ⇒ <code>Matrix</code>~~
-***this is the legacy implementation***
+***Deprecated***
 
-Parse a string formatted as matrix(a,b,c,d,e,f)
+Parse a string formatted as matrix(a,b,c,d,e,f) - Legacy implementation of `fromString(matrix)`;
+Read this PR for details [https://github.com/chrvadala/transformation-matrix/pull/107](https://github.com/chrvadala/transformation-matrix/pull/107)
 
 **Kind**: global function  
 **Returns**: <code>Matrix</code> - Affine Matrix  
@@ -314,7 +315,6 @@ Parse a string formatted as matrix(a,b,c,d,e,f)
 
 ## fromTransformAttribute(transformString) ⇒ <code>Array.&lt;MatrixDescriptor&gt;</code>
 Parser for SVG Trasform Attribute http://www.w3.org/TR/SVG/coords.html#TransformAttribute <br/>
-Warning: This should be considered BETA until it is released a stable version of pegjs.
 
 **Kind**: global function  
 **Returns**: <code>Array.&lt;MatrixDescriptor&gt;</code> - Array of MatrixDescriptor  

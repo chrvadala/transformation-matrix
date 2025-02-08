@@ -44,9 +44,10 @@ export function fromString (string) {
 }
 
 /**
- * Parse a string formatted as matrix(a,b,c,d,e,f)
+ * Parse a string formatted as matrix(a,b,c,d,e,f) - Legacy implementation of `fromString(matrix)`;
+ * Read this PR for details {@link https://github.com/chrvadala/transformation-matrix/pull/107}
  * @param string {string} String with an affine matrix
- * @deprecated this is the legacy implementation
+ * @deprecated
  * @returns {Matrix} Affine Matrix
  *
  * @example
