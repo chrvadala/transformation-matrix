@@ -9,7 +9,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ ubuntu-22.04 ]
+        os: [ ubuntu-24.04 ]
         node: [ 16, 18, 20 ]
     name: Test Nodejs v${{ matrix.node }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
@@ -19,7 +19,7 @@ jobs:
         with:
           NODE_VERSION: ${{ matrix.node }}
       - name: Publish Coveralls
-        uses: coverallsapp/github-action@v2.2.3
+        uses: coverallsapp/github-action@v2.3.6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           flag-name: run-nodejs-v${{ matrix.node }}-${{ matrix.os }}
@@ -28,10 +28,10 @@ jobs:
   finish:
     name: Finish
     needs: build
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Coveralls Finished
-        uses: coverallsapp/github-action@v2.2.3
+        uses: coverallsapp/github-action@v2.3.6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           parallel-finished: true
