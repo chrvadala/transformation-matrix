@@ -14,6 +14,47 @@ const matrixRegex = /^matrix\(\s*([0-9_+-.e]+)\s*,\s*([0-9_+-.e]+)\s*,\s*([0-9_+
  * {a: 1, b: 2, c: 3, d: 4, c: 5, e: 6}
  */
 export function fromString (string) {
+  const parseFloatOrThrow = number => {
+    const n = parseFloat(number)
+    if (Number.isFinite(n)) return n // excludes NaN, +Infinite, -Infinite
+    throw new Error(`'${string}' is not a matrix`)
+  }
+
+  const prefix = string.substring(0, 7).toLowerCase()
+  const suffix = string.substring(string.length - 1)
+  const body = string.substring(7, string.length - 1)
+  const elements = body.split(',')
+
+  if (
+    prefix === 'matrix(' &&
+    suffix === ')' &&
+    elements.length === 6
+  ) {
+    return {
+      a: parseFloatOrThrow(elements[0]),
+      b: parseFloatOrThrow(elements[1]),
+      c: parseFloatOrThrow(elements[2]),
+      d: parseFloatOrThrow(elements[3]),
+      e: parseFloatOrThrow(elements[4]),
+      f: parseFloatOrThrow(elements[5])
+    }
+  }
+
+  throw new Error(`'${string}' is not a matrix`)
+}
+
+/**
+ * Parse a string formatted as matrix(a,b,c,d,e,f) - Legacy implementation of `fromString(matrix)`;
+ * Read this PR for details {@link https://github.com/chrvadala/transformation-matrix/pull/107}
+ * @param string {string} String with an affine matrix
+ * @deprecated
+ * @returns {Matrix} Affine Matrix
+ *
+ * @example
+ * > fromStringLegacy('matrix(1,2,3,4,5,6)')
+ * {a: 1, b: 2, c: 3, d: 4, c: 5, e: 6}
+ */
+export function fromStringLegacy (string) {
   const parsed = string.match(matrixRegex)
   if (parsed === null || parsed.length < 7) throw new Error(`'${string}' is not a matrix`)
   return {

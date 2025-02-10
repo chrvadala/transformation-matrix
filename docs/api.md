@@ -53,6 +53,10 @@ Any value could be a float or a string that contains a float</p>
 <dt><a href="#fromString">fromString(string)</a> ⇒ <code>Matrix</code></dt>
 <dd><p>Parse a string formatted as matrix(a,b,c,d,e,f)</p>
 </dd>
+<dt><del><a href="#fromStringLegacy">fromStringLegacy(string)</a> ⇒ <code>Matrix</code></del></dt>
+<dd><p>Parse a string formatted as matrix(a,b,c,d,e,f) - Legacy implementation of <code>fromString(matrix)</code>;
+Read this PR for details <a href="https://github.com/chrvadala/transformation-matrix/pull/107">https://github.com/chrvadala/transformation-matrix/pull/107</a></p>
+</dd>
 <dt><a href="#fromTransformAttribute">fromTransformAttribute(transformString)</a> ⇒ <code>Array.&lt;MatrixDescriptor&gt;</code></dt>
 <dd><p>Parser for SVG Trasform Attribute <a href="http://www.w3.org/TR/SVG/coords.html#TransformAttribute">http://www.w3.org/TR/SVG/coords.html#TransformAttribute</a></p>
 </dd>
@@ -285,6 +289,26 @@ Parse a string formatted as matrix(a,b,c,d,e,f)
 **Example**  
 ```js
 > fromString('matrix(1,2,3,4,5,6)')
+{a: 1, b: 2, c: 3, d: 4, c: 5, e: 6}
+```
+<a name="fromStringLegacy"></a>
+
+## ~~fromStringLegacy(string) ⇒ <code>Matrix</code>~~
+***Deprecated***
+
+Parse a string formatted as matrix(a,b,c,d,e,f) - Legacy implementation of `fromString(matrix)`;
+Read this PR for details [https://github.com/chrvadala/transformation-matrix/pull/107](https://github.com/chrvadala/transformation-matrix/pull/107)
+
+**Kind**: global function  
+**Returns**: <code>Matrix</code> - Affine Matrix  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | String with an affine matrix |
+
+**Example**  
+```js
+> fromStringLegacy('matrix(1,2,3,4,5,6)')
 {a: 1, b: 2, c: 3, d: 4, c: 5, e: 6}
 ```
 <a name="fromTransformAttribute"></a>
