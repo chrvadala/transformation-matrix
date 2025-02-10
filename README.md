@@ -131,6 +131,7 @@ applyToPoint(matrix, [16, 24]);
 - **2.14** - Upgrades deps; Adds `fromOneMovingPoint` and `fromTwoMovingPoints` functions [#95](https://github.com/chrvadala/transformation-matrix/pull/95)
 - **2.15** - Removes circular dependencies [#97](https://github.com/chrvadala/transformation-matrix/pull/97); Upgrades gh-actions and deps
 - **2.16** - Upgrades deps; Upgrades gh-actions deps;
+- **3.0.0** - Refactors fromString [#107](https://github.com/chrvadala/transformation-matrix/pull/107) (:warning: Breaking Changes described [here](https://github.com/chrvadala/transformation-matrix/pull/107#issue-2840194716)); Upgrades gh-actions and deps; 
 
 # Contributors
 - [chrvadala](https://github.com/chrvadala) (author)
