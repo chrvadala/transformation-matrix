@@ -9,6 +9,9 @@ on:
       REPOSITORY_NAME:
         description: Repository full name (e.g. chrvadala/hello )
         required: true
+          
+permissions:
+  contents: write
 
 jobs:
   build_and_release:
