@@ -74,7 +74,7 @@ npm install transformation-matrix
 ```
 or
 ```html
-<script src="https://unpkg.com/transformation-matrix@2"></script>
+<script src="https://unpkg.com/transformation-matrix@3"></script>
 ```
 
 # Example
