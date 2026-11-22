@@ -39,7 +39,7 @@ translate
 scale
   = "scale" wsp* "(" wsp* sx:number sy:commaWspNumber? wsp* ")" {
       var s = {type:'scale', sx: sx};
-      if (sy) s.sy = sy;
+      if (sy !== null) s.sy = sy;
       return [s];
     }
 
@@ -84,7 +84,7 @@ integerConstant
 
 floatingPointConstant
   = f:fractionalConstant e:exponent? { return [f, e || null].join("")}
-    / d:digitSequence e:exponent { return [d, e].join("")}
+    / d:digitSequence e:exponent { return [d.join(""), e].join("")}
 
 fractionalConstant "fractionalConstant"
   = d1:digitSequence? "." d2:digitSequence { return [d1 ? d1.join("") : null, ".", d2.join("")].join(""); }

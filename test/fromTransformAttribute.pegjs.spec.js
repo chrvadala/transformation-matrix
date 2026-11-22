@@ -44,6 +44,12 @@ describe('fromTransformAttribute.pegjs', () => {
       expect(parse('rotate(1.1e-1)')).toEqual([{ type: 'rotate', angle: 1.1e-1 }])
       expect(parse('rotate(-1.1e-1)')).toEqual([{ type: 'rotate', angle: -1.1e-1 }])
     })
+
+    it('should parse exponential values with a multi-digit integer part', () => {
+      expect(parse('rotate(15e1)')).toEqual([{ type: 'rotate', angle: 150 }])
+      expect(parse('rotate(-217E-5)')).toEqual([{ type: 'rotate', angle: -0.00217 }])
+      expect(parse('translate(277e-2, 10e+1)')).toEqual([{ type: 'translate', tx: 2.77, ty: 100 }])
+    })
   })
 
   describe('complex transformations', () => {
