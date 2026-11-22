@@ -208,7 +208,7 @@ function peg$parse(input, options) {
   }
   function peg$f4(sx, sy) {
     var s = {type:'scale', sx: sx};
-    if (sy) s.sy = sy;
+    if (sy !== null) s.sy = sy;
     return [s];
   }
   function peg$f5(angle, c) {
@@ -231,7 +231,7 @@ function peg$parse(input, options) {
   function peg$f11(n1, n2) {    return [n1, n2];  }
   function peg$f12(ds) {    return ds.join("");  }
   function peg$f13(f, e) {    return [f, e || null].join("")  }
-  function peg$f14(d, e) {    return [d, e].join("")  }
+  function peg$f14(d, e) {    return [d.join(""), e].join("")  }
   function peg$f15(d1, d2) {    return [d1 ? d1.join("") : null, ".", d2.join("")].join("");  }
   function peg$f16(d) {    return d.join("");  }
   function peg$f17(s, d) {    return ['e', s, d.join("")].join("")  }

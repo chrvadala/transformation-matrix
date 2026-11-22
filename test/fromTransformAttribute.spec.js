@@ -33,6 +33,12 @@ describe('fromTransformAttribute', () => {
       ])
     })
 
+    it('should parse scale(<sx> 0)', () => {
+      expect(fromTransformAttribute('scale(2, 0)')).toEqual([
+        { type: 'scale', sx: 2, sy: 0 }
+      ])
+    })
+
     it('should parse rotate(<rotate-angle>)', () => {
       expect(fromTransformAttribute('rotate(45)')).toEqual([
         { type: 'rotate', angle: 45 }
